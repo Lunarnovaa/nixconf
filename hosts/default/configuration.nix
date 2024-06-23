@@ -19,6 +19,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nvidia.enable = lib.mkForce true;
+  gaming.enable = lib.mkForce true;
 
 
   # Enable the X11 windowing system.

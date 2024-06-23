@@ -10,6 +10,9 @@ home-manager = {
   extraSpecialArgs = { inherit inputs; };
   users = {
     "lunarnova" = import ./../../hosts/default/home.nix;
-  };
+  };  
+
+  backupFileExtension = "backup";
+  
 };
 }

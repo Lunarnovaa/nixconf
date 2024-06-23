@@ -4,6 +4,7 @@
     ./bundles/general-desktop.nix #to add disable option to these two modules
     ./services/nvidia.nix
     ./bundles/gaming.nix
+    ./bundles/stylix/stylix.nix
   ];
 
   nvidia.enable =

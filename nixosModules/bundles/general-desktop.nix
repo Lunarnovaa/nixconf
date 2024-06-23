@@ -1,9 +1,9 @@
 { pkgs, lib, config, inputs, ... }: {
 
   # Configure keymap in X11
-   services.xserver = {
+   services.xserver.xkb = {
      layout = "us";
-     xkbVariant = "colemak";
+     variant = "colemak";
    };
 
   networking.networkmanager.enable = true; #enable network

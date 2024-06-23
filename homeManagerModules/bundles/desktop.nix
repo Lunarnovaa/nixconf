@@ -1,5 +1,8 @@
 { pkgs, ... }: {
 
-  home.packages = with pkgs; [ discord firefox ];
+  home.packages = with pkgs; [
+     discord 
+     firefox 
+  ];
 
 }

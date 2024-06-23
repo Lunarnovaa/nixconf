@@ -2,11 +2,10 @@
 
   options = {
     gaming.enable =
-    lib.mkEnableOption "enables gaming";
+      lib.mkEnableOption "enables gaming";
   };
 
   config = lib.mkIf config.gaming.enable {
-
     hardware.graphics.enable = true;
 
     programs.steam.enable = true;
@@ -17,6 +16,8 @@
       mangohud
       protonup
       lutris
+
+      webcord
     ];
 
     environment.sessionVariables = {

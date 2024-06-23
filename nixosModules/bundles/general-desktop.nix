@@ -43,4 +43,13 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  #nh
+  environment.sessionVariables = {
+    FLAKE = "/home/lunarnova/nixconf";
+  };
+
+  environment.systemPackages = with pkgs ; [
+    nh
+  ];
+
 }

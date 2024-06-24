@@ -1,19 +1,11 @@
-{ inputs, options, pkgs, lib, config, ... }: {
-  
-  options = {
-    hyprland.enable =
-      lib.mkEnableOption "enables hyprland";
-  };
+{ inputs, pkgs, lib, config, ... }:
 
-  config = let 
-  
+ let 
     startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    ${pkgs.waybar}/bin/waybar
-
-	'';
+    ${pkgs.waybar}/bin/waybar'';
 
 #WALLPAPER IS VERY TEMP LOL
-  in lib.mkIf config.hyprland.enable {
+  in {
         wayland.windowManager.hyprland = {
           enable = true;
           settings = {
@@ -52,9 +44,8 @@
 		programs = {
 			kitty.enable = true;
 			mako.enable = true;
-			waybar.enable = true;
 			tofi.enable = true;
 		};
 		
-    };
-}
+    }
+

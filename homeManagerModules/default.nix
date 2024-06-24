@@ -4,6 +4,7 @@
     ./configs/git.nix
     ./configs/firefox.nix
     ./configs/vscode.nix
+    ./configs/zsh.nix
   ];
 
   git.enable =
@@ -11,5 +12,7 @@
   firefox.enable =
     lib.mkDefault true;
   vscode.enable =
+    lib.mkDefault true;
+  zsh.enable =
     lib.mkDefault true;
 }

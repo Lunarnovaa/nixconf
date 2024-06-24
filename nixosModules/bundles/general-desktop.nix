@@ -1,10 +1,15 @@
-{ pkgs, lib, config, inputs, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   # Configure keymap in X11
-   services.xserver.xkb = {
-     layout = "us";
-     variant = "colemak";
-   };
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "colemak";
+  };
 
   networking.networkmanager.enable = true; #enable network
   hardware.bluetooth.enable = true;
@@ -48,8 +53,7 @@
     FLAKE = "/home/lunarnova/nixconf";
   };
 
-  environment.systemPackages = with pkgs ; [
+  environment.systemPackages = with pkgs; [
     nh
   ];
-
 }

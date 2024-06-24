@@ -1,13 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, lib, inputs, ... }: {
-
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +24,6 @@
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
 
-
   # enables zsh in config
   programs.zsh.enable = true;
 
@@ -29,11 +31,9 @@
   users.users.lunarnova = {
     isNormalUser = true;
     description = "Aura Cawley";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
-
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -62,5 +62,4 @@
   # ORIGINAL IS 24.05 DO NOT CHANGE 24.05
   # NEVER EVER CHANGE
   system.stateVersion = "24.05"; # Did you read the comment? DID YOU????
-
 }

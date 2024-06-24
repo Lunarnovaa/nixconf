@@ -1,5 +1,10 @@
-{ pkgs, lib, config, inputs, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   options = {
     hyprland.enable =
       lib.mkEnableOption "enables hyprland";
@@ -13,16 +18,15 @@
     programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     xdg.portal.enable = true;
-    
+
     environment.systemPackages = with pkgs; [
       # waybar
-     # mako
+      # mako
       libnotify
       swww
-#      kitty
-     # tofi
+      #      kitty
+      # tofi
       hyprshot
     ];
   };
-
 }

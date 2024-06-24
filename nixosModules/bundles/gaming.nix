@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     gaming.enable =
       lib.mkEnableOption "enables gaming";
@@ -21,11 +25,7 @@
     ];
 
     environment.sessionVariables = {
-        STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-        "/home/lunarnova/.steam/root/compatibilitytools.d";
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/lunarnova/.steam/root/compatibilitytools.d";
     };
-
   };
-
-
 }

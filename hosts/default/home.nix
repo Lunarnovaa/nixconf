@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "lunarnova";
   home.homeDirectory = "/home/lunarnova";
-
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -59,7 +60,6 @@
   #
   #  /etc/profiles/per-user/lunarnova/etc/profile.d/hm-session-vars.sh
   #
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

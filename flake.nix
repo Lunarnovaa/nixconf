@@ -8,14 +8,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     stylix.url = "github:danth/stylix";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    alejandra,
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -24,6 +31,7 @@
           ./nixosModules
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
+          {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
         ];
       };
       #laptop = nixpkgs.lib.nixosSystem {
@@ -36,6 +44,5 @@
     };
 
     homeManagerModules.default = ./homeManagerModules;
-
   };
 }

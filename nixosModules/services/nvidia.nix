@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     nvidia.enable =
       lib.mkEnableOption "enables nvidia";
@@ -10,7 +14,8 @@
     hardware.nvidia.package =
       config.boot.kernelPackages.nvidiaPackages.production; #use production by default
 
-    specialisation = { #two options at boot
+    specialisation = {
+      #two options at boot
       nvidiaBeta.configuration = {
         hardware.nvidia.package =
           config.boot.kernelPackages.nvidiaPackages.beta;
@@ -24,7 +29,6 @@
     };
 
     hardware.nvidia = {
-
       modesetting.enable = true;
 
       open = false;
@@ -34,8 +38,5 @@
       # package = config.boot.kernelPackages.nvidiaPackages.beta; #currently 555
       # package = config.boot.kernelPackages.nvidiaPackages.stable; #switch when 560
     };
-
-
   };
-
 }

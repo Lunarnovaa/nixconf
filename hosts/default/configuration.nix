@@ -35,19 +35,12 @@
     isNormalUser = true;
     description = "Aura Cawley";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    micro # Do not forget to add an editor to edit configuration.nix! Nano included by default
- ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

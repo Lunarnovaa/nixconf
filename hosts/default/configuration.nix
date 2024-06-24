@@ -20,7 +20,6 @@
 
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
-  # hyprland.enable = lib.mkForce true; #enabled in default.nix
 
 
     # use the example session manager (no others are packaged yet so this is enabled by default,

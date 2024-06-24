@@ -5,7 +5,6 @@
     ./services/nvidia.nix
     ./bundles/gaming.nix
     ./bundles/stylix/stylix.nix
-    ./bundles/hyprland.nix
     ./bundles/kde.nix
   ];
 
@@ -13,9 +12,6 @@
     lib.mkDefault false;
   gaming.enable =
     lib.mkDefault false;
-  hyprland.enable = 
-    lib.mkDefault true;
   kde.enable =
-    lib.mkIf config.hyprland.enable false;
-	#lib.mkDefault true;
+    lib.mkDefault true;
 }

@@ -4,8 +4,6 @@
     ./configs/git.nix
     ./configs/firefox.nix
     ./configs/vscode.nix
-    ./configs/hyprland/default.nix
-    ./configs/micro.nix
   ];
 
   git.enable =
@@ -13,9 +11,5 @@
   firefox.enable =
     lib.mkDefault true;
   vscode.enable =
-    lib.mkDefault true;
- # hyprland.enable =
- #   lib.mkDefault true;
-  micro.enable =
     lib.mkDefault true;
 }

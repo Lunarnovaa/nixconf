@@ -5,15 +5,10 @@
   inputs,
   ...
 }: {
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
-  };
 
   networking.networkmanager.enable = true; #enable network
   hardware.bluetooth.enable = true;
-  nixpkgs.config.allowUnfree = true;
+
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -23,11 +18,9 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
-
-  # Set your time zone.
+  
   time.timeZone = "America/Los_Angeles";
 
   # Enable CUPS to print documents.
@@ -48,12 +41,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  #nh
-  environment.sessionVariables = {
-    FLAKE = "/home/lunarnova/nixconf";
-  };
-
   environment.systemPackages = with pkgs; [
-    nh
+    obsidian #temporary
   ];
 }

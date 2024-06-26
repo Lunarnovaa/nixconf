@@ -4,13 +4,7 @@
   config,
   ...
 }: {
-  options = {
-    #own module for future extensibility
-    wezterm.enable =
-      lib.mkEnableOption "enables wezterm";
-  };
-
-  config = lib.mkIf config.wezterm.enable {
+  config = lib.mkIf config.terminal.enable {
     programs.wezterm = {
       enable = true;
       enableZshIntegration = true;

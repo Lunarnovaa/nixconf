@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../configs/git.nix
     ../configs/terminal/default.nix
@@ -11,5 +15,4 @@
     lib.mkDefault true;
   terminal.enable =
     lib.mkDefault true;
-
 }

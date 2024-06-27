@@ -9,5 +9,4 @@
     clean.extraArgs = "--keep 3";
     flake = "/home/lunarnova/nixconf";
   };
-
 }

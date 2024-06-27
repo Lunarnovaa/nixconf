@@ -5,7 +5,6 @@
   inputs,
   ...
 }: {
-
   services.xserver.xkb = {
     layout = "us";
     variant = "colemak";
@@ -13,7 +12,6 @@
 
   networking.networkmanager.enable = true; #enable network
   hardware.bluetooth.enable = true;
-
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -25,7 +23,7 @@
     pulse.enable = true;
     #jack.enable = true;
   };
-  
+
   time.timeZone = "America/Los_Angeles";
 
   # Enable CUPS to print documents.

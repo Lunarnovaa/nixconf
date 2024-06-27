@@ -1,0 +1,6 @@
+error: the following required arguments were not provided:
+  <FLAKEREF>
+
+Usage: nh os switch <FLAKEREF> [-- <EXTRA_ARGS>...]
+
+For more information, try '--help'.

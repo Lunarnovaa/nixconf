@@ -35,16 +35,15 @@
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {
-         specialArgs = { inherit inputs; };
-         modules = [
-           ./hosts/laptop/configuration.nix
-           ./nixosModules
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/laptop/configuration.nix
+          ./nixosModules
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           {environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];}
-
-         ];
-       };
+        ];
+      };
     };
     homeManagerModules.default = ./homeManagerModules;
   };

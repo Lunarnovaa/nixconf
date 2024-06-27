@@ -6,10 +6,10 @@
 set -e
 
 # Edit your config
-$EDITOR configuration.nix
+code /home/lunarnova/nixconf/flake.nix
 
 # cd to your config dir
-pushd /home/${USERNAME}/nixconf
+pushd /home/lunarnova/nixconf/
 
 # Early return if no changes were detected (thanks @singiamtel!)
 if git diff --quiet '*.nix'; then

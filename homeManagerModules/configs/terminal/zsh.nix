@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-
   options = {
     terminal.enable =
       lib.mkEnableOption "enables terminal";

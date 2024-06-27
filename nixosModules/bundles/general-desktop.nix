@@ -6,6 +6,11 @@
   ...
 }: {
 
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "colemak";
+  };
+
   networking.networkmanager.enable = true; #enable network
   hardware.bluetooth.enable = true;
 

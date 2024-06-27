@@ -11,15 +11,7 @@
   };
 
   config = lib.mkIf config.x11.enable {
-    services.xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "colemak";
-      };
-    };
+    services.xserver.enable = true;
   };
   
-
-
 }

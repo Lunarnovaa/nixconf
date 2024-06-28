@@ -22,6 +22,8 @@
       lutris
 
       webcord
+
+      prismlauncher
     ];
 
     environment.sessionVariables = {

@@ -26,6 +26,8 @@
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
 
+  #dark-mode.enable = lib.mkForce false; #enables light-mode
+
   # enables zsh in config
   programs.zsh.enable = true;
 

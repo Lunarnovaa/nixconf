@@ -21,6 +21,8 @@
       protonup
       lutris
 
+      steamtinkerlaunch
+
       webcord
 
       prismlauncher

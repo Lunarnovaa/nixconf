@@ -26,7 +26,7 @@
    #   base0F = "F29E74";
    # };
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/github.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
     #https://tinted-theming.github.io/base16-gallery/
     image = ./andre-benz.jpg;
 

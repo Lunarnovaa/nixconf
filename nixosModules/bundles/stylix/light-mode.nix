@@ -12,11 +12,10 @@
 
   config = lib.mkIf config.light-mode.enable {
     stylix = {
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-light.yaml";
       #https://tinted-theming.github.io/base16-gallery/
       cursor.name = "Bibata-Modern-Ice";
-      image = ./andre-benz.jpg;
+      image = ./wallpapers/light-mountains.jpg;
     };
   };
-
 }

@@ -13,7 +13,7 @@
   dark-mode.enable =
     lib.mkDefault true;
   light-mode.enable =
-    lib.mkIf config.dark-mode.enable false;
+    lib.mkDefault false;
 
   stylix = {
     enable = true;

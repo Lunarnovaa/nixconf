@@ -12,7 +12,7 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userEmail = "auraboreal@proton.me";
+      userEmail = "35857948+Lunarnovaa@users.noreply.github.com";
       userName = "lunarnovaa";
       extraConfig.init.defaultBranch = "main";
     };

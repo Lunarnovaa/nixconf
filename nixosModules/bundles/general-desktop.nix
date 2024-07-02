@@ -46,6 +46,6 @@
 
   environment.systemPackages = with pkgs; [
     obsidian #temporary
-    spotube
+    spotify
   ];
 }

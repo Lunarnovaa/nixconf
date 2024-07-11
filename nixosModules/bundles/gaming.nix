@@ -23,7 +23,7 @@
 
       steamtinkerlaunch
 
-      webcord
+      vesktop
 
       prismlauncher
     ];

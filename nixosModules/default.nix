@@ -13,6 +13,7 @@
     ./bundles/stylix/stylix.nix
     ./services/kde.nix
     ./services/x11.nix
+    #./services/xremap.nix
   ];
 
   nvidia.enable =

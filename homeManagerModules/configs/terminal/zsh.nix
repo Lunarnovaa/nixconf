@@ -19,6 +19,7 @@
       shellAliases = {
         ll = "ls -l";
         ndev = "nix develop --command zsh";
+        nbuild = "pushd ~/nixbuild && ndev";
       };
 
       history.size = 10000;

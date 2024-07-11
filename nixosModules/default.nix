@@ -7,7 +7,6 @@
   imports = [
     ./services/home-manager.nix #currently, there does not seem to be a need
     ./bundles/general-desktop.nix #to add disable option to these two modules
-    ./services/nh.nix #should not be disabled
 
     ./services/nvidia.nix
     ./bundles/gaming.nix

@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-
   options = {
     dark-mode.enable =
       lib.mkEnableOption "enables dark-mode";
@@ -18,5 +17,4 @@
       image = ./wallpapers/sergey-savvin-forest-night.jpg;
     };
   };
-  
 }

@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-
   options = {
     light-mode.enable =
       lib.mkEnableOption "enables light-mode";

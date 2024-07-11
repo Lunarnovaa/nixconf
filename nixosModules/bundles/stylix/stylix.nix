@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-
   imports = [
     ./dark-mode.nix
     ./light-mode.nix

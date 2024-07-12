@@ -14,10 +14,6 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   dark-mode.enable = lib.mkForce true;
   light-mode.enable = lib.mkForce false;
 

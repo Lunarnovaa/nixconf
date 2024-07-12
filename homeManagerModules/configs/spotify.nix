@@ -21,8 +21,8 @@
         };
       };
     };
-    home.packages = with pkgs; [
-      spotify-qt
-    ];
+    programs.spotify-player = {
+      enable = true;
+    };
   };
 }

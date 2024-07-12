@@ -6,9 +6,9 @@
 }: {
   imports = [
     #need not be disabled
-    ./services/home-manager.nix 
-    ./bundles/general-desktop.nix 
-    ./services/bootloader.nix 
+    ./services/home-manager.nix
+    ./bundles/general-desktop.nix
+    ./services/bootloader.nix
 
     ./services/nvidia.nix
     ./bundles/gaming.nix

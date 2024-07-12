@@ -14,9 +14,11 @@
     services.spotifyd = {
       enable = true;
       settings = {
-        username = "Lunarnova";
-        #device_name = "${config.networking.hostName}";
-        device_type = "desktop";
+        global = {
+          username = "Lunarnova";
+          #device_name = "${config.networking.hostName}";
+          device_type = "computer";
+        };
       };
     };
     home.packages = with pkgs; [

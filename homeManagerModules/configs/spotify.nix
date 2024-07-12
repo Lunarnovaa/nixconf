@@ -2,17 +2,25 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
-    spotify-player.enable =
-      lib.mkEnableOption "enables spotify-player";
+    spotify.enable =
+      lib.mkEnableOption "enables spotify";
   };
 
-  config = lib.mkIf config.git.enable {
-    programs.spotify-player = {
+  config = lib.mkIf config.spotify.enable {
+    services.spotifyd = {
       enable = true;
-      
+      settings = {
+        username = "Lunarnova";
+        #device_name = "${config.networking.hostName}";
+        device_type = "desktop";
+      };
     };
+    home.packages = with pkgs; [
+      spotify-qt
+    ];
   };
 }

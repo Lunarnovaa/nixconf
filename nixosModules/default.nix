@@ -5,8 +5,10 @@
   ...
 }: {
   imports = [
-    ./services/home-manager.nix #currently, there does not seem to be a need
-    ./bundles/general-desktop.nix #to add disable option to these two modules
+    #need not be disabled
+    ./services/home-manager.nix 
+    ./bundles/general-desktop.nix 
+    ./services/bootloader.nix 
 
     ./services/nvidia.nix
     ./bundles/gaming.nix

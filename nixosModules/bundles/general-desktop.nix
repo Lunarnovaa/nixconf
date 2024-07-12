@@ -47,5 +47,7 @@
   environment.systemPackages = with pkgs; [
     obsidian #temporary
     spotify
+    #potify-qt
+    #spotifyd
   ];
 }

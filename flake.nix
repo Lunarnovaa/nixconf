@@ -49,6 +49,9 @@
           ./nixosModules
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
+          #inputs.xremap-flake.nixosModules.default
+          inputs.lix-module.nixosModules.default
+
         ];
       };
     };

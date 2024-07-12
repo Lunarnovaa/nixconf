@@ -7,7 +7,7 @@
     grub = {
       enable = true;
       useOSProber = true;
-      device = "/dev/nvme0n1";
+      device = "/dev/nvme0n1p1";
       efiSupport = true;
     };
     efi = {

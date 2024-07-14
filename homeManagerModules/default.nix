@@ -8,6 +8,7 @@
     ./configs/vscode.nix
     ./configs/obs.nix
     ./configs/zed.nix
+    ./configs/fastfetch.nix
   ];
 
   vscode.enable =
@@ -15,5 +16,7 @@
   obs.enable =
     lib.mkDefault false;
   zed.enable =
-    lib.mkDefault false;
+    lib.mkDefault true;
+  fastfetch.enable =
+    lib.mkDefault true;
 }

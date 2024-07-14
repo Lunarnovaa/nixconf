@@ -21,17 +21,21 @@
     cursor.size = 24;
 
     fonts = {
+      #monospace = {
+      #  package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+      #  name = "JetBrainsMono Nerd Font Mono";
+      #};
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.ubuntu_font_family;
+        name = "Ubuntu Monospace";
       };
       sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.inter;
+        name = "Inter";
       };
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        package = pkgs.roboto-serif;
+        name = "Roboto Serif";
       };
       sizes = {
         applications = 10;

@@ -20,6 +20,7 @@
         hardware.nvidia.package =
           config.boot.kernelPackages.nvidiaPackages.beta;
         environment.etc."specialisation".text = "nvidiaBeta";
+        boot.kernelParams = ["nvidia.NVreg_EnableGpuFirmware=0"];
       };
       nvidiaStable.configuration = {
         hardware.nvidia.package =
@@ -38,5 +39,7 @@
       # package = config.boot.kernelPackages.nvidiaPackages.beta; #currently 555
       # package = config.boot.kernelPackages.nvidiaPackages.stable; #switch when 560
     };
+
+    #kernel parameter for wayland on kde w explicit sync https://github.com/NVIDIA/open-gpu-kernel-modules/issues/538
   };
 }

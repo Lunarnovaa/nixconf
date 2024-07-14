@@ -9,8 +9,7 @@
       enable = true;
       enableZshIntegration = true;
       extraConfig = ''        return {
-               font_size = 10.0, 
-
+              font = wezterm.font 'Ubuntu Mono'
 
              } '';
     };

@@ -21,10 +21,6 @@
     cursor.size = 24;
 
     fonts = {
-      #monospace = {
-      #  package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-      #  name = "JetBrainsMono Nerd Font Mono";
-      #};
       monospace = {
         package = pkgs.ubuntu_font_family;
         name = "Ubuntu Monospace";
@@ -39,7 +35,7 @@
       };
       sizes = {
         applications = 10;
-        terminal = 15;
+        terminal = 12;
         desktop = 10;
         popups = 10;
       };

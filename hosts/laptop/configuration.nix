@@ -12,8 +12,12 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  specialisation = {
+    gaming-mode.configuration = {
+      gaming.enable = lib.mkForce true;
+      environment.etc."specialisation".text = "gaming-mode";
+    };
+  };
 
   dark-mode.enable = lib.mkForce true;
   light-mode.enable = lib.mkForce false;

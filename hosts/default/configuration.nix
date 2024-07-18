@@ -12,12 +12,8 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   networking.hostName = "default"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;

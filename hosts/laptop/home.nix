@@ -9,7 +9,7 @@
   home.username = "lunarnova";
   home.homeDirectory = "/home/lunarnova";
 
-  obs.enable = lib.mkForce false; 
+  obs.enable = lib.mkForce false;
 
   #fastfetch.enable = lib.mkForce true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

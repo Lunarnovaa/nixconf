@@ -5,6 +5,10 @@
   inputs,
   ...
 }: {
+
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   services.xserver.xkb = {
     layout = "us";
     variant = "colemak";

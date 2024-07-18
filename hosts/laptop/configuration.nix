@@ -15,9 +15,6 @@
     };
   };
 
-  dark-mode.enable = lib.mkForce true;
-  light-mode.enable = lib.mkForce false;
-
   networking.hostName = "laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

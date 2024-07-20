@@ -6,13 +6,13 @@
 }: {
   imports = [
     ./dark-mode.nix
-    ./light-mode.nix
+    #./light-mode.nix
   ];
 
   dark-mode.enable =
     lib.mkDefault true;
-  light-mode.enable =
-    lib.mkDefault false;
+  #light-mode.enable =
+  #  lib.mkDefault false;
 
   stylix = {
     enable = true;

@@ -10,6 +10,31 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1"; # makes chromium + electron apps use wayland
 
+  fonts = {
+    enableDefaultPackages = false;
+    packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        inter
+        ubuntu_font_family #ubuntu-monospace
+        
+        roboto-serif
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        #noto-fonts-color-emoji
+        
+        ;
+    };
+
+    fontconfig = {
+      defaultFonts = {
+        serif = ["Noto Serif CJK SC" "Roboto Serif"];
+        sansSerif = ["Noto Sans CJK SC" "Inter"];
+        monospace = ["Noto Sans Mono CJK SC" "Ubuntu Monospace"];
+      };
+    };
+  };
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.waylandFrontend = true;

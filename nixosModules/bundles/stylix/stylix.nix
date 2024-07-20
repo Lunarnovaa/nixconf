@@ -21,7 +21,8 @@
     cursor.size = 24;
 
     fonts = {
-      monospace = {
+      /*
+        monospace = {
         package = pkgs.ubuntu_font_family;
         name = "Ubuntu Monospace";
       };
@@ -33,6 +34,8 @@
         package = pkgs.roboto-serif;
         name = "Roboto Serif";
       };
+      */
+
       sizes = {
         applications = 10;
         terminal = 12;

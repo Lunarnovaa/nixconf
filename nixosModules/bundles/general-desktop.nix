@@ -8,8 +8,11 @@
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # makes chromium + electron apps use wayland
+
   i18n.inputMethod = {
     enabled = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       rime-data
       fcitx5-rime

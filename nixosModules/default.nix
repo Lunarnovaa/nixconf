@@ -25,5 +25,5 @@
   kde.enable =
     lib.mkDefault true;
   x11.enable =
-    lib.mkDefault true;
+    lib.mkDefault false;
 }

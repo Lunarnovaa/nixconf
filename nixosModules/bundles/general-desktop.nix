@@ -67,6 +67,13 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # enables autodiscovery of printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

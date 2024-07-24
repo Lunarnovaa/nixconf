@@ -91,5 +91,6 @@
 
   environment.systemPackages = with pkgs; [
     obsidian #temporary
+    vlc
   ];
 }

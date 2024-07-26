@@ -4,12 +4,7 @@
   config,
   ...
 }: {
-  options = {
-    vscode.enable =
-      lib.mkEnableOption "enables vscode";
-  };
-
-  config = lib.mkIf config.vscode.enable {
+  config = lib.mkIf config.development.enable {
     programs.vscode = {
       enable = true;
       #extensions = with pkgs.vscode-extensions; [ #not currently working for some reason

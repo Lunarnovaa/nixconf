@@ -5,12 +5,7 @@
   pkgs,
   ...
 }: {
-  options = {
-    spotify.enable =
-      lib.mkEnableOption "enables spotify";
-  };
-
-  config = lib.mkIf config.spotify.enable {
+  config = lib.mkIf config.desktop.enable {
     services.spotifyd = {
       enable = true;
       settings = {

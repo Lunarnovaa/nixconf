@@ -4,19 +4,14 @@
   ...
 }: {
   imports = [
-    ./bundles/desktop.nix
-    ./configs/vscode.nix
-    ./configs/obs.nix
-    ./configs/zed.nix
+    #./bundles/desktop.nix
+    ./configs/desktop/default.nix
+    ./configs/development/default.nix
+    ./configs/terminal/default.nix
     ./configs/fastfetch.nix
+    ./configs/obs.nix
   ];
 
-  vscode.enable =
-    lib.mkDefault true;
-  obs.enable =
-    lib.mkDefault false;
-  zed.enable =
-    lib.mkDefault true;
   fastfetch.enable =
     lib.mkDefault true;
 }

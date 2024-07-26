@@ -6,11 +6,11 @@
 }: {
   options = {
     #own module for future extensibility
-    firefox.enable =
-      lib.mkEnableOption "enables firefox";
+    desktop.enable =
+      lib.mkEnableOption "enables desktop";
   };
 
-  config = lib.mkIf config.firefox.enable {
+  config = lib.mkIf config.desktop.enable {
     programs.firefox = {
       enable = true;
     };

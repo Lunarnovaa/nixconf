@@ -5,11 +5,22 @@
   inputs,
   ...
 }: {
+  # Enables Unfree Packages
   nixpkgs.config.allowUnfree = true;
+
+  # Enables Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1"; # makes chromium + electron apps use wayland
+  # Makes Chromium + Eectron apps use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Enables Colemak systemwide
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "colemak";
+  };
+
+  # Font configurations here as Stylix does not currently support fallback fonts
   fonts = {
     enableDefaultPackages = false;
     packages = builtins.attrValues {
@@ -21,11 +32,8 @@
         roboto-serif
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
-        #noto-fonts-color-emoji
-        
         ;
     };
-
     fontconfig = {
       defaultFonts = {
         serif = ["Noto Serif CJK SC" "Roboto Serif"];
@@ -34,7 +42,7 @@
       };
     };
   };
-
+  # For Pinyin
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.waylandFrontend = true;
@@ -67,7 +75,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # enables autodiscovery of printers
+  # Enables autodiscovery of printers
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -89,6 +97,17 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  #Bootloader Configuration
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
+  };
+
+  #Additional System Packages
   environment.systemPackages = with pkgs; [
     obsidian #temporary
     vlc

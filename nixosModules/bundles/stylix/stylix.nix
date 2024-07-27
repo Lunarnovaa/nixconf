@@ -4,18 +4,13 @@
   config,
   ...
 }: {
-  imports = [
-    ./dark-mode.nix
-    #./light-mode.nix
-  ];
-
-  dark-mode.enable =
-    lib.mkDefault true;
-  #light-mode.enable =
-  #  lib.mkDefault false;
-
   stylix = {
     enable = true;
+
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+    #https://tinted-theming.github.io/base16-gallery/
+    cursor.name = "Bibata-Modern-Classic";
+    image = ./wallpapers/sergey-savvin-forest-night.jpg;
 
     cursor.package = pkgs.bibata-cursors;
     cursor.size = 24;

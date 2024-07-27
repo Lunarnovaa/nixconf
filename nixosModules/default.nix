@@ -5,25 +5,21 @@
   ...
 }: {
   imports = [
-    #need not be disabled
-    ./services/home-manager.nix
-    ./bundles/general-desktop.nix
-    ./services/bootloader.nix
+    # No current reason to disable
+    ./system/home-manager.nix
+    ./bundles/general-system.nix
+    ./bundles/desktop.nix
 
-    ./services/nvidia.nix
+    ./system/nvidia.nix
     ./bundles/gaming.nix
     ./bundles/stylix/stylix.nix
-    ./services/kde.nix
-    ./services/x11.nix
-    #./services/xremap.nix
+    #./system/xremap.nix
   ];
 
   nvidia.enable =
     lib.mkDefault false;
   gaming.enable =
     lib.mkDefault false;
-  kde.enable =
-    lib.mkDefault true;
   x11.enable =
     lib.mkDefault false;
 }

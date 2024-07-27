@@ -6,7 +6,7 @@
   imports = [
     ./firefox.nix
     ./spotify.nix
-    ./newsflashrss.nix
+    ./newsflash.nix
   ];
 
   desktop.enable =

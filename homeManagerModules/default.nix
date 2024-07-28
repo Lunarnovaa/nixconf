@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    #./bundles/desktop.nix
+    ./bundles/desktop.nix
     ./configs/desktop/default.nix
     ./configs/development/default.nix
     ./configs/terminal/default.nix

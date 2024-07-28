@@ -106,10 +106,4 @@
       canTouchEfiVariables = true;
     };
   };
-
-  #Additional System Packages
-  environment.systemPackages = with pkgs; [
-    obsidian #temporary
-    vlc
-  ];
 }

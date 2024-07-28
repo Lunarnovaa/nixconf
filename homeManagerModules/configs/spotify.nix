@@ -5,7 +5,12 @@
   pkgs,
   ...
 }: {
-  config = lib.mkIf config.desktop.enable {
+  options = {
+    spotify.enable =
+      lib.mkEnableOption "enables spotify";
+  };
+
+  config = lib.mkIf config.spotify.enable {
     services.spotifyd = {
       enable = true;
       settings = {
@@ -20,9 +25,7 @@
     programs.spotify-player = {
       enable = true;
     };
-
-    home.packages = with pkgs; [
-      spotify
-    ];
+    # Enables the standard Spotify Client primarily for making playlists
+    home.packages = [pkgs.spotify];
   };
 }

@@ -11,5 +11,7 @@
     newsflash
 
     #firefox
+
+    rnnoise-plugin
   ];
 }

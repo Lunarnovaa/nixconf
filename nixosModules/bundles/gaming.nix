@@ -26,6 +26,8 @@
       vesktop
 
       prismlauncher
+
+      rnnoise-plugin
     ];
 
     environment.sessionVariables = {

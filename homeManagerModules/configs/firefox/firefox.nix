@@ -18,8 +18,7 @@
     profiles.lunarnova = {
       search.force = true;
       isDefault = true;
-      settings = {
-      };
+      settings = {};
 
       search.engines = {
         "Nix Packages" = {
@@ -38,35 +37,24 @@
               ];
             }
           ];
-
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = ["$np"];
+          definedAliases = ["@np"];
+        };
+
+        "NixOS Wiki" = {
+          urls = [{template = "https://wiki.nixos.org/w/index.php?search={searchTerms}";}];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          updateInterval = 24 * 60 * 60 * 1000; # every day
+          definedAliases = ["@nw"];
+        };
+
+        "Home Manager Options" = {
+          urls = [{template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";}];
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          updateInterval = 24 * 60 * 60 * 1000; # every day
+          definedAliases = ["@hmo"];
         };
       };
-
-      /*
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        # General Privacy
-        ublock-origin
-        duckduckgo-privacy-essentials
-        facebook-container
-        snowflake
-        # Youtube
-        sponsorblock
-        enhancer-for-youtube
-        untrap-for-youtube
-        return-youtube-dislikes
-        # Reddit
-        old-reddit-redirect
-        reddit-enhancement-suite
-        # Utility
-        streetpass-for-mastodon
-        betterttv
-        indie-wiki-buddy
-        bitwarden
-        protondb-for-steam
-      ];
-      */
     };
   };
 }

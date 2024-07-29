@@ -6,7 +6,6 @@
   ...
 }: {
   imports = [
-    #./bookmarks.nix
     ./vertical-tabs.nix
   ];
 

@@ -10,7 +10,7 @@
   home.homeDirectory = "/home/lunarnova";
 
   obs.enable = lib.mkForce true;
-  #firefox-vertical-tabs.enable = lib.mkForce true;
+  firefox-vertical-tabs.enable = lib.mkForce true;
 
   #fastfetch.enable = lib.mkForce true;#
 

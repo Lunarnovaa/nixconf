@@ -11,7 +11,9 @@
   };
   config = lib.mkIf config.firefox-vertical-tabs.enable {
     programs.firefox.profiles.lunarnova = {
-      extensions = [];
+      #extensions = [inputs.firefox-addons.packages."x86_64-linux".sidebery];
+
+      settings = {"toolkit.legacyUserProfileCustomizations.stylesheets" = true;};
 
       userChrome = ''
               /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/window_control_placeholder_support.css made available under Mozilla Public License v. 2.0

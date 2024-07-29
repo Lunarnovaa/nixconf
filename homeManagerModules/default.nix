@@ -9,7 +9,7 @@
 
     # Specific Configurations
     ./configs/development/default.nix
-    #./configs/firefox/firefox.nix
+    ./configs/firefox/firefox.nix
     ./configs/terminal/default.nix
 
     ./configs/fastfetch.nix

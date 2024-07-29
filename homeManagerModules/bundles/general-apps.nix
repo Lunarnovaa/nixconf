@@ -10,6 +10,6 @@
     # RSS Reader
     newsflash
 
-    firefox
+    #firefox
   ];
 }

@@ -11,6 +11,6 @@
       "lunarnova" = import ./../../hosts/default/home.nix;
     };
 
-    backupFileExtension = "backup";
+    backupFileExtension = "backup2";
   };
 }

@@ -20,7 +20,6 @@
 
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
-  x11.enable = lib.mkForce true;
   # enables zsh in config
   programs.zsh.enable = true;
 

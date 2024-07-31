@@ -13,13 +13,10 @@
     ./system/nvidia.nix
     ./bundles/gaming.nix
     ./bundles/stylix/stylix.nix
-    ./services/xremap.nix
   ];
 
   nvidia.enable =
     lib.mkDefault false;
   gaming.enable =
-    lib.mkDefault false;
-  x11.enable =
     lib.mkDefault false;
 }

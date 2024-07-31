@@ -4,8 +4,7 @@
   ...
 }: {
   services.xremap = {
-    withX11 = true;
-    userName = "lunarnova";
+    withKDE = true;
 
     yamlConfig = ''
       virtual_modifiers:

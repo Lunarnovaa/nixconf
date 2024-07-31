@@ -16,6 +16,7 @@
     ./configs/fastfetch.nix
     ./configs/obs.nix
     ./configs/spotify.nix
+    ./configs/xremap.nix
   ];
 
   fastfetch.enable =

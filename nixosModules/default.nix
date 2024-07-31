@@ -13,7 +13,7 @@
     ./system/nvidia.nix
     ./bundles/gaming.nix
     ./bundles/stylix/stylix.nix
-    #./system/xremap.nix
+    ./services/xremap.nix
   ];
 
   nvidia.enable =

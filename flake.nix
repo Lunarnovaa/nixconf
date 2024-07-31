@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #xremap-flake.url = "github:xremap/nix-flake";
+    xremap-flake.url = "github:xremap/nix-flake";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
@@ -40,8 +40,8 @@
           ./nixosModules
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
-          #inputs.xremap-flake.nixosModules.default
           inputs.lix-module.nixosModules.default
+          inputs.xremap-flake.nixosModules.default
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {

@@ -11,6 +11,7 @@
     ./configs/development/default.nix
     ./configs/firefox/firefox.nix
     ./configs/terminal/default.nix
+    #./configs/nvim/nvim.nix
 
     ./configs/fastfetch.nix
     ./configs/obs.nix

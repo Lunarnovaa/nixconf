@@ -56,6 +56,16 @@
     ];
   };
 
+  # Enabling xremap for home-manager
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = ["lunarnova"];
+  users.groups.input.members = ["lunarnova"];
+
+  # Enabling a udev rule for VIA customization
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
+
   networking.networkmanager.enable = true; #enable network
   hardware.bluetooth.enable = true;
 

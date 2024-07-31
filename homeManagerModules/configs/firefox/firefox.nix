@@ -17,8 +17,6 @@
     profiles.lunarnova = {
       isDefault = true;
 
-      settings = {};
-
       search = {
         force = true;
         #Default Search Engine

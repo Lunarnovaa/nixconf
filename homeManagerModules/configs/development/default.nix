@@ -7,6 +7,7 @@
     ./git.nix
     ./vscode.nix
     #./zed.nix
+    ./helix.nix
   ];
 
   development.enable =

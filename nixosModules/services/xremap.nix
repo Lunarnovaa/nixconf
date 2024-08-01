@@ -12,10 +12,10 @@
         - CapsLock
       keymap:
         - remap:
-            CapsLock-i: Up
-            CapsLock-j: Left
-            CapsLock-k: Down
-            CapsLock-l: Right
+            CapsLock-e: Up
+            CapsLock-h: Left
+            CapsLock-n: Down
+            CapsLock-i: Right
             CapsLock-z: Undo
             CapsLock-x: Cut
             CapsLock-c: Copy

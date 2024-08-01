@@ -28,5 +28,8 @@
       modesetting.enable = true;
       nvidiaSettings = true; #accessible via nvidia-settings
     };
+
+    # Firefox currently crashes when using Wayland
+    environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
   };
 }

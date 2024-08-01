@@ -38,6 +38,7 @@
         modules = [
           ./hosts/default/configuration.nix
           ./nixosModules
+          #NixOS Flakes Get Imported Here
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
@@ -48,9 +49,9 @@
         modules = [
           ./hosts/laptop/configuration.nix
           ./nixosModules
+          #NixOS Flakes Get Imported Here
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
-          #inputs.xremap-flake.nixosModules.default
           inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];

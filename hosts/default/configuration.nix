@@ -11,13 +11,6 @@
   networking.hostName = "default"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  specialisation = {
-    focus-mode.configuration = {
-      environment.etc."specialisation".text = "focus-mode";
-      gaming.enable = lib.mkOverride 45 false; #overrides mkForce
-    };
-  };
-
   nvidia.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
   # enables zsh in config

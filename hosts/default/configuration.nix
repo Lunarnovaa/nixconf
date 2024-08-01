@@ -16,6 +16,8 @@
   # enables zsh in config
   programs.zsh.enable = true;
 
+  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "0";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lunarnova = {
     isNormalUser = true;

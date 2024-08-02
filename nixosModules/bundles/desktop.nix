@@ -5,9 +5,7 @@
   inputs,
   ...
 }: {
-  ##  KDE DESKTOP  ##
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  ##  COSMIC DESKTOP  ##
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
 }

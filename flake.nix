@@ -22,6 +22,11 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -42,6 +47,15 @@
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
+
+          # Cosmic Flake
+          {
+            nix.settings = {
+              substituters = ["https://cosmic.cachix.org/"];
+              trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];
+            };
+          }
+          inputs.nixos-cosmic.nixosModules.default
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {

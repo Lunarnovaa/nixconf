@@ -11,22 +11,23 @@
 
   config = lib.mkIf config.nvidia.enable {
     services.xserver.videoDrivers = ["nvidia"];
-    # Use Beta Driver by default - Currently 560
+    # Use Production Driver by default - Currently 550
     hardware.nvidia.package =
-      config.boot.kernelPackages.nvidiaPackages.beta;
+      config.boot.kernelPackages.nvidiaPackages.production;
 
     specialisation = {
-      # Boot option for Production Driver - Currently 550
-      nvidiaProduction.configuration = {
+      # Boot option for Beta Driver - Currently 560
+      nvidiaBeta.configuration = {
         hardware.nvidia.package =
-          config.boot.kernelPackages.nvidiaPackages.production;
-        environment.etc."specialisation".text = "nvidiaProduction";
+          config.boot.kernelPackages.nvidiaPackages.beta;
+        environment.etc."specialisation".text = "nvidiaBeta";
       };
     };
 
     hardware.nvidia = {
       modesetting.enable = true;
       nvidiaSettings = true; #accessible via nvidia-settings
+      open = false;
     };
   };
 }

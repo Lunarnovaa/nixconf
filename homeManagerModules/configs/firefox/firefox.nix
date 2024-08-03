@@ -57,6 +57,13 @@
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@hmo"];
           };
+
+          "ProtonDB" = {
+            urls = [{template = "https://www.protondb.com/search?q={searchTerms}";}];
+            icon = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+            updateInterval = 24 * 60 * 60 * 1000; # every day
+            definedAliases = ["@pdb"];
+          };
         };
       };
     };

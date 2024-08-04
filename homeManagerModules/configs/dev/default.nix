@@ -9,7 +9,6 @@
 
     ### GUI Development Apps
     ./gui/vscode.nix
-    ./gui/zed.nix
 
     ### Terminal Development Apps
     ./terminal/helix.nix

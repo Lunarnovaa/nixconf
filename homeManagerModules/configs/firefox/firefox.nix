@@ -9,9 +9,6 @@
     ./vertical-tabs.nix
   ];
 
-  firefox-vertical-tabs.enable =
-    lib.mkDefault false;
-
   programs.firefox = {
     enable = true;
     profiles.lunarnova = {

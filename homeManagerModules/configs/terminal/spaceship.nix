@@ -4,7 +4,12 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.terminal.enable {
+  options = {
+    spaceship.enable =
+      lib.mkEnableOption "enables spaceship";
+  };
+
+  config = lib.mkIf config.spaceship.enable {
     programs.starship = {
       enable = true;
       enableZshIntegration = true;

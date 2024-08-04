@@ -4,7 +4,12 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.terminal.enable {
+  options = {
+    wezterm.enable =
+      lib.mkEnableOption "enables wezterm";
+  };
+
+  config = lib.mkIf config.wezterm.enable {
     programs.wezterm = {
       enable = true;
       enableZshIntegration = true;

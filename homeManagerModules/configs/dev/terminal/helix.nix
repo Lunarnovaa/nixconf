@@ -5,7 +5,12 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.development.enable {
+  options = {
+    terminal-dev.enable =
+      lib.mkEnableOption "enables terminal-dev";
+  };
+
+  config = lib.mkIf config.terminal-dev.enable {
     programs.helix = {
       enable = true;
       defaultEditor = true;

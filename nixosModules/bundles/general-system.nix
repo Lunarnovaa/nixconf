@@ -5,14 +5,29 @@
   inputs,
   ...
 }: {
-  # Enables Unfree Packages
+  #############################################################################
+  ## General Boilerplate that is essentially necessary for the system to run ##
+  #############################################################################
+
+  # ALlowing Unfree Packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enables Flakes
+  # Enabling Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  # Makes Chromium + Eectron apps use Wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Configuring the Bootloader
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
+  };
+
+  ################################################################
+  ## Non-Critical Utilities that probably shouldn't be disabled ##
+  ################################################################
 
   # Enables Colemak systemwide
   services.xserver.xkb = {
@@ -20,7 +35,67 @@
     variant = "colemak";
   };
 
-  # Font configurations here as Stylix does not currently support fallback fonts
+  # Making Chromium + Eectron apps use Wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Enabling Networking
+  networking.networkmanager.enable = true;
+  hardware.bluetooth.enable = true;
+
+  # Enabling Sound with Pipewire.
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    #jack.enable = true;
+  };
+
+  # Configuring Timezone
+  time.timeZone = "America/Los_Angeles";
+
+  # Enabling CUPS to Print
+  services.printing.enable = true;
+
+  # Enabling Autodiscovery of Printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # Selecting internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
+
+  # Enabling ZSH
+  programs.zsh.enable = true;
+
+  # Defining the User
+  users.users.lunarnova = {
+    isNormalUser = true;
+    description = "Aura Cawley";
+    extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.zsh;
+  };
+
+  ##############################################
+  ## Extra Utilities I want in all my systems ##
+  ##############################################
+
+  # Configurating Fonts including support for Hanzi
   fonts = {
     enableDefaultPackages = false;
     packages = builtins.attrValues {
@@ -42,7 +117,8 @@
       };
     };
   };
-  # For Pinyin
+
+  # Adding support for typing Pinyin -> Hanzi
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.waylandFrontend = true;
@@ -60,60 +136,4 @@
   hardware.uinput.enable = true;
   users.groups.uinput.members = ["lunarnova"];
   users.groups.input.members = ["lunarnova"];
-
-  # Enabling a udev rule for VIA customization
-  services.udev.extraRules = ''
-    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-  '';
-
-  networking.networkmanager.enable = true; #enable network
-  hardware.bluetooth.enable = true;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-  };
-
-  time.timeZone = "America/Los_Angeles";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enables autodiscovery of printers
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  #Bootloader Configuration
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-    };
-  };
 }

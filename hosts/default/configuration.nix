@@ -8,9 +8,10 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "default"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Defining the Hostname
+  networking.hostName = "default";
 
+  # Specialisation for "Focus Mode": Disables Gaming Module
   specialisation = {
     focus-mode.configuration = {
       environment.etc."specialisation".text = "focus-mode";
@@ -18,31 +19,24 @@
     };
   };
 
-  nvidia.enable = lib.mkForce true;
-  gaming.enable = lib.mkForce true;
-  x11.enable = lib.mkForce true;
-  # enables zsh in config
-  programs.zsh.enable = true;
+  ##########################
+  ## NixOS Module Options ##
+  ##########################
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lunarnova = {
-    isNormalUser = true;
-    description = "Aura Cawley";
-    extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
-  };
+  nvidia.enable =
+    lib.mkForce true;
+  gaming.enable =
+    lib.mkForce true;
+  x11.enable =
+    lib.mkForce true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # DO NOT CHANGE
-  # THIS IS THE NUMBER FROM FIRST INSTALL
-  # ORIGINAL IS 24.05 DO NOT CHANGE 24.05
-  # NEVER EVER CHANGE
-  system.stateVersion = "24.05"; # Did you read the comment? DID YOU????
+  ##################################################################
+  ## Danger Zone                                                  ##
+  ##################################################################
+  ## This number should not be changed in any case.               ##
+  ## It is the version number used in the first install.          ##
+  ## The version should be "24.05". Do not change it from         ##
+  ## "24.05". Just don't.                                         ##
+  system.stateVersion = "24.05"; # Did you read the comment?  ##
+  ##################################################################
 }

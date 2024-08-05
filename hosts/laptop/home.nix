@@ -4,15 +4,23 @@
   lib,
   ...
 }: {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  # Giving Home Manager User/Home info
   home.username = "lunarnova";
   home.homeDirectory = "/home/lunarnova";
 
-  spicetify.enable = lib.mkForce false;
-  obs.enable = lib.mkForce false;
+  # Letting Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 
-  #fastfetch.enable = lib.mkForce true;
+  #################################
+  ## Home Manager Module Options ##
+  #################################
+
+  spicetify.enable =
+    lib.mkForce false;
+
+  obs.enable =
+    lib.mkForce false;
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -45,12 +53,13 @@
   #  /etc/profiles/per-user/lunarnova/etc/profile.d/hm-session-vars.sh
   #
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # DO NOT CHANGE
-  # THIS IS THE NUMBER FROM FIRST INSTALL
-  # ORIGINAL IS 24.05 DO NOT CHANGE 24.05
-  # NEVER EVER CHANGE
-  home.stateVersion = "24.05"; # Please read the comment before changing. please
+  ##################################################################
+  ## Danger Zone                                                  ##
+  ##################################################################
+  ## This number should not be changed in any case.               ##
+  ## It is the version number used in the first install.          ##
+  ## The version should be "24.05". Do not change it from         ##
+  ## "24.05". Just don't.                                         ##
+  home.stateVersion = "24.05"; # Did you read the comment?    ##
+  ##################################################################
 }

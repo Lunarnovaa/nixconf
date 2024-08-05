@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  osConfig,
   ...
 }: {
   imports = [
@@ -12,8 +13,7 @@
     settings = {
       global = {
         username = "Lunarnova";
-        #device_name = "${config.networking.hostName}";
-        device_type = "computer";
+        device_name = "${osConfig.networking.hostName}";
       };
     };
   };

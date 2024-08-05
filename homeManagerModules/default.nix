@@ -20,10 +20,12 @@
     ./configs/obs.nix
   ];
 
-  ### Exposed Home Manager Options
+  ###################
+  ## Loose Options ##
+  ###################
 
   fastfetch.enable =
-    lib.mkDefault true;
+    lib.mkDefault false;
   spicetify.enable =
     lib.mkDefault true;
   firefox-vertical-tabs.enable =
@@ -31,7 +33,10 @@
   obs.enable =
     lib.mkDefault false;
 
-  ## Terminal
+  ######################
+  ## Terminal Options ##
+  ######################
+
   spaceship.enable =
     lib.mkDefault true;
   wezterm.enable =
@@ -39,7 +44,9 @@
   zsh.enable =
     lib.mkDefault true;
 
-  ## Development
+  #########################
+  ## Development Options ##
+  #########################
 
   # Declared in vscode.nix
   gui-dev.enable =

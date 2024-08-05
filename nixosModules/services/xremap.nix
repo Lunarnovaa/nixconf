@@ -3,6 +3,7 @@
   inputs,
   ...
 }: {
+  environment.systemPackages = [pkgs.xorg.xev];
   services.xremap = {
     withX11 = true;
     userName = "lunarnova";
@@ -16,6 +17,7 @@
             CapsLock-j: Left
             CapsLock-k: Down
             CapsLock-l: Right
+
             CapsLock-z: Undo
             CapsLock-x: Cut
             CapsLock-c: Copy

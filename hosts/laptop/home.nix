@@ -9,6 +9,7 @@
   home.username = "lunarnova";
   home.homeDirectory = "/home/lunarnova";
 
+  spicetify.enable = lib.mkForce false;
   obs.enable = lib.mkForce false;
 
   #fastfetch.enable = lib.mkForce true;

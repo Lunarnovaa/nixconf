@@ -1,6 +1,7 @@
 {inputs, ...}: {
   home-manager.sharedModules = [
     inputs.self.outputs.homeManagerModules.default
+    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   home-manager.useGlobalPkgs = true;

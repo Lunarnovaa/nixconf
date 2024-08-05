@@ -8,22 +8,27 @@
     ./bundles/general-apps.nix
 
     # Grouped Configurations
-    ./configs/firefox/firefox.nix
     ./configs/terminal/default.nix
     ./configs/dev/default.nix
 
+    # Specific Configs w/Multiple Files
+    ./configs/spotify/spotify-player.nix
+    ./configs/firefox/firefox.nix
+
+    # Loose Configs
     ./configs/fastfetch.nix
     ./configs/obs.nix
-    ./configs/spotify.nix
   ];
 
   ### Exposed Home Manager Options
 
   fastfetch.enable =
     lib.mkDefault true;
-  spotify.enable =
+  spicetify.enable =
     lib.mkDefault true;
   firefox-vertical-tabs.enable =
+    lib.mkDefault false;
+  obs.enable =
     lib.mkDefault false;
 
   ## Terminal

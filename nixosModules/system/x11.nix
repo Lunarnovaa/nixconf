@@ -12,5 +12,6 @@
   config = lib.mkIf config.x11.enable {
     services.xserver.enable = true;
     services.xserver.displayManager.defaultSession = "plasmax11";
+    environment.sessionVariables.NIXOS_OZONE_WL = lib.mkForce "0";
   };
 }

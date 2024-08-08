@@ -57,9 +57,14 @@
 
           "ProtonDB" = {
             urls = [{template = "https://www.protondb.com/search?q={searchTerms}";}];
-            icon = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+            #icon = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@pdb"];
+          };
+          "Rate My Professor" = {
+            urls = [{template = "https://www.ratemyprofessors.com/search/professors/1506?q={searchTerms}";}];
+            updateInterval = 24 * 60 * 60 * 1000; # every day
+            definedAliases = ["@rmp"];
           };
         };
       };

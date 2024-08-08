@@ -37,9 +37,9 @@
   ## Terminal Options ##
   ######################
 
-  spaceship.enable =
+  alacritty.enable =
     lib.mkDefault true;
-  wezterm.enable =
+  spaceship.enable =
     lib.mkDefault true;
   zsh.enable =
     lib.mkDefault true;

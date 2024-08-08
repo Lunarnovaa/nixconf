@@ -23,6 +23,8 @@
             CapsLock-c: Copy
             CapsLock-v: Paste
 
+            CapsLock-g: Backspace
+
             CapsLock-esc: SHIFT-KEY_GRAVE
     '';
   };

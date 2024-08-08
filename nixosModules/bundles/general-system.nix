@@ -5,9 +5,9 @@
   inputs,
   ...
 }: {
-  #############################################################################
-  ## General Boilerplate that is essentially necessary for the system to run ##
-  #############################################################################
+  ################################################
+  ## General Boilerplate necessary for building ##
+  ################################################
 
   # ALlowing Unfree Packages
   nixpkgs.config.allowUnfree = true;

@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./wezterm.nix
+    ./alacritty.nix
     ./zsh.nix
     ./spaceship.nix
   ];

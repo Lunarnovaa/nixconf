@@ -6,6 +6,7 @@
   environment.systemPackages = [pkgs.xorg.xev];
   services.xremap = {
     withX11 = true;
+    mouse = true;
     userName = "lunarnova";
 
     yamlConfig = ''
@@ -26,6 +27,9 @@
             CapsLock-g: Backspace
 
             CapsLock-esc: SHIFT-KEY_GRAVE
+
+            CapsLock-BTN_1: BTN_3
+
     '';
   };
 }

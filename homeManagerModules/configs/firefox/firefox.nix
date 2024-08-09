@@ -4,7 +4,14 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  pdbImageLink = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+
+  pdbImage = pkgs.fetchurl {
+    url = pdbImageLink;
+    sha256 = "1q19x63dhjbsjc1nj58cv6w3ag5ciipv15g9h1hdm6mjf2db9fja";
+  };
+in {
   imports = [
     ./vertical-tabs.nix
   ];
@@ -57,7 +64,7 @@
 
           "ProtonDB" = {
             urls = [{template = "https://www.protondb.com/search?q={searchTerms}";}];
-            #icon = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
+            icon = "${pdbImage}";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["@pdb"];
           };

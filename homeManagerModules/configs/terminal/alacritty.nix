@@ -14,7 +14,10 @@
       enable = true;
       settings = {
         font.size = lib.mkForce 10;
-        #Todo: change font, check size
+        window.dimensions = {
+          lines = 28;
+          columns = 101;
+        };
       };
     };
   };

@@ -9,27 +9,31 @@
     mouse = true;
     userName = "lunarnova";
 
-    yamlConfig = ''
-      virtual_modifiers:
-        - CapsLock
-      keymap:
-        - remap:
-            CapsLock-i: Up
-            CapsLock-j: Left
-            CapsLock-k: Down
-            CapsLock-l: Right
+    yamlConfig =
+      /*
+      yaml
+      */
+      ''
+        virtual_modifiers:
+          - CapsLock
+        keymap:
+          - remap:
+              CapsLock-i: Up
+              CapsLock-j: Left
+              CapsLock-k: Down
+              CapsLock-l: Right
 
-            CapsLock-z: Undo
-            CapsLock-x: Cut
-            CapsLock-c: Copy
-            CapsLock-v: Paste
+              CapsLock-z: Undo
+              CapsLock-x: Cut
+              CapsLock-c: Copy
+              CapsLock-v: Paste
 
-            CapsLock-g: Backspace
+              CapsLock-g: Backspace
 
-            CapsLock-esc: SHIFT-KEY_GRAVE
+              CapsLock-esc: SHIFT-KEY_GRAVE
 
-            CapsLock-BTN_1: BTN_3
+              #CapsLock-BTN_1: BTN_2
 
-    '';
+      '';
   };
 }

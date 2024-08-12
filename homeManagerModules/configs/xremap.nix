@@ -5,12 +5,15 @@
   lib,
   ...
 }: {
-  config = lib.mkIf config.x11.enable {
-    #enables xremap system-wide service for x11 systems
+  options = {
+    xremap.enable =
+      lib.mkEnableOption "enables xremap";
+  };
+
+  config = lib.mkIf config.xremap.enable {
     services.xremap = {
-      withX11 = true;
+      withKDE = true;
       mouse = true;
-      userName = "lunarnova";
 
       yamlConfig =
         /*
@@ -36,6 +39,7 @@
                 CapsLock-esc: SHIFT-KEY_GRAVE
 
                 #CapsLock-BTN_1: BTN_2
+
         '';
     };
   };

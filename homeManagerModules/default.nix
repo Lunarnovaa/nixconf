@@ -18,6 +18,7 @@
     # Loose Configs
     ./configs/fastfetch.nix
     ./configs/obs.nix
+    ./configs/xremap.nix
   ];
 
   ###################
@@ -32,6 +33,8 @@
     lib.mkDefault false;
   obs.enable =
     lib.mkDefault false;
+  xremap.enable =
+    lib.mkDefault true;
 
   ######################
   ## Terminal Options ##

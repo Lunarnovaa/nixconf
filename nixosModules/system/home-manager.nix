@@ -2,6 +2,7 @@
   home-manager.sharedModules = [
     inputs.self.outputs.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
+    inputs.xremap-flake.homeManagerModules.default
   ];
 
   home-manager.useGlobalPkgs = true;

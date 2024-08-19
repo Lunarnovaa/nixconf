@@ -7,10 +7,10 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/caroline.yaml";
     #https://tinted-theming.github.io/base16-gallery/
     cursor.name = "Bibata-Modern-Classic";
-    image = ./wallpapers/sergey-savvin-forest-night.jpg;
+    image = ./wallpapers/moedark.png;
 
     cursor.package = pkgs.bibata-cursors;
     cursor.size = 24;

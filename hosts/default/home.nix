@@ -19,6 +19,8 @@
     lib.mkForce true;
   obs.enable =
     lib.mkForce true;
+  fastfetch.enable =
+    lib.mkForce true;
   #xremap.enable =
   #  lib.mkForce false; # false as on x11 we require it to be systemwide, enabled through x11.enable
 

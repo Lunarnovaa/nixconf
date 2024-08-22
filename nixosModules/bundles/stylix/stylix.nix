@@ -7,11 +7,11 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/caroline.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     #https://tinted-theming.github.io/base16-gallery/
     cursor.name = "Bibata-Modern-Classic";
-    image = ./wallpapers/moedark.png;
-
+    image = ./wallpapers/nauragarden.png;
+    #polarity = "dark";
     cursor.package = pkgs.bibata-cursors;
     cursor.size = 24;
 

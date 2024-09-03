@@ -80,15 +80,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enabling ZSH
-  programs.zsh.enable = true;
+  environment.systemPackages = [pkgs.nushell];
 
   # Defining the User
   users.users.lunarnova = {
     isNormalUser = true;
     description = "Aura Cawley";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   ##############################################

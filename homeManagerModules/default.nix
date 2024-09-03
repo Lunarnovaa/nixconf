@@ -42,9 +42,9 @@
 
   alacritty.enable =
     lib.mkDefault true;
-  spaceship.enable =
+  nushell.enable =
     lib.mkDefault true;
-  zsh.enable =
+  spaceship.enable =
     lib.mkDefault true;
 
   #########################

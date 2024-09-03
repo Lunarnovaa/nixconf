@@ -12,7 +12,7 @@
   config = lib.mkIf config.spaceship.enable {
     programs.starship = {
       enable = true;
-      enableZshIntegration = true;
+      enableNushellIntegration = true;
 
       settings = {
         add_newline = false;

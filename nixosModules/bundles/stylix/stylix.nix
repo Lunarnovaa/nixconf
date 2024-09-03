@@ -10,7 +10,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
     #https://tinted-theming.github.io/base16-gallery/
     cursor.name = "Bibata-Modern-Classic";
-    image = ./wallpapers/nauragarden.png;
+    image = /home/lunarnova/wallpapers/nauragarden.png;
     #polarity = "dark";
     cursor.package = pkgs.bibata-cursors;
     cursor.size = 24;

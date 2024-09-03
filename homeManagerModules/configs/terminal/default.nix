@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./alacritty.nix
-    ./zsh.nix
+    ./nushell.nix
     ./spaceship.nix
   ];
 }

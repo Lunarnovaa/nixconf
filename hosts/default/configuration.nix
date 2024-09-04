@@ -13,8 +13,8 @@
 
   # Specialisation for "Focus Mode": Disables Gaming Module
   specialisation = {
-    focus-mode.configuration = {
-      environment.etc."specialisation".text = "focus-mode";
+    focusMode.configuration = {
+      environment.etc."specialisation".text = "focusMode";
       gaming.enable = lib.mkOverride 45 false; #overrides mkForce
     };
   };

@@ -13,8 +13,8 @@
 
   # Specialisation for "Gaming Mode": Enables Gaming Module
   specialisation = {
-    gaming-mode.configuration = {
-      environment.etc."specialisation".text = "gaming-mode";
+    gamingMode.configuration = {
+      environment.etc."specialisation".text = "gamingMode";
       gaming.enable = lib.mkForce true;
     };
   };

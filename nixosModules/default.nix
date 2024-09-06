@@ -12,7 +12,7 @@
 
     ./system/nvidia.nix
     ./bundles/gaming.nix
-    ./bundles/stylix/stylix.nix
+    ./services/stylix.nix
     ./services/xremap.nix
   ];
 

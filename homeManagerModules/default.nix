@@ -7,9 +7,17 @@
     # Bundles
     ./bundles/general-apps.nix
 
-    # Grouped Configurations
-    ./configs/terminal/default.nix
-    ./configs/dev/default.nix
+    # Development Configs
+    ./configs/dev/git.nix
+    ## GUI Development Configs
+    ./configs/dev/gui/vscode.nix
+    ## Terminal Development Configs
+    ./configs/dev/terminal/helix.nix
+
+    # Terminal Configuration
+    ./configs/terminal/alacritty.nix
+    ./configs/terminal/nushell.nix
+    ./configs/terminal/spaceship.nix
 
     # Specific Configs w/Multiple Files
     ./configs/spotify/spotify-player.nix

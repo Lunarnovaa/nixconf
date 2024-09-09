@@ -21,8 +21,6 @@
     lib.mkForce true;
   fastfetch.enable =
     lib.mkForce true;
-  #xremap.enable =
-  #  lib.mkForce false; # false as on x11 we require it to be systemwide, enabled through x11.enable
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

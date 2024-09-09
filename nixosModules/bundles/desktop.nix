@@ -5,10 +5,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ../system/x11.nix
-  ];
-
   ##  KDE DESKTOP  ##
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;

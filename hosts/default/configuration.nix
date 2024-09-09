@@ -27,8 +27,6 @@
     lib.mkForce true;
   gaming.enable =
     lib.mkForce true;
-  x11.enable =
-    lib.mkForce true;
   ##################################################################
   ## Danger Zone                                                  ##
   ##################################################################

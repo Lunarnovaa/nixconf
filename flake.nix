@@ -46,7 +46,6 @@
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
-          inputs.xremap-flake.nixosModules.default
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {

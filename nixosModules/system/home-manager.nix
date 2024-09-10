@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   home-manager.sharedModules = [
     inputs.self.outputs.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.default
@@ -10,7 +14,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "lunarnova" = import ./../../hosts/default/home.nix;
+      "lunarnova" = import ./../../hosts/${config.networking.hostName}/home.nix;
     };
 
     backupFileExtension = "backup2";

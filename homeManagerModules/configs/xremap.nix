@@ -13,7 +13,6 @@
   config = lib.mkIf config.xremap.enable {
     services.xremap = {
       withKDE = true;
-      mouse = true;
 
       yamlConfig =
         /*

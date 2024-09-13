@@ -16,8 +16,13 @@
       shellAliases = {
         ll = "ls -l";
         ndev = "nix develop --command nu";
-        nbuild = "pushd ~/nixbuild ; nix develop --command nu";
       };
+
+      extraConfig = ''
+        $env.config = {
+          show_banner: false,
+        }
+      '';
     };
   };
 }

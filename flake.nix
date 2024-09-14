@@ -27,6 +27,8 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = {
@@ -46,6 +48,7 @@
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
+          inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
       };
       laptop = nixpkgs.lib.nixosSystem {

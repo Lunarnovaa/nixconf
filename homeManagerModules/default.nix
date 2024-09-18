@@ -1,69 +1,50 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
-    # Bundles
-    ./bundles/general-apps.nix
+    ./alacritty/default.nix
 
-    # Development Configs
-    ./configs/dev/git.nix
-    ## GUI Development Configs
-    ./configs/dev/gui/vscode.nix
-    ## Terminal Development Configs
-    ./configs/dev/terminal/helix.nix
+    ./fastfetch/default.nix
 
-    # Terminal Configuration
-    ./configs/terminal/alacritty.nix
-    ./configs/terminal/nushell.nix
-    ./configs/terminal/spaceship.nix
+    ./firefox/default.nix
 
-    # Specific Configs w/Multiple Files
-    ./configs/spotify/spotify-player.nix
-    ./configs/firefox/firefox.nix
+    ./git/default.nix
 
-    # Loose Configs
-    ./configs/fastfetch.nix
-    ./configs/obs.nix
-    ./configs/xremap.nix
+    ./nushell/default.nix
+
+    ./obs/default.nix
+
+    ./spaceship/default.nix
+
+    ./spotify/default.nix
+
+    ./vscode/default.nix
+
+    ./xremap/default.nix
   ];
-
-  ###################
-  ## Loose Options ##
-  ###################
-
-  fastfetch.enable =
-    lib.mkDefault false;
-  spicetify.enable =
-    lib.mkDefault true;
-  firefox-vertical-tabs.enable =
-    lib.mkDefault false;
-  obs.enable =
-    lib.mkDefault false;
-  xremap.enable =
-    lib.mkDefault true;
-
-  ######################
-  ## Terminal Options ##
-  ######################
 
   alacritty.enable =
     lib.mkDefault true;
+
+  fastfetch.enable =
+    lib.mkDefault false;
+
+  firefox-vertical-tabs.enable =
+    lib.mkDefault false;
+
   nushell.enable =
     lib.mkDefault true;
+
+  obs.enable =
+    lib.mkDefault false;
+
   spaceship.enable =
     lib.mkDefault true;
 
-  #########################
-  ## Development Options ##
-  #########################
-
-  # Declared in vscode.nix
-  gui-dev.enable =
+  spicetify.enable =
     lib.mkDefault true;
 
-  # Declared in helix.nix
-  terminal-dev.enable =
-    lib.mkDefault false;
+  vscode.enable =
+    lib.mkDefault true;
+
+  xremap.enable =
+    lib.mkDefault true;
 }

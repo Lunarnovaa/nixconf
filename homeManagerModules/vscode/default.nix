@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    gui-dev.enable =
-      lib.mkEnableOption "enables gui-dev";
+    vscode.enable =
+      lib.mkEnableOption "enables vscode";
   };
-  config = lib.mkIf config.gui-dev.enable {
+  config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
       #extensions = with pkgs.vscode-extensions; [ #not currently working for some reason

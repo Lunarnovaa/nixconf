@@ -12,16 +12,18 @@
   config = lib.mkIf config.nushell.enable {
     programs.nushell = {
       enable = true;
-
-      shellAliases = {
-        ll = "ls -l";
-        ndev = "nix develop --command nu";
-      };
-
       extraConfig = ''
         $env.config = {
-          show_banner: false,
+            show_banner: false,
         }
+
+        alias ll = ls -l
+        alias ndev = nix develop --command nu
+        def nbuild [] {
+            cd ~/nixbuild
+            nix develop --command nu
+        }
+
       '';
     };
   };

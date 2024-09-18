@@ -12,6 +12,8 @@
 
     ./obs/default.nix
 
+    ./obsidian/default.nix
+
     ./spaceship/default.nix
 
     ./spotify/default.nix
@@ -35,6 +37,9 @@
 
   obs.enable =
     lib.mkDefault false;
+
+  obsidian.enable =
+    lib.mkDefault true;
 
   spaceship.enable =
     lib.mkDefault true;

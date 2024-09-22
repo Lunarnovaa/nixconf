@@ -24,6 +24,14 @@
             nix develop --command nu
         }
 
+        def webdev [--run (-r)] {
+          cd ~/aurabora.org
+          if $run {
+            nix develop --command pnpm run dev
+          } else {
+            nix develop --command nu
+          }
+        }
       '';
     };
   };

@@ -20,7 +20,7 @@
         alias ll = ls -l
         alias ndev = nix develop --command nu
         def nbuild [] {
-            cd ~/nixbuild
+            cd ~/nix-tools
             nix develop --command nu
         }
 

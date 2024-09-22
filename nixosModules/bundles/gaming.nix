@@ -21,6 +21,8 @@
       protonup
       lutris
 
+      bottles
+
       steamtinkerlaunch
 
       vesktop

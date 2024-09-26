@@ -80,7 +80,9 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  environment.systemPackages = [pkgs.nushell];
+  environment.systemPackages = with pkgs; [
+    nushell
+  ];
 
   # Defining the User
   users.users.lunarnova = {
@@ -89,6 +91,9 @@
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.nushell;
   };
+
+  # Enabling functionality for non-Nix binaries
+  programs.nix-ld.enable = true;
 
   ##############################################
   ## Extra Utilities I want in all my systems ##

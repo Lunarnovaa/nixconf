@@ -1,13 +1,12 @@
 {
-  pkgs,
+  config,
   lib,
-  inputs,
+  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
   ];
-
   # Defining the Hostname
   networking.hostName = "default";
 
@@ -15,17 +14,14 @@
   specialisation = {
     focusMode.configuration = {
       environment.etc."specialisation".text = "focusMode";
-      gaming.enable = lib.mkOverride 45 false; #overrides mkForce
+      profile-gaming.enable = lib.mkOverride 45 false; #overrides mkForce
     };
   };
 
-  ##########################
-  ## NixOS Module Options ##
-  ##########################
-
   nvidia.enable =
     lib.mkForce true;
-  gaming.enable =
+
+  profile-gaming.enable =
     lib.mkForce true;
   ##################################################################
   ## Danger Zone                                                  ##

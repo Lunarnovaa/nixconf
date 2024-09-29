@@ -3,13 +3,15 @@
   lib,
   config,
   ...
-}: {
+}: let
+  inherit (lib) mkEnableOption mkIf;
+in {
   options = {
-    gaming.enable =
-      lib.mkEnableOption "enables gaming";
+    profile-gaming.enable =
+      mkEnableOption "enables gaming profile";
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = mkIf config.profile-gaming.enable {
     hardware.graphics.enable = true;
 
     programs.steam.enable = true;

@@ -19,10 +19,7 @@
     ./spotify/default.nix
 
     ./vscode/default.nix
-
-    ./xremap/default.nix
   ];
-
   alacritty.enable =
     lib.mkDefault true;
 
@@ -48,8 +45,5 @@
     lib.mkDefault true;
 
   vscode.enable =
-    lib.mkDefault true;
-
-  xremap.enable =
     lib.mkDefault true;
 }

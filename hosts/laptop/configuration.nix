@@ -1,13 +1,12 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
   ];
-
   # Defining the Hostname
   networking.hostName = "laptop";
 
@@ -15,15 +14,9 @@
   specialisation = {
     gamingMode.configuration = {
       environment.etc."specialisation".text = "gamingMode";
-      gaming.enable = lib.mkForce true;
+      profile-gaming.enable = lib.mkForce true;
     };
   };
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configuring network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   ##########################
   ## NixOS Module Options ##

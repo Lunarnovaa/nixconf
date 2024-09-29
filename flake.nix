@@ -14,8 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    xremap-flake.url = "github:xremap/nix-flake";
-
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +42,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/default/configuration.nix
-          ./nixosModules
+          ./modules/nix
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
@@ -55,7 +53,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/laptop/configuration.nix
-          ./nixosModules
+          ./modules/nix
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
@@ -63,6 +61,6 @@
         ];
       };
     };
-    homeManagerModules.default = ./homeManagerModules;
+    homeManagerModules.default = ./modules/hm;
   };
 }

@@ -14,7 +14,7 @@ in {
     ./options.nix
   ];
   # Defining the Hostname
-  networking.hostName = "laptop";
+  networking.hostName = "procyon";
 
   # Specialisation for "Gaming Mode": Enables Gaming Module
   specialisation = {

@@ -8,9 +8,9 @@ My nixconf is structured specifically to be logical and help me work with it. He
 
 - [`flake.nix`](./flake.nix) Nix Flake: Importing flakes, pinning versions, defining module directories
 - [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
-  - [`${hostName}/configuration.nix`](./hosts/default/configuration.nix) System-level configurations exclusive to the host
-  - [`${hostName}/hardware-configuration.nix`](./hosts/default/hardware-configuration.nix) Auto-generated per-host
-  - [`${hostName}/options.nix`](./hosts/default/options.nix) Option selection
+  - [`${hostName}/configuration.nix`](./hosts/polaris/configuration.nix) System-level configurations exclusive to the host
+  - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
+  - [`${hostName}/options.nix`](./hosts/polaris/options.nix) Option selection
 - [`modules/`](./modules) Modular system configuration: HM and Nix modules stored in one place to highlight option sharing
   - [`hm`](./modules/hm) Home-Manager Modules: Configures specific programs 
   - [`nix`](./modules/nix) Nix Modules: System-level configuration
@@ -33,7 +33,15 @@ Credit to [raf](https://github.com/NotAShelf) for inspiration and references.
 
 ### Where's `home.nix`?
 
-I replaced it with [`options.nix`](./hosts/default/options.nix). I previously only used it for home-manager options, so when I replaced my option system it was no longer needed.
+I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously only used it for home-manager options, so when I replaced my option system it was no longer needed.
+
+## Hosts
+
+| Name                          | Description                                                                                     | Profiles            | Type    |
+| :---------------------------  | :---------------------------------------------------------------------------------------------- | :-----------------: | :-----: |
+| [`polaris`](./hosts/polaris/) | Primary daily-driver: the first system I installed NixOS on.                                    | Gaming, Workstation | Desktop |
+| [`procyon`](./hosts/procyon/)       | Framework 13 laptop with a Ryzen 7040.                                                          | Workstation         | Laptop  |
+
 
 ## How can I use it?
 

@@ -38,10 +38,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      polaris = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/default/configuration.nix
+          ./hosts/polaris/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix
@@ -49,10 +49,10 @@
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
       };
-      laptop = nixpkgs.lib.nixosSystem {
+      procyon = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/laptop/configuration.nix
+          ./hosts/procyon/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
           inputs.stylix.nixosModules.stylix

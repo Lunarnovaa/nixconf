@@ -14,7 +14,7 @@ in {
     ./options.nix
   ];
   # Defining the Hostname
-  networking.hostName = "default";
+  networking.hostName = "polaris";
 
   # Specialisation for "Focus Mode": Disables Gaming Module
   specialisation = {

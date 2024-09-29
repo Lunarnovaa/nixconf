@@ -4,11 +4,6 @@
   config,
   ...
 }: {
-  options = {
-    nvidia.enable =
-      lib.mkEnableOption "enables nvidia";
-  };
-
   config = lib.mkIf config.nvidia.enable {
     services.xserver.videoDrivers = ["nvidia"];
     # Use Latest Driver by default - Currently 560.35

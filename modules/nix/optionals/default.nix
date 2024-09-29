@@ -7,9 +7,8 @@
   inherit (lib) mkDefault;
 in {
   imports = [
-    ./minecraft-server.nix
+    ./gaming/default.nix
+    ./server/default.nix
+    ./workstation/default.nix
   ];
-
-  minecraft-server.enable =
-    mkDefault false;
 }

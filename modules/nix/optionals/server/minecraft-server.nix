@@ -5,11 +5,6 @@
   lib,
   ...
 }: {
-  options = {
-    minecraft-server.enable =
-      lib.mkEnableOption "enables minecraft-server";
-  };
-
   config = lib.mkIf config.minecraft-server.enable {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 

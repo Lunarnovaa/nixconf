@@ -3,9 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit
+    (lib)
+    mkForce
+    ;
+in {
   imports = [
     ./hardware-configuration.nix
+    ./options.nix
   ];
   # Defining the Hostname
   networking.hostName = "default";
@@ -14,15 +20,10 @@
   specialisation = {
     focusMode.configuration = {
       environment.etc."specialisation".text = "focusMode";
-      profile-gaming.enable = lib.mkOverride 45 false; #overrides mkForce
+      profile-gaming.enable = mkForce false;
     };
   };
 
-  nvidia.enable =
-    lib.mkForce true;
-
-  profile-gaming.enable =
-    lib.mkForce true;
   ##################################################################
   ## Danger Zone                                                  ##
   ##################################################################

@@ -6,11 +6,6 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
 in {
-  options = {
-    profile-gaming.enable =
-      mkEnableOption "enables gaming profile";
-  };
-
   config = mkIf config.profile-gaming.enable {
     hardware.graphics.enable = true;
 

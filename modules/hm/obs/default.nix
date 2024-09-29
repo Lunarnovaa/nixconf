@@ -5,11 +5,6 @@
   pkgs,
   ...
 }: {
-  options = {
-    obs.enable =
-      lib.mkEnableOption "enables obs";
-  };
-
   config = lib.mkIf config.obs.enable {
     programs.obs-studio = {
       enable = true;

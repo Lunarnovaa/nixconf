@@ -3,7 +3,10 @@
   config,
   ...
 }: let
-  inherit (lib) mkEnableOption;
+  inherit
+    (lib)
+    mkEnableOption
+    ;
 in {
   options = {
     nvidia.enable =

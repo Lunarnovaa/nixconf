@@ -5,10 +5,6 @@
   config,
   ...
 }: {
-  options = {
-    firefox-vertical-tabs.enable =
-      lib.mkEnableOption "enables firefox-vertical-tabs";
-  };
   config = lib.mkIf config.firefox-vertical-tabs.enable {
     programs.firefox.profiles.lunarnova = {
       #extensions = [inputs.firefox-addons.packages."x86_64-linux".sidebery];

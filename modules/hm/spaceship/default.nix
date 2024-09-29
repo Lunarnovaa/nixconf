@@ -4,11 +4,6 @@
   config,
   ...
 }: {
-  options = {
-    spaceship.enable =
-      lib.mkEnableOption "enables spaceship";
-  };
-
   config = lib.mkIf config.spaceship.enable {
     programs.starship = {
       enable = true;

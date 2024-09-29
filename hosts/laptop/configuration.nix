@@ -3,9 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit
+    (lib)
+    mkDefault
+    ;
+in {
   imports = [
     ./hardware-configuration.nix
+    ./options.nix
   ];
   # Defining the Hostname
   networking.hostName = "laptop";
@@ -14,13 +20,9 @@
   specialisation = {
     gamingMode.configuration = {
       environment.etc."specialisation".text = "gamingMode";
-      profile-gaming.enable = lib.mkForce true;
+      profile-gaming.enable = mkDefault true;
     };
   };
-
-  ##########################
-  ## NixOS Module Options ##
-  ##########################
 
   ##################################################################
   ## Danger Zone                                                  ##

@@ -3,11 +3,25 @@
   config,
   ...
 }: let
-  inherit (lib) mkIf mkDefault;
+  inherit
+    (lib)
+    mkEnableOption
+    mkIf
+    mkDefault
+    ;
 in {
-  options = 
-  config = mkIf config.profile-gaming.enable {
-    m
+  options = {
+    # Create gaming profile option
+    profile-gaming.enable =
+      mkEnableOption "enables gaming profile";
+
+    # Create options for gaming programs
+    obs.enable =
+      mkEnableOption "enables obs";
   };
 
+  # Enable gaming programs
+  config = mkIf config.profile-gaming.enable {
+    obs.enable = mkDefault true;
+  };
 }

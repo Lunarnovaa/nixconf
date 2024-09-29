@@ -11,8 +11,6 @@ in {
     ./core/system/default.nix
     ./core/users/default.nix
 
-    ./profiles/default.nix
+    ./optionals/default.nix
   ];
-  nvidia.enable =
-    mkDefault false;
 }

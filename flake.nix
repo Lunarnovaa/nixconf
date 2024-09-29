@@ -58,6 +58,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+          inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
       };
     };

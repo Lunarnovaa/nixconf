@@ -3,30 +3,49 @@
   config,
   ...
 }: {
-  # Configurating Fonts including support for Hanzi
   fonts = {
     enableDefaultPackages = false;
-    packages = builtins.attrValues {
-      inherit
-        (pkgs)
-        inter
-        ubuntu_font_family #ubuntu-monospace
-        
-        roboto-serif
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        ;
-    };
+    packages = with pkgs; [
+      # Latin fonts
+      roboto-serif
+      inter
+      fira-code
+
+      # CJK fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+
+      # Microsoft fonts for fallback
+      corefonts
+      vistafonts
+    ];
     fontconfig = {
       defaultFonts = {
-        serif = ["Noto Serif CJK SC" "Roboto Serif"];
-        sansSerif = ["Noto Sans CJK SC" "Inter"];
-        monospace = ["Noto Sans Mono CJK SC" "Ubuntu Monospace"];
+        serif = [
+          "Roboto Serif"
+          "Noto Serif CJK SC"
+          "corefonts"
+          "vistafonts"
+        ];
+
+        sansSerif = [
+          "Inter"
+          "Noto Sans CJK SC"
+          "corefonts"
+          "vistafonts"
+        ];
+
+        monospace = [
+          "Fira Code"
+          "Noto Sans Mono CJK SC"
+          "corefonts"
+          "vistafonts"
+        ];
       };
     };
   };
 
-  # Adding support for typing Pinyin -> Hanzi
+  # Add support for typing Pinyin -> Hanzi
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.waylandFrontend = true;

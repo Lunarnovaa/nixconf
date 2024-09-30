@@ -4,8 +4,13 @@
   config,
   pkgs,
   ...
-}: {
-  config = lib.mkIf config.obs.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.obs.enable {
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [

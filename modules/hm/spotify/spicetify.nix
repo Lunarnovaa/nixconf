@@ -4,8 +4,13 @@
   config,
   pkgs,
   ...
-}: {
-  config = lib.mkIf config.spicetify.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.spicetify.enable {
     programs.spicetify = let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
     in {

@@ -1,4 +1,4 @@
-{lib, ...}: {
+{config, ...}: {
   imports = [
     ./alacritty/default.nix
 

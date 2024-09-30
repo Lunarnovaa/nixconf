@@ -3,8 +3,13 @@
   lib,
   config,
   ...
-}: {
-  config = lib.mkIf config.fastfetch.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.fastfetch.enable {
     programs.fastfetch = {
       enable = true;
       settings = {

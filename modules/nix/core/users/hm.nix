@@ -19,13 +19,13 @@
 
         programs.home-manager.enable = true;
 
-        # Giving Home Manager User/Home info
+        # Give Home Manager User/Home info
         home.username = "lunarnova";
         home.homeDirectory = "/home/lunarnova";
 
         ####################do not change#######################
         home.stateVersion = "24.05"; # Did you read the comment?
-        ####################from 24.05##########################
+        #####################from 24.05#########################
       };
     };
 

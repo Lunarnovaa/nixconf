@@ -4,8 +4,13 @@
   config,
   pkgs,
   ...
-}: {
-  config = lib.mkIf config.obsidian.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.obsidian.enable {
     home.packages = [pkgs.obsidian];
   };
 }

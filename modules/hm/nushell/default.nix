@@ -3,8 +3,13 @@
   lib,
   config,
   ...
-}: {
-  config = lib.mkIf config.nushell.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.nushell.enable {
     programs.nushell = {
       enable = true;
       extraConfig = ''

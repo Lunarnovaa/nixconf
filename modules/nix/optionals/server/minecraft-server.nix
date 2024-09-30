@@ -4,8 +4,13 @@
   config,
   lib,
   ...
-}: {
-  config = lib.mkIf config.minecraft-server.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.minecraft-server.enable {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
     services.minecraft-servers = {

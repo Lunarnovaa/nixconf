@@ -4,8 +4,13 @@
   inputs,
   config,
   ...
-}: {
-  config = lib.mkIf config.firefox-vertical-tabs.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.firefox-vertical-tabs.enable {
     programs.firefox.profiles.lunarnova = {
       #extensions = [inputs.firefox-addons.packages."x86_64-linux".sidebery];
 

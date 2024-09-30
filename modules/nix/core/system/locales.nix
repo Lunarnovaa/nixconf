@@ -4,10 +4,10 @@
   config,
   ...
 }: {
-  # Configuring Timezone
+  # Configure Timezone
   time.timeZone = "America/Los_Angeles";
 
-  # Selecting internationalisation properties.
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";

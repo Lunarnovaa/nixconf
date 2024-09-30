@@ -3,8 +3,13 @@
   lib,
   config,
   ...
-}: {
-  config = lib.mkIf config.spaceship.enable {
+}: let
+  inherit
+    (lib)
+    mkIf
+    ;
+in {
+  config = mkIf config.spaceship.enable {
     programs.starship = {
       enable = true;
       enableNushellIntegration = true;

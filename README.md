@@ -12,7 +12,7 @@ My nixconf is structured specifically to be logical and help me work with it. He
   - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
   - [`${hostName}/options.nix`](./hosts/polaris/options.nix) Option selection
 - [`modules/`](./modules) Modular system configuration: HM and Nix modules stored in one place to highlight option sharing
-  - [`hm`](./modules/hm) Home-Manager Modules: Configures specific programs 
+  - [`hm`](./modules/hm) Home-Manager Modules: Configures specific programs
   - [`nix`](./modules/nix) Nix Modules: System-level configuration
     - [`core`](./modules/nix/core) Core Nix Modules: Critical infrastructure for systems
     - [`optionals`](./modules/nix/optionals) Optional Nix Modules: Profile specific system-level modules
@@ -40,12 +40,11 @@ I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously on
 | Name                          | Description                                                                                     | Profiles            | Type    |
 | :---------------------------  | :---------------------------------------------------------------------------------------------- | :-----------------: | :-----: |
 | [`polaris`](./hosts/polaris/) | Primary daily-driver: the first system I installed NixOS on.                                    | Gaming, Workstation | Desktop |
-| [`procyon`](./hosts/procyon/)       | Framework 13 laptop with a Ryzen 7040.                                                          | Workstation         | Laptop  |
-
+| [`procyon`](./hosts/procyon/) | Framework 13 laptop with a Ryzen 7040.                                                          | Workstation         | Laptop  |
 
 ## How can I use it?
 
-Please don't. It definitely won't work for you without funky tinkering and issues. So if you do, please don't come to me with your problems. You could probably use code from this repo for use in your own configuration, just be sure not to use stuff if you don't know what it does. I definitely didn't design this to be plug-and-play with anybody else's host.
+Please don't. It definitely won't work for you without funky issues and tinkering. So if you do, please don't come to me with your problems. You could probably use code from this repo for use in your own configuration, just be sure not to use stuff if you don't know what it does. I definitely didn't design this to be plug-and-play with anybody else's host.
 
 ## Credits
 

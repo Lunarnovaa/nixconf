@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  # Configuring the Bootloader
+  # Configure the Bootloader
   boot.loader = {
     systemd-boot = {
       enable = true;

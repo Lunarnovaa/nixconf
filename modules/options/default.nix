@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{config, ...}: {
   imports = [
     ./bundles/default.nix
     ./loose/default.nix

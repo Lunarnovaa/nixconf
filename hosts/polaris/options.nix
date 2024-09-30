@@ -16,7 +16,7 @@ in {
 
   # Note for setting options: if setting to true, can use mkDefault: simply set to false by default through mkEnableOption; if setting to false; use mkForce
   profile-gaming.enable = mkDefault true;
-  #profile-server.enable = mkDefault false;
+  profile-server.enable = mkDefault false;
   profile-workstation.enable = mkDefault true;
 
   firefox-vertical-tabs.enable = mkDefault true;

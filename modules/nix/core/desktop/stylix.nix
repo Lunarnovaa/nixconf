@@ -7,7 +7,7 @@
   stylix = {
     enable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     #https://tinted-theming.github.io/base16-gallery/
     cursor.name = "Bibata-Modern-Classic";
     image = /home/lunarnova/wallpapers/nauragarden.png;
@@ -16,21 +16,6 @@
     cursor.size = 24;
 
     fonts = {
-      /*
-        monospace = {
-        package = pkgs.ubuntu_font_family;
-        name = "Ubuntu Monospace";
-      };
-      sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
-      };
-      serif = {
-        package = pkgs.roboto-serif;
-        name = "Roboto Serif";
-      };
-      */
-
       sizes = {
         applications = 10;
         terminal = 12;

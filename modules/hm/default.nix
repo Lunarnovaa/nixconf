@@ -8,6 +8,8 @@
 
     ./git/default.nix
 
+    ./hyprland/default.nix
+
     ./nushell/default.nix
 
     ./obs/default.nix

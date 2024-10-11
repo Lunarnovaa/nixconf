@@ -27,6 +27,8 @@
     };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {

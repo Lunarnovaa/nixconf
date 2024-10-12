@@ -18,12 +18,14 @@
   '';
 in {
   imports = [
-    ./options/default.nix
+    ./optionals/default.nix
     ./utils/default.nix
     ./binds.nix
+    ./rules.nix
   ];
 
   config = mkIf config.hyprland.enable {
+    home.sessionVariables.NIXOS_OZONE_WL = "1";
     wayland.windowManager.hyprland = {
       enable = true;
       # Set the hyprland package to the version defined in the flake

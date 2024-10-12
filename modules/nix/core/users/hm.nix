@@ -3,9 +3,9 @@
   config,
   ...
 }: {
-  home-manager.sharedModules = [
-    inputs.self.outputs.homeManagerModules.default
-    inputs.spicetify-nix.homeManagerModules.default
+  home-manager.sharedModules = with inputs; [
+    self.outputs.homeManagerModules.default
+    spicetify-nix.homeManagerModules.default
   ];
 
   home-manager = {

@@ -18,10 +18,13 @@ in {
     # Create options for gaming programs
     obs.enable =
       mkEnableOption "enables obs";
+    nixcord.enable =
+      mkEnableOption "enables nixcord";
   };
 
   # Enable gaming programs
   config = mkIf config.profile-gaming.enable {
     obs.enable = mkDefault true;
+    nixcord.enable = mkDefault true;
   };
 }

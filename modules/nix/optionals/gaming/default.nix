@@ -18,11 +18,9 @@ in {
       protonup
       lutris
 
-      bottles
+      webcord-vencord
 
       steamtinkerlaunch
-
-      vesktop
 
       prismlauncher
 

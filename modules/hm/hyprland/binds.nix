@@ -29,15 +29,22 @@ in {
 
         ", Print, exec, grimblast --notify --freeze copy area"
 
-        "$mod, Tab, cyclenext,"
-        "$mod, Tab, bringactivetotop,"
-      ];
+        "ALT, Tab, cyclenext,"
+        "ALT, Tab, bringactivetotop,"
 
+        "ALT, 1, workspace, 1"
+        "ALT, 2, workspace, 2"
+        "ALT, 3, workspace, 3"
+        "ALT, 4, workspace, 4"
+        "$mod, 1, movetoworkspace, 1"
+        "$mod, 2, movetoworkspace, 2"
+        "$mod, 3, movetoworkspace, 3"
+        "$mod, 4, movetoworkspace, 4"
+      ];
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-
       bindr = [
         "SUPER, SUPER_L, exec, tofi-drun --drun-launch=true"
       ];

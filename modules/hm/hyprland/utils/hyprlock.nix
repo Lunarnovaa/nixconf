@@ -12,8 +12,10 @@
     ;
 in {
   config = mkIf config.hyprland.enable {
-    programs.tofi = {
+    programs.hyprlock = {
       enable = true;
+      settings = {
+      };
     };
   };
 }

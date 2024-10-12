@@ -26,7 +26,7 @@
     hyprctl reload
   '';
 in {
-  config = mkIf (config.hyprland.enable && config.gaming.enable) {
+  config = mkIf (config.hyprland.enable && config.profile-gaming.enable) {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "$mod, F1, exec, ${gamemode}/bin/enable-gamemode"

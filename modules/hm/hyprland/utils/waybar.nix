@@ -74,7 +74,7 @@ in {
           min-height: 0;
           border-radius: 6px;
           color: #${colors.base05};
-          font-family: "${fonts.serif}";
+          font-family: "${fonts.sans-serif}";
         }
         #tray {
           margin: 0px 4px;

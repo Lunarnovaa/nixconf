@@ -8,7 +8,7 @@
     ./fonts.nix
     ./functionality.nix
     ./hyprland.nix
-    ./kde.nix
+    ./sddm.nix
     ./shell.nix
   ];
 }

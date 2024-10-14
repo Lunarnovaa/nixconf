@@ -20,7 +20,6 @@
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
     waybar &
   '';
-  cursorTheme = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
 in {
   imports = [
     ./apps/default.nix
@@ -31,6 +30,7 @@ in {
   ];
 
   config = mkIf config.hyprland.enable {
+    home.packages = [pkgs.bibata-cursors];
     home.sessionVariables.NIXOS_OZONE_WL = "1";
     wayland.windowManager.hyprland = {
       enable = true;
@@ -48,8 +48,8 @@ in {
         };
 
         env = [
-          "HYPRCURSOR_THEME,${cursorTheme}"
-          "HYPRCURSOR_SIZE,24"
+          "XCURSOR_THEME,Bibata-Modern-Classic"
+          "XCURSOR_SIZE,24"
         ];
 
         general = {

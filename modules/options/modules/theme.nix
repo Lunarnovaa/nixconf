@@ -13,6 +13,7 @@
     attrs
     str
     int
+    path
     ;
 in {
   options.theme = {
@@ -75,6 +76,13 @@ in {
         type = int;
         default = 11;
         description = "Defines the font-size";
+      };
+    };
+    wallpapers = {
+      primary = mkOption {
+        type = path;
+        default = /home/lunarnova/wallpapers/nauragarden.png;
+        description = "Defines the primary wallpaper";
       };
     };
   };

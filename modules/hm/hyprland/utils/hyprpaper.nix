@@ -10,17 +10,20 @@
     (lib)
     mkIf
     ;
-  wallpaper1 = "/home/lunarnova/wallpapers/nauragarden.png";
+  inherit
+    (config.theme)
+    wallpapers
+    ;
 in {
   config = mkIf config.hyprland.enable {
     services.hyprpaper = {
       enable = true;
       settings = {
         preload = [
-          wallpaper1
+          "${wallpapers.primary}"
         ];
         wallpaper = [
-          ",${wallpaper1}"
+          ",${wallpapers.primary}"
         ];
       };
     };

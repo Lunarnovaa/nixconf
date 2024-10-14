@@ -34,8 +34,8 @@
       base17 = "f5bde6"; # pink - bright purple
     };
     fonts = {
-      serif = "Inter";
-      sans-serif = "Roboto Serif";
+      sans-serif = "Inter";
+      serif = "Roboto Serif";
       monospace = "Fira Code";
       size = 11;
     };

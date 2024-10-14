@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./gtk.nix
-    ./theme.nix
     ./qt.nix
   ];
 }

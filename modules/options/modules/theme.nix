@@ -7,7 +7,6 @@
   inherit
     (lib.options)
     mkOption
-    mkEnableOption
     ;
   inherit
     (lib.types)
@@ -17,10 +16,10 @@
     ;
 in {
   options.theme = {
-    enable = mkEnableOption "Enables the module ";
     colors = mkOption {
       type = attrs;
-      example = {
+      default = {
+        # Credit for this conversion can be found here https://github.com/tinted-theming/schemes/pull/33
         base00 = "24273a"; # base
         base01 = "1e2030"; # mantle
         base02 = "363a4f"; # surface0
@@ -37,31 +36,44 @@ in {
         base0D = "8aadf4"; # blue
         base0E = "c6a0f6"; # mauve
         base0F = "f0c6c6"; # flamingo
+        base10 = "1e2030"; # mantle - darker background
+        base11 = "181926"; # crust - darkest background
+        base12 = "ee99a0"; # maroon - bright red
+        base13 = "f4dbd6"; # rosewater - bright yellow
+        base14 = "a6da95"; # green - bright green
+        base15 = "91d7e3"; # sky - bright cyan
+        base16 = "7dc4e4"; # sapphire - bright blue
+        base17 = "f5bde6"; # pink - bright purple
       };
       description = ''
         Defines a set of attributes for colors.
-        Example is in base12 however any labeling and definitions will work.
+        Default is in base24 however any labeling and definitions will work.
       '';
     };
     fonts = {
       sans-serif = mkOption {
         type = str;
-        example = "Inter";
+        default = "Inter";
         description = "Defines the sans-serif font";
       };
       serif = mkOption {
         type = str;
-        example = "Roboto Serif";
+        default = "Roboto Serif";
         description = "Defines the serif font";
       };
       monospace = mkOption {
         type = str;
-        example = "Roboto Serif";
+        default = "Fira Code";
         description = "Defines the monospace font";
+      };
+      icons = mkOption {
+        type = str;
+        default = "Nerd Fonts Symbols Only";
+        description = "Defines the icon font";
       };
       size = mkOption {
         type = int;
-        example = "12";
+        default = 11;
         description = "Defines the font-size";
       };
     };

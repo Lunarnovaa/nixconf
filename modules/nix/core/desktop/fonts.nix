@@ -11,6 +11,9 @@
       inter
       fira-code
 
+      # Nerdfont Symbols
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+
       # CJK fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif

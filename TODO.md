@@ -2,13 +2,14 @@
 
 ## 10/24
 
-- [ ] Add power-menu through Tofi
-- [ ] Figure out smart gaps for waybar
+- [x] Add power-menu through Tofi
+- [ ] ~~Figure out smart gaps for waybar~~
 - [ ] Theme Tofi and Waybar more
-  - [ ] Add Dates to bar
-- [ ] Replace Dolphin (?)
+  - [x] Add Dates to bar
+- [x] Add Dolphin (?)
 - [ ] Move to Zed
 - [ ] Theme SDDM
+- [x] Add Network Management Tool
 
 ## 09/24
 

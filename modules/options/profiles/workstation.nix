@@ -20,11 +20,14 @@ in {
       mkEnableOption "enables obsidian";
     vscode.enable =
       mkEnableOption "enables vscode";
+    dolphin.enable =
+      mkEnableOption "enables dolphin";
   };
 
   # Enable workstation programs
   config = mkIf config.profile-workstation.enable {
     obsidian.enable = mkDefault true;
     vscode.enable = mkDefault true;
+    dolphin.enable = mkDefault true;
   };
 }

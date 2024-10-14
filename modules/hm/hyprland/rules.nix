@@ -18,8 +18,8 @@ in {
 
       workspace = [
         # Smart Gaps
-        "w[t1], gapsout:0, gapsin:0, border: 0, rounding:0"
-        "w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0"
+        #"w[t1], gapsout:0, gapsin:0, border: 0, rounding:0"
+        #"w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0"
       ];
     };
   };

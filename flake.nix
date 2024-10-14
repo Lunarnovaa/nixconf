@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +41,6 @@
           ./hosts/polaris/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
@@ -57,7 +51,6 @@
           ./hosts/procyon/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
-          inputs.stylix.nixosModules.stylix
           inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.nix-minecraft.nixosModules.minecraft-servers

@@ -10,5 +10,6 @@
     ./nvidia.nix
     ./performance.nix
     ./spicetify.nix
+    ./terminal-bundle.nix
   ];
 }

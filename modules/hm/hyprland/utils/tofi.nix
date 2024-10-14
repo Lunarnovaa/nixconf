@@ -10,6 +10,11 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.theme)
+    colors
+    fonts
+    ;
   hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
@@ -21,6 +26,12 @@ in {
         corner-radius = hyprland-settings.decoration.rounding;
         width = "25%";
         height = "15%";
+        font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
+        font-size = 13;
+        background-color = "#${colors.base00}";
+        border-color = "#${colors.base08}";
+        text-color = "#${colors.base05}";
+        selection-color = "#${colors.base12}";
       };
     };
   };

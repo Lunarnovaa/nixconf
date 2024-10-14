@@ -10,6 +10,5 @@
     ./hyprland.nix
     ./kde.nix
     ./shell.nix
-    ./stylix.nix
   ];
 }

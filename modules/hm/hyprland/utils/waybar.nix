@@ -11,6 +11,11 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.theme)
+    colors
+    fonts
+    ;
   hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
@@ -65,12 +70,17 @@ in {
       };
       style = ''
         * {
-          font-size: 4px;
+          font-size: 14px;
           min-height: 0;
           border-radius: 6px;
+          color: #${colors.base05};
+          font-family: "${fonts.serif}";
         }
         #tray {
           margin: 0px 4px;
+        }
+        window#waybar {
+          color: #${colors.base04};
         }
       '';
     };

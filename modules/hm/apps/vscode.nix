@@ -8,6 +8,7 @@
     (lib)
     mkIf
     ;
+  inherit (config.theme) fonts;
 in {
   config = mkIf config.vscode.enable {
     programs.vscode = {
@@ -15,6 +16,12 @@ in {
       #extensions = with pkgs.vscode-extensions; [ #not currently working for some reason
       # jnoortheen.nix-ide
       #];
+      userSettings = {
+        "editor.fontFamily" = "${fonts.monospace}";
+        "editor.fontLigatures" = true;
+        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "workbench.iconTheme" = "Catppuccin Macchiato";
+      };
     };
   };
 }

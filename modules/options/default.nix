@@ -1,7 +1,7 @@
 {config, ...}: {
   imports = [
-    ./bundles/default.nix
-    ./loose/default.nix
+    ./apps/default.nix
+    ./modules/default.nix
     ./profiles/gaming.nix
     ./profiles/server.nix
     ./profiles/workstation.nix

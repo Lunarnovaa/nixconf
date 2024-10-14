@@ -27,6 +27,8 @@ in {
         lyricsPlus
         newReleases
       ];
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "macchiato";
     };
   };
 }

@@ -18,8 +18,6 @@ in {
       protonup
       lutris
 
-      webcord-vencord
-
       steamtinkerlaunch
 
       prismlauncher

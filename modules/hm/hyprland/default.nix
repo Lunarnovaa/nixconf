@@ -10,12 +10,17 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.theme)
+    colors
+    ;
   pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     mako &
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
     waybar &
   '';
+  cursorTheme = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Classic";
 in {
   imports = [
     ./optionals/default.nix
@@ -41,10 +46,18 @@ in {
           sensitivity = "-0.2";
         };
 
+        env = [
+          "HYPRCURSOR_THEME,${cursorTheme}"
+          "HYPRCURSOR_SIZE,24"
+        ];
+
         general = {
           border_size = "2";
           gaps_out = "4,10,10,10";
           gaps_in = "4";
+
+          "col.inactive_border" = "0xff${colors.base03}";
+          "col.active_border" = "0xff${colors.base08}";
         };
 
         decoration = {

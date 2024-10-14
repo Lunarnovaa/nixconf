@@ -6,7 +6,7 @@
 }: let
   inherit
     (lib)
-    mkDefault
+    mkForce
     ;
 in {
   imports = [
@@ -20,7 +20,7 @@ in {
   specialisation = {
     gamingMode.configuration = {
       environment.etc."specialisation".text = "gamingMode";
-      profile-gaming.enable = mkDefault true;
+      profile-gaming.enable = mkForce true;
     };
   };
 

@@ -16,7 +16,7 @@
     hash = "sha256-+yGrSZztf2sZ9frPT3ydIJDavo4eXs03cQWfdTAmn3w=";
   };
 in {
-  config = mkIf config.profile-gaming.enable {
+  config = mkIf config.profile.gaming.enable {
     home = {
       packages = [pkgs.prismlauncher];
       file = {

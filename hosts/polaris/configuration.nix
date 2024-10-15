@@ -20,7 +20,7 @@ in {
   specialisation = {
     focusMode.configuration = {
       environment.etc."specialisation".text = "focusMode";
-      profile-gaming.enable = mkForce false;
+      profile.gaming.enable = mkForce false;
     };
   };
 

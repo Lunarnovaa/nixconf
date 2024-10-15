@@ -20,7 +20,7 @@ in {
   specialisation = {
     gamingMode.configuration = {
       environment.etc."specialisation".text = "gamingMode";
-      profile-gaming.enable = mkDefault true;
+      profile.gaming.enable = mkDefault true;
     };
   };
 

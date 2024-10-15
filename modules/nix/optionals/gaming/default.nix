@@ -6,7 +6,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
 in {
-  config = mkIf config.profile-gaming.enable {
+  config = mkIf config.profile.gaming.enable {
     hardware.graphics.enable = true;
 
     programs.steam.enable = true;

@@ -12,7 +12,7 @@
 in {
   options = {
     # Create workstation profile option
-    profile-workstation.enable =
+    profile.workstation.enable =
       mkEnableOption "enables workstation profile";
 
     # Create options for workstation programs
@@ -20,14 +20,11 @@ in {
       mkEnableOption "enables obsidian";
     vscode.enable =
       mkEnableOption "enables vscode";
-    dolphin.enable =
-      mkEnableOption "enables dolphin";
   };
 
   # Enable workstation programs
-  config = mkIf config.profile-workstation.enable {
+  config = mkIf config.profile.workstation.enable {
     obsidian.enable = mkDefault true;
     vscode.enable = mkDefault true;
-    dolphin.enable = mkDefault true;
   };
 }

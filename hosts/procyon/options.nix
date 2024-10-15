@@ -13,7 +13,9 @@ in {
   imports = [
     ./../../modules/options/default.nix
   ];
-  profile-gaming.enable = mkDefault false;
-  profile-server.enable = mkDefault false;
-  profile-workstation.enable = mkDefault true;
+  profile = {
+    gaming.enable = mkDefault false;
+    server.enable = mkDefault false;
+    workstation.enable = mkDefault true;
+  };
 }

@@ -12,8 +12,7 @@
 in {
   options = {
     # Create gaming profile option
-    profile-gaming.enable =
-      mkEnableOption "enables gaming profile";
+    profile.gaming.enable = mkEnableOption "enables gaming profile";
 
     # Create options for gaming programs
     obs.enable =
@@ -23,7 +22,7 @@ in {
   };
 
   # Enable gaming programs
-  config = mkIf config.profile-gaming.enable {
+  config = mkIf config.profile.gaming.enable {
     obs.enable = mkDefault true;
     vesktop.enable = mkDefault true;
   };

@@ -12,7 +12,7 @@
 in {
   options = {
     # Create server profile option
-    profile-server.enable =
+    profile.server.enable =
       mkEnableOption "enables server profile";
 
     # Create options for server programs
@@ -21,7 +21,7 @@ in {
   };
 
   # Enable server programs
-  config = mkIf config.profile-server.enable {
+  config = mkIf config.profile.server.enable {
     minecraft-server.enable = mkDefault true;
   };
 }

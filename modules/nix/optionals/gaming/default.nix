@@ -20,8 +20,6 @@ in {
 
       steamtinkerlaunch
 
-      prismlauncher
-
       rnnoise-plugin
     ];
 

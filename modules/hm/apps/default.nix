@@ -9,6 +9,7 @@
     ./nushell.nix
     ./obs.nix
     ./obsidian.nix
+    ./prism-launcher.nix
     ./spaceship.nix
     ./vesktop.nix
     ./vscode.nix

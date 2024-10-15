@@ -17,7 +17,7 @@ in {
       # jnoortheen.nix-ide
       #];
       userSettings = {
-        "editor.fontFamily" = "${fonts.monospace}, ${fonts.icons}";
+        "editor.fontFamily" = "${fonts.monospace}";
         "editor.fontLigatures" = true;
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "workbench.iconTheme" = "Catppuccin Macchiato";

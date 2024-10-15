@@ -9,14 +9,14 @@
       # Latin fonts
       roboto-serif
       inter
-      fira-code
-
-      # Nerdfont Symbols
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      fira-code-nerdfont
 
       # CJK fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
+
+      # Emoji
+      noto-fonts-color-emoji
 
       # Microsoft fonts for fallback
       corefonts
@@ -27,6 +27,8 @@
         serif = [
           "Roboto Serif"
           "Noto Serif CJK SC"
+          "Noto Color Emoji"
+
           "corefonts"
           "vistafonts"
         ];
@@ -34,13 +36,17 @@
         sansSerif = [
           "Inter"
           "Noto Sans CJK SC"
+          "Noto Color Emoji"
+
           "corefonts"
           "vistafonts"
         ];
 
         monospace = [
-          "Fira Code"
+          "Fira Code Nerdfont"
           "Noto Sans Mono CJK SC"
+          "Noto Color Emoji"
+
           "corefonts"
           "vistafonts"
         ];

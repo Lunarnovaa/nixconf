@@ -14,6 +14,8 @@
     str
     int
     path
+    listOf
+    commas
     ;
 in {
   options.theme = {
@@ -53,8 +55,8 @@ in {
     };
     fonts = {
       sans-serif = mkOption {
-        type = str;
-        default = "Inter";
+        type = commas;
+        default = "Inter, noto-fonts-color-emoji";
         description = "Defines the sans-serif font";
       };
       serif = mkOption {
@@ -64,13 +66,8 @@ in {
       };
       monospace = mkOption {
         type = str;
-        default = "Fira Code";
+        default = "Fira Code Nerdfont";
         description = "Defines the monospace font";
-      };
-      icons = mkOption {
-        type = str;
-        default = "Nerd Fonts Symbols Only";
-        description = "Defines the icon font";
       };
       size = mkOption {
         type = int;

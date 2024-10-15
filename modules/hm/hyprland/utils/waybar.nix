@@ -117,7 +117,7 @@ in {
           min-height: 0px;
           border-radius: 6px;
           color: #${colors.base05};
-          font-family: "${fonts.sans-serif}, ${fonts.icons}";
+          font-family: "${fonts.sans-serif}, ${fonts.monospace}";
         }
         .module {
           padding: 0em 1em;

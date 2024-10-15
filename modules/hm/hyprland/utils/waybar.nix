@@ -72,7 +72,7 @@ in {
             format-wifi = "[{icons}: {essid}]";
             format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
             format-disconnected = "󰤭";
-            on-click = "overskride";
+            on-click = "alacritty -e nmtui";
           };
 
           "bluetooth" = {

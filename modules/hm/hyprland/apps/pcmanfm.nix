@@ -11,6 +11,6 @@
     ;
 in {
   config = mkIf config.hyprland.enable {
-    home.packages = [pkgs.overskride];
+    home.packages = [pkgs.pcmanfm];
   };
 }

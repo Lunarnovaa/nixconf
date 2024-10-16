@@ -27,7 +27,6 @@
         serif = [
           "Roboto Serif"
           "Noto Serif CJK SC"
-          "Noto Color Emoji"
 
           "corefonts"
           "vistafonts"
@@ -36,7 +35,6 @@
         sansSerif = [
           "Inter"
           "Noto Sans CJK SC"
-          "Noto Color Emoji"
 
           "corefonts"
           "vistafonts"
@@ -45,10 +43,12 @@
         monospace = [
           "Fira Code Nerdfont"
           "Noto Sans Mono CJK SC"
-          "Noto Color Emoji"
 
           "corefonts"
           "vistafonts"
+        ];
+        emoji = [
+          "Noto Color Emoji"
         ];
       };
     };

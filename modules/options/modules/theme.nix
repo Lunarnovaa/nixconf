@@ -14,7 +14,6 @@
     str
     int
     path
-    listOf
     commas
     ;
 in {
@@ -54,9 +53,10 @@ in {
       '';
     };
     fonts = {
+      # Emoji font is declared within other font types rather than on its own to
       sans-serif = mkOption {
-        type = commas;
-        default = "Inter, noto-fonts-color-emoji";
+        type = str;
+        default = "Inter";
         description = "Defines the sans-serif font";
       };
       serif = mkOption {
@@ -68,6 +68,11 @@ in {
         type = str;
         default = "Fira Code Nerdfont";
         description = "Defines the monospace font";
+      };
+      emoji = mkOption {
+        type = str;
+        default = "Noto Color Emoji";
+        description = "Defines the emoji font";
       };
       size = mkOption {
         type = int;

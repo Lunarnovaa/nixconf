@@ -6,14 +6,17 @@
 }: {
   config = lib.mkIf config.nvidia.enable {
     services.xserver.videoDrivers = ["nvidia"];
-    # Use Latest Driver by default - Currently 560.35
-    hardware.nvidia.package =
-      config.boot.kernelPackages.nvidiaPackages.latest;
 
     hardware.nvidia = {
+      # Use Latest Driver by default - Currently 560.35
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+
       modesetting.enable = true;
       nvidiaSettings = true; #accessible via nvidia-settings
-      open = true;
+      open = false; #suspend issues
+
+      powerManagement.enable = true;
     };
+    boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
   };
 }

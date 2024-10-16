@@ -62,6 +62,13 @@ in {
           modules-center = ["hyprland/window"];
           modules-right = ["clock" "privacy" "network" "bluetooth" "custom/powermenu"];
 
+          "hyprland/workspaces" = {
+            format = "[{id}]";
+          };
+
+          "hyprland/window" = {
+            format = "[{title}]";
+          };
           "clock" = {
             timezone = "${osConfig.time.timeZone}";
             format = "[{:%e.%m.%y %H:%M}]";

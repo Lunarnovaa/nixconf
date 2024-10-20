@@ -24,6 +24,11 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -42,6 +47,8 @@
           ./modules/nix
           inputs.home-manager.nixosModules.default
           inputs.lix-module.nixosModules.default
+          inputs.agenix.nixosModules.default
+
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
       };
@@ -53,6 +60,8 @@
           inputs.home-manager.nixosModules.default
           inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+          inputs.agenix.nixosModules.default
+
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
       };

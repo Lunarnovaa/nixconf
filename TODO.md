@@ -7,7 +7,7 @@
 
 ## before moving hyprland to laptop
 
-- [ ] setup agenix
+- [x] setup agenix - ask about
 - [ ] make sure hyprlock works
 - [ ] setup hypridle ?
 

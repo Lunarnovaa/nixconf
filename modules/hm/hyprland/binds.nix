@@ -49,14 +49,16 @@ in {
         "SUPER, SUPER_L, exec, tofi-drun --drun-launch=true"
       ];
       # figure out when i install hyprland on my laptop
-      /*bind1 = [
+      /*
+        bind1 = [
         # trigger when the switch is toggled
         ", switch:[switch name], exec, hyprlock"
         # trigger when the switch is turning on
         ", switch:on:[switch name], exec, hyprctl keyword monitor 'eDP-1, disable'"
         # trigger when the switch is turning off
         ", switch:off:[switch name], exec, hyprctl keyword monitor 'eDP-1, 2560x1600, 0x0, 1'"
-      ]; */
+      ];
+      */
     };
 
     home.packages = with pkgs; [

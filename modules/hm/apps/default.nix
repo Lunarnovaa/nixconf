@@ -13,5 +13,6 @@
     ./spaceship.nix
     ./vesktop.nix
     ./vscode.nix
+    ./zed.nix
   ];
 }

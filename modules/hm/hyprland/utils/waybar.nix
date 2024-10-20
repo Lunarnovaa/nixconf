@@ -60,7 +60,7 @@ in {
           margin-bottom = 2;
           modules-left = ["hyprland/workspaces" "tray"];
           modules-center = ["hyprland/window"];
-          modules-right = ["clock" "privacy" "network" "bluetooth" "custom/powermenu"];
+          modules-right = ["battery" "network" "bluetooth" "custom/powermenu" "clock"];
 
           "hyprland/workspaces" = {
             format = "[{id}]";
@@ -69,24 +69,32 @@ in {
           "hyprland/window" = {
             format = "[{title}]";
           };
+          "battery" = {
+            format = "{icon} ({capacity}%)";
+            format-icons = ["" "" "" "" ""];
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+          };
           "clock" = {
             timezone = "${osConfig.time.timeZone}";
             format = "[{:%e.%m.%y %H:%M}]";
           };
 
           "network" = {
-            format-ethernet = "[󰈀]";
-            format-wifi = "[{icons}: {essid}]";
+            format-ethernet = "󰈀";
+            format-wifi = "{icons}: {essid}";
             format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
             format-disconnected = "󰤭";
             on-click = "alacritty -e nmtui";
           };
 
           "bluetooth" = {
-            format-disabled = "[󰂲]";
-            format-off = "[󰂲]";
-            format-on = "[󰂯]";
-            format-connected = "[󰂱: {num_connections}]";
+            format-disabled = "󰂲";
+            format-off = "󰂲";
+            format-on = "󰂯";
+            format-connected = "󰂱: {num_connections}";
             tooltip = true;
             tooltip-format = "{device_enumerate}";
             tooltip-format-enumerate-connected = "{device_alias}";
@@ -94,26 +102,12 @@ in {
             on-click = "blueberry";
           };
 
-          "privacy" = {
-            modules = [
-              {
-                type = "screenshare";
-                tooltip = true;
-                tooltip-icon-size = 12;
-              }
-              {
-                type = "audio-in";
-                tooltip = true;
-                tooltip-icon-size = 12;
-              }
-            ];
-          };
           "tray" = {
             icon-size = 21;
             spacing = 10;
           };
           "custom/powermenu" = {
-            format = "[⏻]";
+            format = "⏻";
             on-click = ''${tofiPowermenu}/bin/powermenu'';
           };
         };
@@ -124,21 +118,25 @@ in {
           min-height: 0px;
           border-radius: 6px;
           color: #${colors.base05};
-          font-family: "${fonts.sans-serif}, ${fonts.monospace}, ${fonts.emoji}";
+          font-family: "${fonts.sans-serif}, ${fonts.monospace}";
         }
         .module {
-          padding: 0em 1em;
+          padding: 0em 0.8em;
         }
-        .modules-right {
-          margin-left: 8px;
+        #battery.warning {
+          color: #${colors.base09};
         }
-        .modules-left {
-          margin-right: 8px;
+        #battery.critical {
+          color: #${colors.base08};
         }
-        #custom-powermenu,
-        #bluetooth,
         #network {
+          font-size: 16px;
+        }
+        #custom-powermenu {
           font-size: 15px;
+        }
+        #bluetooth {
+          font-size: 17px
         }
         window#waybar {
           background-color: #${colors.base00};

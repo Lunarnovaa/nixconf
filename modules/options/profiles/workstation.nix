@@ -20,11 +20,14 @@ in {
       mkEnableOption "enables obsidian";
     vscode.enable =
       mkEnableOption "enables vscode";
+    zed.enable =
+      mkEnableOption "enables zed-editor";
   };
 
   # Enable workstation programs
   config = mkIf config.profile.workstation.enable {
     obsidian.enable = mkDefault true;
     vscode.enable = mkDefault true;
+    zed.enable = mkDefault true;
   };
 }

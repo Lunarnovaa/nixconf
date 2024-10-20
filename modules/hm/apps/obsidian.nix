@@ -11,6 +11,6 @@
     ;
 in {
   config = mkIf config.obsidian.enable {
-    home.packages = [pkgs.obsidian];
+    home.packages = with pkgs; [obsidian];
   };
 }

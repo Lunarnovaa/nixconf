@@ -1,14 +1,21 @@
 # TODO
 
+## for moving hyprland to laptop
+
+- [ ] setup agenix
+- [ ] make sure hyprlock works
+- [ ] setup specific "laptop closes" binds
+- [ ] setup hypridle ?
+
 ## 10/24
 
 - [x] Add power-menu through Tofi
 - [ ] ~~Figure out smart gaps for waybar~~
-- [ ] Theme Tofi and Waybar more
+- [x] Theme Tofi and Waybar more
   - [x] Add Dates to bar
 - [x] Add Dolphin (?)
-- [ ] Move to Zed
-- [ ] Theme SDDM
+- [ ] ~~Move to Zed~~
+- [x] Theme SDDM
 - [x] Add Network Management Tool
 
 ## 09/24

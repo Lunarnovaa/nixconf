@@ -18,11 +18,9 @@
 in {
   config = mkIf config.profile.gaming.enable {
     home = {
-      packages = [pkgs.prismlauncher];
+      packages = with pkgs; [prismlauncher];
       file = {
         ".local/share/PrismLauncher/themes/catppuccin-macchiato/theme.json".source = "${catppuccin}/themes/Macchiato/theme.json";
-      };
-      file = {
         ".local/share/PrismLauncher/themes/catppuccin-macchiato/themeStyle.css".source = "${catppuccin}/themes/Macchiato/themeStyle.css";
       };
     };

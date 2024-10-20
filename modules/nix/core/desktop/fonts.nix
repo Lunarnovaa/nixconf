@@ -9,7 +9,7 @@
       # Latin fonts
       roboto-serif
       inter
-      fira-code-nerdfont
+      (nerdfonts.override {fonts = ["FiraCode"];})
 
       # CJK fonts
       noto-fonts-cjk-sans

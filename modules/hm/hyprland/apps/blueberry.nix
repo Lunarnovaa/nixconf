@@ -11,6 +11,6 @@
     ;
 in {
   config = mkIf config.hyprland.enable {
-    home.packages = [pkgs.blueberry];
+    home.packages = with pkgs; [blueberry];
   };
 }

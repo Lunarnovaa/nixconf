@@ -16,7 +16,7 @@
   };
 in {
   config = mkIf config.vesktop.enable {
-    home.packages = [pkgs.vesktop];
+    home.packages = with pkgs; [vesktop];
     xdg.configFile = {
       "vesktop/themes/catppuccin-macchiato.css".source = catppuccin-macchiato-css;
     };

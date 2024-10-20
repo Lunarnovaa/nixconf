@@ -1,10 +1,14 @@
 # TODO
 
-## for moving hyprland to laptop
+## after moving hyprland to laptop
+
+- [ ] setup specific "laptop closes" binds
+- [ ] any other config???
+
+## before moving hyprland to laptop
 
 - [ ] setup agenix
 - [ ] make sure hyprlock works
-- [ ] setup specific "laptop closes" binds
 - [ ] setup hypridle ?
 
 ## 10/24

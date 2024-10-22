@@ -12,14 +12,19 @@ My nixconf is structured specifically to be logical and help me work with it. He
   - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
   - [`${hostName}/options.nix`](./hosts/polaris/options.nix) Option selection
 - [`modules/`](./modules) Modular system configuration: HM and Nix modules stored in one place to highlight option sharing
-  - [`hm`](./modules/hm) Home-Manager Modules: Configures specific programs
+  - [`hm`](./modules/hm) Home-Manager Modules: Program configuration
+    - [`apps`](./modules/apps) App Configuration: Configures specific apps
+    - [`hyprland`](./modules/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
+    - [`theming`](./modules/theming) Theming: Themes GTK and QT
   - [`nix`](./modules/nix) Nix Modules: System-level configuration
     - [`core`](./modules/nix/core) Core Nix Modules: Critical infrastructure for systems
     - [`optionals`](./modules/nix/optionals) Optional Nix Modules: Profile specific system-level modules
+    - [`users`](./modules/nix/users) User configuration: Declares HM, the user, and configures Agenix
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system & per profile
-    - [`bundles`](./modules/options/bundles) Bundled options unrelated to profiles
-    - [`loose`](./modules/options/loose) Ungrouped options
+    - [`apps`](./modules/options/apps) Declaration of app options
+    - [`modules`](./modules/options/modules) Custom module declaration
     - [`profiles`](./modules/options/profiles) Options configured by profile
+- [`secrets`](./secrets) Agenix Secrets Management
 
 ### How the profiles work
 
@@ -29,7 +34,7 @@ My nixconf is structured specifically to be logical and help me work with it. He
 4. Any of the program options can be forcibly enabled or disabled per-system.
 5. All of the above is imported into both Home Manager and NixOS as modules.
 
-Credit to [raf](https://github.com/NotAShelf) for inspiration and references.
+Credit to [raf](https://github.com/NotAShelf/Nyx) for inspiration and references.
 
 ### Where's `home.nix`?
 
@@ -41,10 +46,6 @@ I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously on
 | :---------------------------  | :---------------------------------------------------------------------------------------------- | :-----------------: | :-----: |
 | [`polaris`](./hosts/polaris/) | Primary daily-driver: the first system I installed NixOS on.                                    | Gaming, Workstation | Desktop |
 | [`procyon`](./hosts/procyon/) | Framework 13 laptop with a Ryzen 7040.                                                          | Workstation         | Laptop  |
-
-## How can I use it?
-
-Please don't. It definitely won't work for you without funky issues and tinkering. So if you do, please don't come to me with your problems. You could probably use code from this repo for use in your own configuration, just be sure not to use stuff if you don't know what it does. I definitely didn't design this to be plug-and-play with anybody else's host.
 
 ## Credits
 
@@ -58,7 +59,7 @@ No project is done alone. This is especially so in the FOSS World. I would like 
 
 [raf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and probably for other reasons that I may be missing.
 
-This list will be sure to grow.
+This list will be sure to grow, and I have probably missed pepole. So to everyone else I have interacted with on my Nix journey, thank you.
 
 ## Licensing
 

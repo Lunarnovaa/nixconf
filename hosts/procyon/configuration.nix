@@ -6,7 +6,7 @@
 }: let
   inherit
     (lib)
-    mkDefault
+    mkForce
     ;
 in {
   imports = [

@@ -24,11 +24,14 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     hyprland.url = "github:hyprwm/Hyprland";
+<<<<<<< HEAD
 
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+=======
+>>>>>>> ab118f5 (init: hyprland)
   };
 
   outputs = {

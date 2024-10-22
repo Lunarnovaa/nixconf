@@ -1,8 +1,8 @@
 {config, ...}: {
   imports = [
-    ./hyprlock.nix
     ./hyprpaper.nix
     ./mako.nix
+    ./swaylock.nix
     ./tofi.nix
     ./waybar.nix
   ];

@@ -10,6 +10,7 @@
     (lib)
     mkIf
     ;
+<<<<<<< HEAD
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         xdotool getactivewindow windowunmap
@@ -17,6 +18,8 @@
         hyprctl dispatch killactive ""
     fi
   '';
+=======
+>>>>>>> ab118f5 (init: hyprland)
 in {
   config = mkIf config.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
@@ -25,6 +28,7 @@ in {
       bind = [
         "$mod, G, exec, firefox"
         "$mod, Return, exec, alacritty"
+<<<<<<< HEAD
         "$mod, D, exec, ${killactive}/bin/save-steam"
 
         ", Print, exec, grimblast --notify --freeze copy area"
@@ -59,11 +63,19 @@ in {
         ", switch:off:[switch name], exec, hyprctl keyword monitor 'eDP-1, 2560x1600, 0x0, 1'"
       ];
       */
+=======
+        "$mod, P, exec, tofi-drun --drun-launch=true"
+        "$mod, D, killactive,"
+      ];
+>>>>>>> ab118f5 (init: hyprland)
     };
 
     home.packages = with pkgs; [
       wev
+<<<<<<< HEAD
       grimblast
+=======
+>>>>>>> ab118f5 (init: hyprland)
     ];
   };
 }

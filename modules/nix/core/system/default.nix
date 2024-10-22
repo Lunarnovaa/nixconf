@@ -10,6 +10,7 @@
     ./networking.nix
     ./nix-ld.nix
     ./nvidia.nix
+    ./pam.nix
     ./printing.nix
   ];
 

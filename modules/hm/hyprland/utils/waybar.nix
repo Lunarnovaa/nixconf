@@ -41,7 +41,7 @@
         hyprctl dispatch exit
       ;;
       Lock)
-        hyprlock
+        swaylock
       ;;
     esac
   '';

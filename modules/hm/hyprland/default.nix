@@ -10,7 +10,6 @@
     (lib)
     mkIf
     ;
-<<<<<<< HEAD
   inherit
     (config.theme)
     colors
@@ -33,31 +32,13 @@ in {
   config = mkIf config.hyprland.enable {
     home.packages = [pkgs.bibata-cursors];
     home.sessionVariables.NIXOS_OZONE_WL = "1";
-=======
-  pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
-in {
-  imports = [
-    ./binds.nix
-    ./mako.nix
-    ./nvidia.nix
-    ./tofi.nix
-  ];
-
-  config = mkIf config.hyprland.enable {
->>>>>>> ab118f5 (init: hyprland)
     wayland.windowManager.hyprland = {
       enable = true;
       # Set the hyprland package to the version defined in the flake
       package = pkgs-unstable.hyprland;
 
       settings = {
-<<<<<<< HEAD
         exec-once = ''${startupScript}/bin/start'';
-=======
-        exec-once = ''
-          mako & systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1
-        '';
->>>>>>> ab118f5 (init: hyprland)
 
         input = {
           kb_layout = "us";
@@ -65,7 +46,6 @@ in {
           accel_profile = "flat";
           sensitivity = "-0.2";
         };
-<<<<<<< HEAD
 
         env = [
           "XCURSOR_THEME,Bibata-Modern-Classic"
@@ -84,8 +64,6 @@ in {
         decoration = {
           rounding = "3";
         };
-=======
->>>>>>> ab118f5 (init: hyprland)
       };
     };
   };

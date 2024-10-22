@@ -8,7 +8,9 @@
 ## before moving hyprland to laptop
 
 - [x] setup agenix - ask about
-- [ ] make sure hyprlock works
+- [ ] ~~make sure hyprlock works~~
+- [x] setup swaylock
+- [ ] update readme
 - [ ] setup hypridle ?
 
 ## 10/24

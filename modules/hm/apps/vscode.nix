@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit
@@ -14,6 +15,7 @@
     ;
 in {
   config = mkIf config.vscode.enable {
+    home.packages = with pkgs; [alejandra nixd];
     programs.vscode = {
       enable = true;
       #extensions = with pkgs.vscode-extensions; [ #not currently working for some reason

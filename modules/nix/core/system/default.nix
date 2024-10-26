@@ -5,7 +5,6 @@
     ./locales.nix
     ./networking.nix
     ./nix-ld.nix
-    ./nixd.nix
     ./nvidia.nix
     ./pam.nix
     ./printing.nix

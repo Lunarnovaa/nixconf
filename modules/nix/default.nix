@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{...}: {
   imports = [
     ./core/desktop/default.nix
     ./core/system/default.nix

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{...}: {
   # Enable Hyprland cache to avoid building from source
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];

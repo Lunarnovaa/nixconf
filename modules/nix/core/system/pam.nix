@@ -1,8 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{...}: {
   security.pam.services = {
     hyprlock = {
       name = "swaylock";

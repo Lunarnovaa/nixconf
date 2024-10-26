@@ -1,8 +1,4 @@
-{
-  pkgs,
-  osConfig,
-  ...
-}: {
+{osConfig, ...}: {
   imports = [
     ./spicetify.nix
   ];

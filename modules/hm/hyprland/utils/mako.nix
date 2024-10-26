@@ -1,8 +1,5 @@
 {
   config,
-  inputs,
-  pkgs,
-  options,
   lib,
   ...
 }: let
@@ -15,7 +12,7 @@
     colors
     fonts
     ;
-  hyprland-settings = config.wayland.windowManager.hyprland.settings;
+  #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
     programs.mako = {

@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   imports = [
     ./firefox/default.nix
     ./spotify/default.nix

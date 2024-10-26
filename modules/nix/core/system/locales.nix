@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{...}: {
   # Configure Timezone
   time.timeZone = "America/Los_Angeles";
 

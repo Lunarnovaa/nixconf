@@ -1,8 +1,6 @@
 {
   config,
-  inputs,
   pkgs,
-  options,
   lib,
   ...
 }: let
@@ -13,7 +11,6 @@
   inherit
     (config.theme)
     colors
-    fonts
     ;
   hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {

@@ -2,9 +2,6 @@
   inputs,
   lib,
   config,
-  osConfig,
-  options,
-  pkgs,
   ...
 }: let
   inherit
@@ -15,10 +12,6 @@
     (config.theme)
     fonts
     ;
-  flake = pkgs.pkgs.fetchurl {
-    url = "https://github.com/Lunarnovaa/nixconf";
-    sha256 = "1qp2xhwdixmgfl4yaw1a9cldbbi6lyxlz6vqgg6gpkq5ylv8lhy7";
-  };
 in {
   config = mkIf config.vscode.enable {
     programs.vscode = {

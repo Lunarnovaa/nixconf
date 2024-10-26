@@ -1,9 +1,7 @@
 {
   config,
   osConfig,
-  inputs,
   pkgs,
-  options,
   lib,
   ...
 }: let
@@ -16,7 +14,7 @@
     colors
     fonts
     ;
-  hyprland-settings = config.wayland.windowManager.hyprland.settings;
+  #hyprland-settings = config.wayland.windowManager.hyprland.settings;
   tofiPowermenu = pkgs.pkgs.writeShellScriptBin "powermenu" ''
     #from u/timblaktu, runs this command to gracefully close apps
     HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')

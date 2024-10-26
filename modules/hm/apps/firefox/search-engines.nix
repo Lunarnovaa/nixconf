@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   pdbImageLink = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
 
   pdbImage = pkgs.fetchurl {

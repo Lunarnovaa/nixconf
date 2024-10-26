@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ./search-engines.nix
     ./vertical-tabs.nix

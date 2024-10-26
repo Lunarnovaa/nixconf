@@ -1,15 +1,16 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{config, ...}: let
+  inherit
+    (config.age.secrets)
+    wifiPassword
+    ;
+in {
   # Enable Networking
   networking = {
     networkmanager = {
       enable = true;
       ensureProfiles = {
         environmentFiles = [
-          config.age.secrets.wifiPassword.path
+          wifiPassword.path
         ];
         profiles = {
           aquacell = {

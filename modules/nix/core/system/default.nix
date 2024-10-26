@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{...}: {
   imports = [
     ./bootloader.nix
     ./caches.nix

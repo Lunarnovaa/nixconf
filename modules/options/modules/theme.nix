@@ -14,7 +14,6 @@
     str
     int
     path
-    commas
     ;
 in {
   options.theme = {

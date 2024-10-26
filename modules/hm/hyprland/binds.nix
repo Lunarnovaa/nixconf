@@ -1,14 +1,17 @@
 {
   config,
-  inputs,
   pkgs,
-  options,
   lib,
   ...
 }: let
   inherit
     (lib)
     mkIf
+    mkMerge
+    ;
+  inherit
+    (config.hyprland)
+    monitors
     ;
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
@@ -22,24 +25,27 @@ in {
     wayland.windowManager.hyprland.settings = {
       "$mod" = "SUPER";
 
-      bind = [
-        "$mod, G, exec, firefox"
-        "$mod, Return, exec, alacritty"
-        "$mod, D, exec, ${killactive}/bin/save-steam"
+      bind = mkMerge [
+        monitors.bind
+        [
+          "$mod, G, exec, firefox"
+          "$mod, Return, exec, alacritty"
+          "$mod, D, exec, ${killactive}/bin/save-steam"
 
-        ", Print, exec, grimblast --notify --freeze copy area"
+          ", Print, exec, grimblast --notify --freeze copy area"
 
-        "ALT, Tab, cyclenext,"
-        "ALT, Tab, bringactivetotop,"
+          "ALT, Tab, cyclenext,"
+          "ALT, Tab, bringactivetotop,"
 
-        "ALT, 1, workspace, 1"
-        "ALT, 2, workspace, 2"
-        "ALT, 3, workspace, 3"
-        "ALT, 4, workspace, 4"
-        "$mod, 1, movetoworkspace, 1"
-        "$mod, 2, movetoworkspace, 2"
-        "$mod, 3, movetoworkspace, 3"
-        "$mod, 4, movetoworkspace, 4"
+          "ALT, 1, workspace, 1"
+          "ALT, 2, workspace, 2"
+          "ALT, 3, workspace, 3"
+          "ALT, 4, workspace, 4"
+          "$mod, 1, movetoworkspace, 1"
+          "$mod, 2, movetoworkspace, 2"
+          "$mod, 3, movetoworkspace, 3"
+          "$mod, 4, movetoworkspace, 4"
+        ]
       ];
       bindm = [
         "$mod, mouse:272, movewindow"

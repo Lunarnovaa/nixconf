@@ -2,7 +2,6 @@
   config,
   inputs,
   pkgs,
-  options,
   lib,
   ...
 }: let
@@ -13,6 +12,10 @@
   inherit
     (config.theme)
     colors
+    ;
+  inherit
+    (config.hyprland)
+    monitors
     ;
   pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
@@ -39,6 +42,8 @@ in {
 
       settings = {
         exec-once = ''${startupScript}/bin/start'';
+
+        monitor = monitors.configuration;
 
         input = {
           kb_layout = "us";

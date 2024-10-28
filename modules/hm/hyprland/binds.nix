@@ -47,6 +47,12 @@ in {
           "$mod, 4, movetoworkspace, 4"
 
           "$mod, space, togglefloating, active"
+
+          # Creates arrow keys on homerow :)
+          "Control_L, n, sendshortcut,, Left, activewindow"
+          "Control_L, e, sendshortcut,, Down, activewindow"
+          "Control_L, i, sendshortcut,, Right, activewindow"
+          "Control_L, u, sendshortcut,, Up, activewindow"
         ]
       ];
       bindm = [
@@ -56,6 +62,8 @@ in {
       bindr = [
         "SUPER, SUPER_L, exec, tofi-drun --drun-launch=true"
       ];
+
+      input.kb_options = ["ctrl:nocaps"];
       # figure out when i install hyprland on my laptop
       /*
         bind1 = [

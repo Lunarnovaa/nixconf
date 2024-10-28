@@ -13,13 +13,12 @@ My nixconf is structured specifically to be logical and help me work with it. He
   - [`${hostName}/options.nix`](./hosts/polaris/options.nix) Option selection
 - [`modules/`](./modules) Modular system configuration: HM and Nix modules stored in one place to highlight option sharing
   - [`hm`](./modules/hm) Home-Manager Modules: Program configuration
-    - [`apps`](./modules/apps) App Configuration: Configures specific apps
-    - [`hyprland`](./modules/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
-    - [`theming`](./modules/theming) Theming: Themes GTK and QT
+    - [`apps`](./modules/hm/apps) App Configuration: Configures specific apps
+    - [`hyprland`](./modules/hm/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
+    - [`theming`](./modules/hm/theming) Theming: Themes GTK and QT
   - [`nix`](./modules/nix) Nix Modules: System-level configuration
     - [`core`](./modules/nix/core) Core Nix Modules: Critical infrastructure for systems
     - [`optionals`](./modules/nix/optionals) Optional Nix Modules: Profile specific system-level modules
-    - [`users`](./modules/nix/users) User configuration: Declares HM, the user, and configures Agenix
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system & per profile
     - [`apps`](./modules/options/apps) Declaration of app options
     - [`modules`](./modules/options/modules) Custom module declaration
@@ -34,11 +33,11 @@ My nixconf is structured specifically to be logical and help me work with it. He
 4. Any of the program options can be forcibly enabled or disabled per-system.
 5. All of the above is imported into both Home Manager and NixOS as modules.
 
-Credit to [raf](https://github.com/NotAShelf/Nyx) for inspiration and references.
+Credit to [@NotAShelf](https://github.com/NotAShelf/Nyx) for inspiration and references.
 
 ### Where's `home.nix`?
 
-I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously only used it for home-manager options, so when I replaced my option system it was no longer needed.
+I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously only used it for home-manager options, so when I replaced my option system it was no longer needed. This allows me to make system-specific configuration that may be referenced in both Nix and HM modules.
 
 ## Hosts
 
@@ -49,15 +48,15 @@ I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously on
 
 ## Credits
 
-No project is done alone. This is especially so in the FOSS World. I would like to credit and thank the following people for sharing their configuration, wisdom, or thoughts with me:
+No project is done alone. This is especially so in the FOSS World. I would like to credit and thank the following people for sharing their configuration, wisdom, or knowledge:
 
-[Vimjoyer](https://www.youtube.com/@vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration.
+[@vimjoyer](https://www.youtube.com/@vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration.
 
-[Viper](https://github.com/viperML), especially for his blogposts, but also for his projects like [nh](https://github.com/viperML/nh).
+[@viperML](https://github.com/viperML), especially for his blogposts, but also for his projects like [nh](https://github.com/viperML/nh).
 
-[lychee](https://github.com/itslychee), for help on Discord.
+[@itslychee](https://github.com/itslychee), for help on Discord.
 
-[raf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and probably for other reasons that I may be missing.
+[@NotAShelf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and probably for other reasons that I may be missing.
 
 This list will be sure to grow, and I have probably missed pepole. So to everyone else I have interacted with on my Nix journey, thank you.
 

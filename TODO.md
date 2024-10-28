@@ -3,6 +3,7 @@
 ## after moving hyprland to laptop
 
 - [ ] setup specific "laptop closes" binds
+- [ ] configure laptop display
 - [ ] any other config???
 
 ## before moving hyprland to laptop
@@ -10,7 +11,7 @@
 - [x] setup agenix - ask about
 - [ ] ~~make sure hyprlock works~~
 - [x] setup swaylock
-- [ ] update readme
+- [x] update readme
 - [ ] setup hypridle ?
 
 ## 10/24

@@ -32,7 +32,7 @@ in {
           "$mod, Return, exec, alacritty"
           "$mod, D, exec, ${killactive}/bin/save-steam"
 
-          ", Print, exec, grimblast --notify --freeze copy area"
+          ", Print, exec, ${pkgs.grimblast}/bin/grimblast --notify --freeze copy area"
 
           "ALT, Tab, cyclenext,"
           "ALT, Tab, bringactivetotop,"
@@ -79,7 +79,6 @@ in {
 
     home.packages = with pkgs; [
       wev
-      grimblast
     ];
   };
 }

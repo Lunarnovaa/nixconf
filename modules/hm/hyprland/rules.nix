@@ -15,10 +15,15 @@
 in {
   config = mkIf config.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
-      windowrule = [
-        #"workspace 3, class:(steam), class:(lutris)" #gaming
-        #"workspace 2, class:(vesktop), initialTitle:(Spotify Premium)" #comforts
-        #"workspace 1, class(firefox), class(code-url-handler)" #productivity
+      windowrulev2 = [
+        "workspace 3, class:(steam)" #gaming
+        "workspace 3, class:(lutris)"
+
+        "workspace 2, class:(vesktop)" #comforts
+        "workspace 2, initialTitle:(Spotify Premium)"
+
+        "workspace 1, class:(firefox)" #productivity
+        "workspace 1, initialTitle:(Visual Studio Code)"
       ];
 
       workspace = mkMerge [

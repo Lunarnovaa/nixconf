@@ -12,7 +12,7 @@
 - [ ] ~~make sure hyprlock works~~
 - [x] setup swaylock
 - [x] update readme
-- [ ] setup hypridle ?
+- [x] setup hypridle ?
 
 ## 10/24
 

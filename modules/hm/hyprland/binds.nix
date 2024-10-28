@@ -45,6 +45,8 @@ in {
           "$mod, 2, movetoworkspace, 2"
           "$mod, 3, movetoworkspace, 3"
           "$mod, 4, movetoworkspace, 4"
+
+          "$mod, space, togglefloating, active"
         ]
       ];
       bindm = [

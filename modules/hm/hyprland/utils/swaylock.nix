@@ -30,7 +30,7 @@ in {
         clock = true;
         indicator = true;
         timestr = "%H:%M";
-        datestr = "%e.%m.%y";
+        datestr = "%m.%e.%y";
 
         line-color = "${colors.base01}";
         text-color = "${colors.base05}";

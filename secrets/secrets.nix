@@ -6,4 +6,5 @@ let
 in {
   "userPassword.age".publicKeys = [polaris procyon];
   "wifiPassword.age".publicKeys = [polaris procyon];
+  "spotifyPassword.age".publicKeys = [polaris procyon];
 }

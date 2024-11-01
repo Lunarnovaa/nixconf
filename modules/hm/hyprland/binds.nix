@@ -49,10 +49,10 @@ in {
           "$mod, space, togglefloating, active"
 
           # Creates arrow keys on homerow :)
-          "Control_L, n, sendshortcut,, Left, activewindow"
-          "Control_L, e, sendshortcut,, Down, activewindow"
-          "Control_L, i, sendshortcut,, Right, activewindow"
-          "Control_L, u, sendshortcut,, Up, activewindow"
+          #"Control_L, n, sendshortcut,, Left, activewindow"
+          #"Control_L, e, sendshortcut,, Down, activewindow"
+          #"Control_L, i, sendshortcut,, Right, activewindow"
+          #"Control_L, u, sendshortcut,, Up, activewindow"
         ]
       ];
       bindm = [

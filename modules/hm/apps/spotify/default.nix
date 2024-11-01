@@ -8,7 +8,9 @@
     settings = {
       global = {
         username = "Lunarnova";
+        password_cmd = "cat ${osConfig.age.secrets.spotifyPassword.path}";
         device_name = "${osConfig.networking.hostName}";
+        initial_volume = "40";
       };
     };
   };

@@ -3,6 +3,7 @@
   age.secrets = {
     userPassword.file = ./../../../../secrets/userPassword.age;
     wifiPassword.file = ./../../../../secrets/wifiPassword.age;
+    spotifyPassword.file = ./../../../../secrets/spotifyPassword.age;
   };
   age.identityPaths = ["/etc/ssh/ssh_host_ed25519_key"];
 }

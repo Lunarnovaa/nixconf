@@ -77,7 +77,7 @@ in {
           };
           "clock" = {
             timezone = "${osConfig.time.timeZone}";
-            format = "[{:%e.%m.%y %H:%M}]";
+            format = "[{:%m.%e.%y %H:%M}]";
           };
 
           "network" = {

@@ -6,6 +6,19 @@
 - [ ] configure laptop display
 - [ ] any other config???
 
+## polish
+
+- [ ] waybar date has gap (11. 1.24)
+- [ ] setup hyprsunset
+- [ ] replace grimshot with satty or other screenshot annotation tool
+- [ ] Setup arrow keys on homerow without disrupting sc2 the core (window rule?)
+- [ ] fix hypridle activating on watching video (or playing game?)
+- [ ] experiment with different border sizes
+- [ ] Fix vesktop flickering (either with xwayland or --disable-gpu-compositing)
+- [ ] Fix spotifyd/spotify_player default volume
+- [ ] Setup agenix alias ?
+- [ ] Setup spotify_player alias (its really annoying to type out)
+
 ## before moving hyprland to laptop
 
 - [x] setup agenix - ask about
@@ -13,6 +26,8 @@
 - [x] setup swaylock
 - [x] update readme
 - [x] setup hypridle ?
+- [x] setup bibata hyprcursors
+- [ ] ~~setup fancy cursor features with that one plugin?~~
 
 ## 10/24
 

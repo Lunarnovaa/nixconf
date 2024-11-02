@@ -18,6 +18,7 @@
 - [ ] Fix spotifyd/spotify_player default volume
 - [ ] Setup agenix alias ?
 - [ ] Setup spotify_player alias (its really annoying to type out)
+- [ ] setup qwerty keyboard layout alternative
 
 ## before moving hyprland to laptop
 

@@ -19,6 +19,7 @@
 - [ ] Setup agenix alias ?
 - [ ] Setup spotify_player alias (its really annoying to type out)
 - [ ] setup qwerty keyboard layout alternative
+- [ ] add htop/something of the sort
 
 ## before moving hyprland to laptop
 

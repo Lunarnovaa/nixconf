@@ -21,6 +21,11 @@
 - [ ] setup qwerty keyboard layout alternative
 - [ ] add htop/something of the sort
 
+## other miscellaneous ideas
+
+- [ ] radio streaming ([shortwave](https://www.youtube.com/watch?v=Fnei-yR44UM))
+- [ ] nvim
+
 ## before moving hyprland to laptop
 
 - [x] setup agenix - ask about

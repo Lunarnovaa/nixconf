@@ -44,5 +44,4 @@ in {
       };
     };
   };
-  config.hyprland.enable = mkDefault true;
 }

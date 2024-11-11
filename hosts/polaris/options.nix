@@ -28,6 +28,7 @@ in {
     spicetify.enable = mkDefault true;
 
     hyprland = {
+      enable = true;
       monitors = {
         configuration = [
           "${primaryDisplay}, preferred, auto, 1"

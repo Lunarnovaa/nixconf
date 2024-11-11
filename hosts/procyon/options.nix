@@ -16,6 +16,7 @@ in {
   performance.enable = mkDefault true;
 
   hyprland = {
+    enable = true;
     monitors = {
       configuration = [
         ", preferred, auto, 1"

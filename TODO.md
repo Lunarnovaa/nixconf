@@ -9,7 +9,7 @@
 ## polish
 
 - [x] waybar date has gap (11. 1.24)
-- [ ] setup hyprsunset (wait for hm module)
+- [x] setup hyprsunset (wait for hm module)
 - [ ] ~~replace grimshot with satty or other screenshot annotation tool~~
 - [x] Setup arrow keys on homerow without disrupting sc2 the core (window rule?)
 - [ ] Setup indicator for "gamemode"

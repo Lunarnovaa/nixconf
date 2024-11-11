@@ -18,13 +18,11 @@ in {
     home.packages = with pkgs; [alejandra nixd];
     programs.vscode = {
       enable = true;
-      #extensions = with pkgs.vscode-extensions; [ #not currently working for some reason
-      # jnoortheen.nix-ide
-      #];
       userSettings = {
         "editor.fontFamily" = "${fonts.monospace}";
         "editor.fontLigatures" = true;
         "workbench.colorTheme" = "Catppuccin Macchiato";
+        "catppuccin.accentColor" = "red";
 
         "nix.serverPath" = "nixd";
         "nix.enableLanguageServer" = true;

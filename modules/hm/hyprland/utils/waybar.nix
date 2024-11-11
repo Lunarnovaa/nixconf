@@ -79,7 +79,7 @@ in {
             format = "[{}]";
           };
           "battery" = {
-            format = "{icon} ({capacity}%)";
+            format = "{icon}  [{capacity}%]";
             format-icons = ["" "" "" "" ""];
             states = {
               warning = 30;
@@ -88,7 +88,8 @@ in {
           };
           "network" = {
             format-ethernet = "󰈀";
-            format-wifi = "{icons}: {essid}";
+            format-wifi = "{icon}";
+            tooltip-format-wifi = "{essid} @ {signalStrength}%";
             format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
             format-disconnected = "󰤭";
             on-click = "alacritty -e nmtui";

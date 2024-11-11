@@ -58,7 +58,7 @@ in {
           margin-bottom = 2;
           modules-left = ["hyprland/workspaces" "tray"];
           modules-center = ["hyprland/window"];
-          modules-right = ["battery" "network" "bluetooth" "custom/powermenu" "clock"];
+          modules-right = ["hyprland/language" "battery" "network" "bluetooth" "custom/powermenu" "clock"];
 
           "hyprland/workspaces" = {
             format = "[{id}]";
@@ -77,7 +77,7 @@ in {
           };
           "clock" = {
             timezone = "${osConfig.time.timeZone}";
-            format = "[{:%m.%e.%y %H:%M}]";
+            format = "[{:%m.%d.%y %H:%M}]";
           };
 
           "network" = {

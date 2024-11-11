@@ -21,9 +21,15 @@ in {
           size = fonts.size;
           normal.family = "${fonts.monospace}";
         };
-        window.dimensions = {
-          lines = 28;
-          columns = 101;
+        window = {
+          dimensions = {
+            lines = 28;
+            columns = 101;
+          };
+          padding = {
+            x = 6;
+            y = 3;
+          };
         };
         colors = {
           bright = {

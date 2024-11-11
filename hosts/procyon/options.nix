@@ -12,4 +12,6 @@ in {
     server.enable = mkDefault false;
     workstation.enable = mkDefault true;
   };
+
+  performance.enable = mkDefault true;
 }

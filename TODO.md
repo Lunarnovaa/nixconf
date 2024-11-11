@@ -8,23 +8,24 @@
 
 ## polish
 
-- [ ] waybar date has gap (11. 1.24)
-- [ ] setup hyprsunset
-- [ ] replace grimshot with satty or other screenshot annotation tool
-- [ ] Setup arrow keys on homerow without disrupting sc2 the core (window rule?)
-- [ ] fix hypridle activating on watching video (or playing game?)
-- [ ] experiment with different border sizes
+- [x] waybar date has gap (11. 1.24)
+- [ ] setup hyprsunset (wait for hm module)
+- [ ] ~~replace grimshot with satty or other screenshot annotation tool~~
+- [x] Setup arrow keys on homerow without disrupting sc2 the core (window rule?)
+- [ ] Setup indicator for "gamemode"
+- [x] fix hypridle activating on watching video (or playing game?)
+- [x] experiment with different border sizes
 - [ ] Fix vesktop flickering (either with xwayland or --disable-gpu-compositing)
-- [ ] Fix spotifyd/spotify_player default volume
-- [ ] Setup agenix alias ?
-- [ ] Setup spotify_player alias (its really annoying to type out)
-- [ ] setup qwerty keyboard layout alternative
-- [ ] add htop/something of the sort
+- [x] Fix spotifsyd/spotify_player default volume
+- [ ] ~~Setup agenix alias~~
+- [x] Setup spotify_player alias (its really annoying to type out)
+- [x] setup qwerty keyboard layout alternative
+- [x] add htop/something of the sort
 
 ## other miscellaneous ideas
 
 - [ ] radio streaming ([shortwave](https://www.youtube.com/watch?v=Fnei-yR44UM))
-- [ ] nvim
+- [ ] nvf
 
 ## before moving hyprland to laptop
 

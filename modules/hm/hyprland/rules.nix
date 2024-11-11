@@ -18,6 +18,7 @@ in {
       windowrulev2 = [
         "workspace 3, class:(steam)" #gaming
         "workspace 3, class:(lutris)"
+        "workspace 3, class:(org.prismlauncher.PrismLauncher)"
 
         "workspace 2, class:(vesktop)" #comforts
         "workspace 2, initialTitle:(Spotify Premium)"
@@ -29,9 +30,7 @@ in {
       workspace = mkMerge [
         monitors.rules
         [
-          # Smart Gaps
-          #"w[t1], gapsout:0, gapsin:0, border: 0, rounding:0"
-          #"w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0"
+          # for smart gaps, reference https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
         ]
       ];
     };

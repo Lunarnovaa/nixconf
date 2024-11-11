@@ -28,6 +28,20 @@ in {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "$mod, F1, exec, ${gamemode}/bin/enable-gamemode"
+
+        # Game mode settings
+
+        ## Unbinding the homerow arrow keys for The Core RTS keybinds
+        "$mod, B, exec, hyprctl keyword unbind CONTROL, n"
+        "$mod, B, exec, hyprctl keyword unbind CONTROL, e"
+        "$mod, B, exec, hyprctl keyword unbind CONTROL, i"
+        "$mod, B, exec, hyprctl keyword unbind CONTROL, u"
+
+        ## Rebinding homerow arrow keys
+        "$mod, K, exec, hyprctl keyword bind CONTROL, n, sendshortcut,, Left, activewindow"
+        "$mod, K, exec, hyprctl keyword bind CONTROL, e, sendshortcut,, Down, activewindow"
+        "$mod, K, exec, hyprctl keyword bind CONTROL, i, sendshortcut,, Right, activewindow"
+        "$mod, K, exec, hyprctl keyword bind CONTROL, u, sendshortcut,, Up, activewindow"
       ];
     };
   };

@@ -4,6 +4,7 @@
     ./spotify/default.nix
 
     ./alacritty.nix
+    ./bottom.nix
     ./fastfetch.nix
     ./git.nix
     ./nushell.nix
@@ -13,6 +14,5 @@
     ./spaceship.nix
     ./vesktop.nix
     ./vscode.nix
-    ./zed.nix
   ];
 }

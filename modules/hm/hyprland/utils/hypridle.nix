@@ -14,7 +14,6 @@ in {
       settings = {
         general = {
           lock_cmd = "pidof swaylock || swaylock";
-          ignore_dbus_inhibit = true;
           before_sleep_cmd = "swaylock";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };

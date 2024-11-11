@@ -31,17 +31,17 @@ in {
       monitors = {
         configuration = [
           "${primaryDisplay}, preferred, auto, 1"
-          "${secondaryDisplay}, preferred, auto-left, 1"
-          #"${secondaryDisplay}, disable"
+          #"${secondaryDisplay}, preferred, auto-left, 1"
+          "${secondaryDisplay}, disable"
         ];
         bind = mkIf config.profile.gaming.enable [
           #moves firefox workspace to secondary for gaming, primary when done
-          "$mod,B,moveworkspacetomonitor,1 ${secondaryDisplay}"
-          "$mod,K,moveworkspacetomonitor,1 ${primaryDisplay}"
+          #"$mod,B,moveworkspacetomonitor,1 ${secondaryDisplay}"
+          #"$mod,K,moveworkspacetomonitor,1 ${primaryDisplay}"
         ];
         rules = [
-          "3, monitor:${primaryDisplay}"
-          "2, monitor:${secondaryDisplay}, default:true"
+          #"3, monitor:${primaryDisplay}"
+          #"2, monitor:${secondaryDisplay}, default:true"
         ];
       };
     };

@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./bottom.nix
     ./fastfetch.nix
     ./firefox-vertical-tabs.nix
     ./nvidia.nix

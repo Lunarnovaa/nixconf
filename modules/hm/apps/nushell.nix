@@ -18,6 +18,9 @@ in {
 
         alias ll = ls -l
         alias ndev = nix develop --command nu
+
+        alias spp = spotify_player
+
         def nbuild [] {
             cd ~/nix-tools
             nix develop --command nu

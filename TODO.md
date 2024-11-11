@@ -2,8 +2,8 @@
 
 ## after moving hyprland to laptop
 
-- [ ] setup specific "laptop closes" binds
-- [ ] configure laptop display
+- [ ]~~ setup specific "laptop closes" binds~~ done already? idk ig this step wasn't necessary
+- [x] configure laptop display
 - [ ] any other config???
 
 ## polish

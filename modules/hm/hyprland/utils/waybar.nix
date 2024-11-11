@@ -60,12 +60,23 @@ in {
           modules-center = ["hyprland/window"];
           modules-right = ["hyprland/language" "battery" "network" "bluetooth" "custom/powermenu" "clock"];
 
+          # left modules
           "hyprland/workspaces" = {
             format = "[{id}]";
           };
+          "tray" = {
+            icon-size = 21;
+            spacing = 10;
+          };
 
+          # center modules
           "hyprland/window" = {
             format = "[{title}]";
+          };
+
+          #right modules
+          "hyprland/language" = {
+            format = "[{}]";
           };
           "battery" = {
             format = "{icon} ({capacity}%)";
@@ -75,11 +86,6 @@ in {
               critical = 15;
             };
           };
-          "clock" = {
-            timezone = "${osConfig.time.timeZone}";
-            format = "[{:%m.%d.%y %H:%M}]";
-          };
-
           "network" = {
             format-ethernet = "󰈀";
             format-wifi = "{icons}: {essid}";
@@ -87,7 +93,6 @@ in {
             format-disconnected = "󰤭";
             on-click = "alacritty -e nmtui";
           };
-
           "bluetooth" = {
             format-disabled = "󰂲";
             format-off = "󰂲";
@@ -99,14 +104,13 @@ in {
             tooltip-format-enumerate-connected-battery = "{device_alias} - {device_battery_percentage}";
             on-click = "blueberry";
           };
-
-          "tray" = {
-            icon-size = 21;
-            spacing = 10;
-          };
           "custom/powermenu" = {
             format = "⏻";
             on-click = ''${tofiPowermenu}/bin/powermenu'';
+          };
+          "clock" = {
+            timezone = "${osConfig.time.timeZone}";
+            format = "[{:%m.%d.%y %H:%M}]";
           };
         };
       };

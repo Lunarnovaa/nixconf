@@ -19,6 +19,9 @@ in {
     monitors = {
       configuration = mkOption {
         type = listOf str;
+        default = [
+          ", preferred, auto, 1"
+        ];
         example = [
           "HDMI-A-1, 1920x1080@60, auto, 1"
           "DP-4, 1920x1080@60, auto-left, 1"
@@ -27,12 +30,12 @@ in {
       };
       bind = mkOption {
         type = listOf str;
-        example = [
-        ];
+        default = [];
         description = "Sets special 'bind' binds for monitor configuration";
       };
       rules = mkOption {
         type = listOf str;
+        default = [];
         example = [
           "3, monitor:HDMI-A-1"
           "2, monitor:DP-4, default:true"

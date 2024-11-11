@@ -14,4 +14,14 @@ in {
   };
 
   performance.enable = mkDefault true;
+
+  hyprland = {
+    monitors = {
+      configuration = [
+        ", preferred, auto, 1"
+      ];
+      #bind = [];
+      #rules = [];
+    };
+  };
 }

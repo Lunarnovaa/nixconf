@@ -13,7 +13,7 @@ in {
     wayland.windowManager.hyprland.settings = {
       decoration = {
         blur.enabled = false;
-        drop_shadow = false;
+        shadow.enabled = false;
       };
       misc.vfr = true;
     };

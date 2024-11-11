@@ -15,7 +15,7 @@
 - [ ] Setup indicator for "gamemode"
 - [x] fix hypridle activating on watching video (or playing game?)
 - [x] experiment with different border sizes
-- [ ] Fix vesktop flickering (either with xwayland or --disable-gpu-compositing)
+- [x] Fix vesktop flickering (either with xwayland or --disable-gpu-compositing)
 - [x] Fix spotifsyd/spotify_player default volume
 - [ ] ~~Setup agenix alias~~
 - [x] Setup spotify_player alias (its really annoying to type out)

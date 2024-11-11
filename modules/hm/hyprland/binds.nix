@@ -30,6 +30,8 @@ in {
         [
           "$mod, G, exec, firefox"
           "$mod, Return, exec, alacritty"
+          "$mod, M, exec, vesktop --disable-gpu-compositing"
+
           "$mod, D, exec, ${killactive}/bin/save-steam"
 
           ", Print, exec, ${pkgs.grimblast}/bin/grimblast --notify --freeze copy area"
@@ -73,9 +75,5 @@ in {
       ];
       */
     };
-
-    home.packages = with pkgs; [
-      wev
-    ];
   };
 }

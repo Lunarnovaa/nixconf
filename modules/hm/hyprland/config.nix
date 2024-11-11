@@ -40,10 +40,7 @@ in {
       input = {
         kb_layout = "us,us";
         kb_variant = "colemak,";
-        kb_options = [
-          "ctrl:nocaps"
-          "grp:win_space_toggle"
-        ];
+        kb_options = "ctrl:nocaps,grp:win_space_toggle";
         accel_profile = "flat";
         sensitivity = "-0.2";
       };

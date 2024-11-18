@@ -63,17 +63,21 @@ in {
       bindr = [
         "SUPER, SUPER_L, exec, tofi-drun --drun-launch=true"
       ];
-      # figure out when i install hyprland on my laptop
-      /*
-        bind1 = [
-        # trigger when the switch is toggled
-        ", switch:[switch name], exec, hyprlock"
-        # trigger when the switch is turning on
-        ", switch:on:[switch name], exec, hyprctl keyword monitor 'eDP-1, disable'"
-        # trigger when the switch is turning off
-        ", switch:off:[switch name], exec, hyprctl keyword monitor 'eDP-1, 2560x1600, 0x0, 1'"
+      bindel = [
+        # support for media keys
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
-      */
+      bindl = [
+        # more support for media keys
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+
+        # opening and closing of the lid
+        ", switch:off:Lid Switch, exec, systemctl suspend"
+      ];
     };
   };
 }

@@ -58,7 +58,7 @@ in {
           margin-bottom = 2;
           modules-left = ["hyprland/workspaces" "tray"];
           modules-center = ["hyprland/window"];
-          modules-right = ["hyprland/language" "battery" "network" "bluetooth" "custom/powermenu" "clock"];
+          modules-right = ["hyprland/language" "battery" "pulseaudio" "network" "bluetooth" "custom/powermenu" "clock"];
 
           # left modules
           "hyprland/workspaces" = {
@@ -84,6 +84,13 @@ in {
             states = {
               warning = 30;
               critical = 15;
+            };
+          };
+          "pulseaudio" = {
+            format = "{icon}  [{volume}%]";
+            format-muted = " ";
+            format-icons = {
+              default = ["" ""];
             };
           };
           "network" = {

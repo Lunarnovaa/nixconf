@@ -6,6 +6,7 @@
   home-manager.sharedModules = with inputs; [
     self.outputs.homeManagerModules.default
     spicetify-nix.homeManagerModules.default
+    nvf.homeManagerModules.default
   ];
 
   home-manager = {
@@ -16,8 +17,6 @@
         imports = [
           ./../../../../hosts/${config.networking.hostName}/options.nix
         ];
-
-        programs.home-manager.enable = true;
 
         # Give Home Manager User/Home info
         home.username = "lunarnova";

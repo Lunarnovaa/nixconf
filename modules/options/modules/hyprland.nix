@@ -6,7 +6,6 @@
   inherit
     (lib)
     mkEnableOption
-    mkDefault
     ;
   inherit
     (lib.types)

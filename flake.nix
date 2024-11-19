@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.lix.follows = "lix-module";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

@@ -15,7 +15,7 @@
     users = {
       "lunarnova" = {
         imports = [
-          ./../../../../hosts/${config.networking.hostName}/options.nix
+          ../../../../hosts/${config.networking.hostName}/options.nix
         ];
 
         # Give Home Manager User/Home info

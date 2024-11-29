@@ -69,7 +69,7 @@
           ./hosts/procyon/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
-          inputs.lix-module.nixosModules.default
+          #inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.agenix.nixosModules.default
 

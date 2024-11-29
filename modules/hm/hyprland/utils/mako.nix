@@ -15,7 +15,7 @@
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
-    programs.mako = {
+    services.mako = {
       enable = true;
 
       backgroundColor = "#${colors.base01}";

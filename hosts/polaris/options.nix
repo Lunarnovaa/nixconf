@@ -27,6 +27,7 @@ in {
     nvidia.enable = mkDefault true;
     spicetify.enable = mkDefault true;
 
+    via.enable = mkDefault true;
     hyprland = {
       enable = true;
       monitors = {

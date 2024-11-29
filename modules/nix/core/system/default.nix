@@ -8,6 +8,7 @@
     ./nvidia.nix
     ./pam.nix
     ./printing.nix
+    ./via.nix
   ];
 
   # ALlow Unfree Packages

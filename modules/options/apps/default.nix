@@ -7,5 +7,6 @@
     ./performance.nix
     ./spicetify.nix
     ./terminal-bundle.nix
+    ./via.nix
   ];
 }

@@ -22,7 +22,6 @@
     mako &
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
     waybar &
-    ${pkgs.hyprsunset}/bin/hyprsunset -t 4500 &
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &
   '';
 in {

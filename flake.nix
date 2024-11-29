@@ -57,7 +57,7 @@
           ./hosts/polaris/configuration.nix
           ./modules/nix
           inputs.home-manager.nixosModules.default
-          inputs.lix-module.nixosModules.default
+          #inputs.lix-module.nixosModules.default
           inputs.agenix.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers

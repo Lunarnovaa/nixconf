@@ -78,7 +78,7 @@ in {
         ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
 
         # opening and closing of the lid
-        ", switch:off:Lid Switch, exec, systemctl suspend"
+        ", switch:on:Lid Switch, exec, systemctl suspend"
       ];
     };
   };

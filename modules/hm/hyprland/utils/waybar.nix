@@ -92,6 +92,7 @@ in {
             format-icons = {
               default = ["" ""];
             };
+            on-click = "${pkgs.pwvucontrol}/bin/pwvucontrol";
           };
           "network" = {
             format-ethernet = "󰈀";

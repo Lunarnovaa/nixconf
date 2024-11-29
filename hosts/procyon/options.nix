@@ -1,25 +1,22 @@
-{lib, ...}: let
-  inherit
-    (lib)
-    mkDefault
-    ;
+{...}: let
+  primaryDisplay = "eDP-1";
 in {
   imports = [
     ./../../modules/options/default.nix
   ];
   profile = {
-    gaming.enable = mkDefault false;
-    server.enable = mkDefault false;
-    workstation.enable = mkDefault true;
+    gaming.enable = false;
+    server.enable = false;
+    workstation.enable = true;
   };
 
-  performance.enable = mkDefault true;
+  performance.enable = true;
 
   hyprland = {
     enable = true;
     monitors = {
       configuration = [
-        "eDP-1, preferred, auto, 1.333333"
+        "${primaryDisplay}, preferred, auto, 1.333333"
       ];
       #bind = [];
       #rules = [];

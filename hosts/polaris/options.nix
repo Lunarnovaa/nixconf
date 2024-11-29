@@ -5,7 +5,6 @@
 }: let
   inherit
     (lib)
-    mkDefault
     mkIf
     ;
   primaryDisplay = "HDMI-A-1";
@@ -16,18 +15,18 @@ in {
   ];
   config = {
     profile = {
-      gaming.enable = mkDefault true;
-      server.enable = mkDefault false;
-      workstation.enable = mkDefault true;
+      gaming.enable = true;
+      server.enable = false;
+      workstation.enable = true;
     };
 
     # Note for setting options: if setting to true, can use mkDefault: simply set to false by default through mkEnableOption; if setting to false; use mkForce
-    firefox-vertical-tabs.enable = mkDefault true;
-    fastfetch.enable = mkDefault true;
-    nvidia.enable = mkDefault true;
-    spicetify.enable = mkDefault true;
+    firefox-vertical-tabs.enable = true;
+    fastfetch.enable = true;
+    nvidia.enable = true;
+    spicetify.enable = true;
+    via.enable = true;
 
-    via.enable = mkDefault true;
     hyprland = {
       enable = true;
       monitors = {

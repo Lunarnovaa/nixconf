@@ -1,4 +1,4 @@
-{...}: let 
+{...}: let
 in {
   programs.nh = {
     enable = true;

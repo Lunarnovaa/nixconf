@@ -31,7 +31,7 @@
         enable = true;
       };
       autopairs = {
-        enable = true;
+        nvim-autopairs.enable = true;
       };
     };
   };

@@ -4,5 +4,6 @@
     ./graphics.nix
     ./lutris.nix
     ./steam.nix
+    ./vr.nix
   ];
 }

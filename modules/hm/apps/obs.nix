@@ -8,8 +8,12 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.profiles)
+    gaming
+    ;
 in {
-  config = mkIf config.obs.enable {
+  config = mkIf gaming.apps.obs {
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [

@@ -4,17 +4,18 @@
     mkOption
     ;
   inherit
-    (lib)
-    mkEnableOption
-    ;
-  inherit
     (lib.types)
+    bool
     listOf
     str
     ;
 in {
   options.hyprland = {
-    enable = mkEnableOption "enables hyprland";
+    enable = mkOption {
+      type = bool;
+      default = false;
+      description = "Whether to enable hyprland modules";
+    };
     monitors = {
       configuration = mkOption {
         type = listOf str;

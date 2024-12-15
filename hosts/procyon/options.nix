@@ -4,13 +4,29 @@ in {
   imports = [
     ./../../modules/options/default.nix
   ];
-  profile = {
-    gaming.enable = false;
-    server.enable = false;
-    workstation.enable = true;
+
+  profiles = {
+    gaming = {
+      enable = false;
+      apps = {
+      };
+    };
+    server = {
+      enable = false;
+      services = {
+      };
+    };
+    workstation = {
+      enable = true;
+      apps = {
+      };
+    };
   };
 
-  performance.enable = true;
+  sysconf = {
+    powersave = true;
+  };
+  
 
   hyprland = {
     enable = true;

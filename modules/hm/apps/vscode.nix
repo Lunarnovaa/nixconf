@@ -13,8 +13,12 @@
     (config.theme)
     fonts
     ;
+  inherit
+    (config.profiles)
+    workstation
+    ;
 in {
-  config = mkIf config.vscode.enable {
+  config = mkIf workstation.apps.vscode {
     home.packages = with pkgs; [alejandra nixd];
     programs.vscode = {
       enable = true;

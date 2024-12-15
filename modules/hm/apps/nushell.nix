@@ -8,7 +8,7 @@
     mkIf
     ;
 in {
-  config = mkIf config.nushell.enable {
+  config = mkIf config.terminal.apps.nushell {
     programs.nushell = {
       enable = true;
       extraConfig = ''

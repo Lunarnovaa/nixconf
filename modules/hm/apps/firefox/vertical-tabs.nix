@@ -15,7 +15,7 @@
     hash = "sha256-+psMiy3WFkYDL7HI5KBKU5b+r9qxudytkYlmqGNJS3o=";
   };
 in {
-  config = mkIf config.firefox-vertical-tabs.enable {
+  config = mkIf config.sysconf.verticalTabs {
     programs.firefox.profiles.lunarnova = {
       #extensions = [inputs.firefox-addons.packages."x86_64-linux".sidebery];
 

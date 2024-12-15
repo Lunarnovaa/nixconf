@@ -13,7 +13,7 @@
     fonts
     ;
 in {
-  config = mkIf config.alacritty.enable {
+  config = mkIf config.terminal.apps.alacritty {
     programs.alacritty = {
       enable = true;
       settings = {

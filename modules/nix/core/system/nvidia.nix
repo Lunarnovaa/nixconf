@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.nvidia.enable {
+  config = lib.mkIf config.sysconf.nvidia {
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {

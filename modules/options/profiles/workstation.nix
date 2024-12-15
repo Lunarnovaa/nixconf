@@ -4,30 +4,54 @@
   ...
 }: let
   inherit
-    (lib)
-    mkEnableOption
-    mkIf
-    mkDefault
+    (lib.options)
+    mkOption
+    ;
+  inherit
+    (lib.types)
+    bool
     ;
 in {
-  options = {
-    # Create workstation profile option
-    profile.workstation.enable =
-      mkEnableOption "enables workstation profile";
-
-    # Create options for workstation programs
-    obsidian.enable =
-      mkEnableOption "enables obsidian";
-    vscode.enable =
-      mkEnableOption "enables vscode";
-    zed.enable =
-      mkEnableOption "enables zed-editor";
-  };
-
-  # Enable workstation programs
-  config = mkIf config.profile.workstation.enable {
-    obsidian.enable = mkDefault true;
-    vscode.enable = mkDefault true;
-    zed.enable = mkDefault true;
+  options.profiles.workstation = {
+    enable = mkOption {
+      type = bool;
+      default = false;
+      description = ''
+        Enables the workstation modules. This mainly installs and
+        configures noteable programs like neovim and obsidian for
+        writing and programming.
+      '';
+    };
+    apps = {
+      nvf = mkOption {
+        type = bool;
+        default = config.profiles.workstation.enable;
+        description = ''
+          Enables nvf (nix vim flake) for neovim usage and
+          configuration.
+        '';
+      };
+      obsidian = mkOption {
+        type = bool;
+        default = config.profiles.workstation.enable;
+        description = ''
+          Enables Obsidian.
+        '';
+      };
+      vscode = mkOption {
+        type = bool;
+        default = config.profiles.workstation.enable;
+        description = ''
+          Enables and configures Obsidian for markdown editing.
+        '';
+      };
+      zed = mkOption {
+        type = bool;
+        default = false;
+        description = ''
+          Enables Zed. Currently disabled by default.
+        '';
+      };
+    };
   };
 }

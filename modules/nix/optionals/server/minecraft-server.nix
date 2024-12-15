@@ -9,8 +9,12 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.profiles)
+    server
+    ;
 in {
-  config = mkIf config.minecraft-server.enable {
+  config = mkIf server.services.minecraft {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
     services.minecraft-servers = {

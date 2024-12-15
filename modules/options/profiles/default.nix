@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./gaming.nix
-    ./nvidia.nix
-    ./powersave.nix
+    ./server.nix
+    ./workstation.nix
   ];
 }

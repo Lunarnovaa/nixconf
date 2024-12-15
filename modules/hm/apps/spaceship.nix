@@ -8,7 +8,7 @@
     mkIf
     ;
 in {
-  config = mkIf config.spaceship.enable {
+  config = mkIf config.terminal.apps.spaceship {
     programs.starship = {
       enable = true;
       enableNushellIntegration = true;

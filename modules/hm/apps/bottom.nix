@@ -8,7 +8,7 @@
     mkIf
     ;
 in {
-  config = mkIf config.bottom.enable {
+  config = mkIf config.loose.bottom {
     programs.bottom = {
       enable = true;
     };

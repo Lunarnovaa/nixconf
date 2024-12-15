@@ -8,8 +8,12 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.profiles)
+    workstation
+    ;
 in {
-  config = mkIf config.obsidian.enable {
+  config = mkIf workstation.apps.obsidian {
     home.packages = with pkgs; [obsidian];
   };
 }

@@ -4,17 +4,22 @@
   pkgs,
   ...
 }: let
-inherit (lib)
-mkIf
-;
+  inherit
+    (lib)
+    mkIf
+    ;
+  inherit
+    (config.profiles)
+    gaming
+    ;
 in {
-  config = mkIf (config.profile.gaming.enable && config.vr.enable) {
+  config = mkIf (gaming.enable && gaming.apps.vr) {
     services.wivrn = {
       enable = true;
 
       # Opens firewall for wivrn to stream through wifi
       openFirewall = true;
-      
+
       # Autostarts wivrn daemon
       autoStart = true;
 
@@ -24,7 +29,7 @@ in {
         # fixes crash with nvidia proprietary drivers
         monado-vulkan-layers
       ];
-      
+
       config = {
         enable = true;
         json = {

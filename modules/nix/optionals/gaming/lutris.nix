@@ -8,8 +8,12 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.profiles)
+    gaming
+    ;
 in {
-  config = mkIf config.profile.gaming.enable {
+  config = mkIf gaming.apps.lutris {
     environment.systemPackages = with pkgs; [
       lutris
     ];

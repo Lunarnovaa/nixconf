@@ -14,18 +14,28 @@ in {
     ./../../modules/options/default.nix
   ];
   config = {
-    profile = {
-      gaming.enable = true;
-      server.enable = false;
-      workstation.enable = true;
+    profiles = {
+      gaming = {
+        enable = true;
+      };
+      server = {
+        enable = false;
+      };
+      workstation = {
+        enable = true;
+      };
     };
 
-    # Note for setting options: if setting to true, can use mkDefault: simply set to false by default through mkEnableOption; if setting to false; use mkForce
-    firefox-vertical-tabs.enable = true;
-    fastfetch.enable = true;
-    nvidia.enable = true;
-    spicetify.enable = true;
-    via.enable = true;
+    sysconf = {
+      nvidia = true;
+      verticalTabs = true;
+    };
+
+    loose = {
+      fastfetch = false;
+      spicetify = true;
+      via = false;
+    };
 
     hyprland = {
       enable = true;
@@ -35,7 +45,7 @@ in {
           #"${secondaryDisplay}, preferred, auto-left, 1"
           "${secondaryDisplay}, disable"
         ];
-        bind = mkIf config.profile.gaming.enable [
+        bind = mkIf config.profiles.gaming.enable [
           #moves firefox workspace to secondary for gaming, primary when done
           #"$mod,B,moveworkspacetomonitor,1 ${secondaryDisplay}"
           #"$mod,K,moveworkspacetomonitor,1 ${primaryDisplay}"

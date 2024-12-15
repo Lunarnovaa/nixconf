@@ -15,7 +15,7 @@ in {
   specialisation = {
     gamingMode.configuration = {
       environment.etc."specialisation".text = "gamingMode";
-      profile.gaming.enable = mkForce true;
+      profiles.gaming.enable = mkForce true;
     };
   };
 

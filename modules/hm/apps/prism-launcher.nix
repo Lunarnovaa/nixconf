@@ -8,6 +8,10 @@
     (lib)
     mkIf
     ;
+  inherit
+    (config.profiles)
+    gaming
+    ;
   catppuccin-prism-launcher = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "prismlauncher";
@@ -15,7 +19,7 @@
     hash = "sha256-+yGrSZztf2sZ9frPT3ydIJDavo4eXs03cQWfdTAmn3w=";
   };
 in {
-  config = mkIf config.profile.gaming.enable {
+  config = mkIf gaming.apps.minecraft {
     home = {
       packages = with pkgs; [prismlauncher];
       file = {

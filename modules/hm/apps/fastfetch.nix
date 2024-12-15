@@ -8,7 +8,7 @@
     mkIf
     ;
 in {
-  config = mkIf config.fastfetch.enable {
+  config = mkIf config.loose.fastfetch {
     programs.fastfetch = {
       enable = true;
       settings = {

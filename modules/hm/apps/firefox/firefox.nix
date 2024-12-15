@@ -19,11 +19,10 @@ in {
         #Default Search Engine
         default = "DuckDuckGo";
       };
-      
-      settings = mkIf (! config.firefox-vertical-tabs.enable) {
+
+      settings = mkIf (! config.sysconf.verticalTabs) {
         "browser.tabs.groups.enable" = true;
       };
-      
     };
   };
 }

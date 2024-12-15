@@ -8,7 +8,7 @@
     mkIf
     ;
 in {
-  config = mkIf (config.hyprland.enable && config.nvidia.enable) {
+  config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
     wayland.windowManager.hyprland.settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

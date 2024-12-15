@@ -9,7 +9,7 @@
     mkForce
     ;
 in {
-  config = mkIf (config.hyprland.enable && config.performance.enable) {
+  config = mkIf (config.hyprland.enable && config.sysconf.powersave) {
     wayland.windowManager.hyprland.settings = {
       decoration = {
         blur.enabled = false;

@@ -6,7 +6,7 @@
 }: let
   inherit (lib) mkIf;
 in {
-  config = mkIf config.via.enable {
+  config = mkIf config.loose.via {
     services.udev.packages = with pkgs; [
       vial
     ];

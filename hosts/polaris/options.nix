@@ -10,9 +10,6 @@
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";
 in {
-  imports = [
-    ./../../modules/options/default.nix
-  ];
   config = {
     profiles = {
       gaming = {

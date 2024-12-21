@@ -40,6 +40,11 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,10 +60,11 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/polaris/configuration.nix
-          ./modules/nix
+          ./modules/default.nix
           inputs.home-manager.nixosModules.default
           #inputs.lix-module.nixosModules.default
           inputs.agenix.nixosModules.default
+          inputs.hjem.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
@@ -67,11 +73,12 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/procyon/configuration.nix
-          ./modules/nix
+          ./modules/default.nix
           inputs.home-manager.nixosModules.default
           #inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.agenix.nixosModules.default
+          inputs.hjem.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];

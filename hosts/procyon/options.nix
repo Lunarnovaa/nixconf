@@ -1,10 +1,6 @@
 {...}: let
   primaryDisplay = "eDP-1";
 in {
-  imports = [
-    ./../../modules/options/default.nix
-  ];
-
   profiles = {
     gaming = {
       enable = false;

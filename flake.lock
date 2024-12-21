@@ -256,6 +256,26 @@
         "type": "github"
       }
     },
+    "hjem": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734792531,
+        "narHash": "sha256-oXkTm4aIVMsLUYaextCPuiBlJDw995JRGtHiOko4DcA=",
+        "owner": "feel-co",
+        "repo": "hjem",
+        "rev": "274d54cba5650790f72862dc2b642e86c517486a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feel-co",
+        "repo": "hjem",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -2802,6 +2822,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "hjem": "hjem",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "lix-module": "lix-module",

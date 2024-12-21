@@ -15,6 +15,7 @@
     users = {
       "lunarnova" = {
         imports = [
+          ../../../options/default.nix
           ../../../../hosts/${config.networking.hostName}/options.nix
         ];
 

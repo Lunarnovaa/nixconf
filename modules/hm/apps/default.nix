@@ -5,7 +5,6 @@
     ./spotify/default.nix
 
     ./alacritty.nix
-    ./bottom.nix
     ./git.nix
     ./nushell.nix
     ./obs.nix

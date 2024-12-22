@@ -5,15 +5,10 @@
     ./locales.nix
     ./networking.nix
     ./nix-ld.nix
+    ./nix.nix
     ./nvidia.nix
     ./pam.nix
     ./printing.nix
     ./via.nix
   ];
-
-  # ALlow Unfree Packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Enable Flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 }

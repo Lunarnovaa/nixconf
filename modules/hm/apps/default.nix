@@ -5,7 +5,6 @@
     ./spotify/default.nix
 
     ./alacritty.nix
-    ./git.nix
     ./obs.nix
     ./spaceship.nix
   ];

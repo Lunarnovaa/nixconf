@@ -10,6 +10,5 @@
     ./nushell.nix
     ./obs.nix
     ./spaceship.nix
-    ./vscode.nix
   ];
 }

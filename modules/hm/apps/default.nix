@@ -6,7 +6,6 @@
 
     ./alacritty.nix
     ./git.nix
-    ./nushell.nix
     ./obs.nix
     ./spaceship.nix
   ];

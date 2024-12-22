@@ -6,6 +6,5 @@
 
     ./alacritty.nix
     ./obs.nix
-    ./spaceship.nix
   ];
 }

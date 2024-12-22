@@ -14,6 +14,8 @@
     ;
 in {
   config = mkIf workstation.apps.obsidian {
-    home.packages = with pkgs; [obsidian];
+    homes.lunarnova = {
+      packages = with pkgs; [obsidian];
+    };
   };
 }

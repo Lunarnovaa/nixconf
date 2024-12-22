@@ -11,8 +11,6 @@
     ./nh.nix
     ./nushell.nix
     ./obs.nix
-    ./obsidian.nix
-    ./prism-launcher.nix
     ./spaceship.nix
     ./vscode.nix
   ];

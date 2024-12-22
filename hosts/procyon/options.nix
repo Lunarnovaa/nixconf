@@ -22,7 +22,6 @@ in {
   sysconf = {
     powersave = true;
   };
-  
 
   hyprland = {
     enable = true;

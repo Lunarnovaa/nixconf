@@ -19,12 +19,14 @@
   };
 in {
   config = mkIf gaming.apps.discord {
-    users.users.lunarnova.packages = with pkgs; [vesktop];
-    homes.lunarnova.files = {
-      ".config/vesktop/themes/catppuccin-macchiato.css" = {
-        enable = true;
-        source = catppuccin-macchiato-css;
-      };
+    homes.lunarnova = {
+      packages = with pkgs; [vesktop];
+      files = {
+        ".config/vesktop/themes/catppuccin-macchiato.css" = {
+          enable = true;
+          source = catppuccin-macchiato-css;
+        };
+      };   
     };
   };
 }

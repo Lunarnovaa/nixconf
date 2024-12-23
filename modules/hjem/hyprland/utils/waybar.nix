@@ -1,11 +1,11 @@
 {
   config,
-  osConfig,
   pkgs,
   lib,
   ...
 }: let
   inherit (lib) mkIf;
+  inherit (builtins) toJSON;
   inherit (config.theme) colors fonts;
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
   tofiPowermenu = pkgs.pkgs.writeShellScriptBin "powermenu" ''
@@ -38,10 +38,10 @@
   '';
 in {
   config = mkIf config.hyprland.enable {
-    programs.waybar = {
-      enable = true;
-      settings = {
-        mainBar = {
+    homes.lunarnova = {
+      packages = with pkgs; [ waybar ];
+      files = {
+        ".config/waybar/config.jsonc".text = (toJSON {
           layer = "top";
           position = "top";
           height = 24; #makes the bar as short as possible
@@ -111,41 +111,41 @@ in {
             on-click = ''${tofiPowermenu}/bin/powermenu'';
           };
           "clock" = {
-            timezone = "${osConfig.time.timeZone}";
+            timezone = "${config.time.timeZone}";
             format = "[{:%m.%d.%y %H:%M}]";
           };
-        };
+        });
+        ".config/waybar/style.css".text = ''
+          * {
+            font-size: 13px;
+            min-height: 0px;
+            border-radius: 6px;
+            color: #${colors.base05};
+            font-family: "${fonts.sans-serif}, ${fonts.monospace}";
+          }
+          .module {
+            padding: 0em 0.8em;
+          }
+          #battery.warning {
+            color: #${colors.base09};
+          }
+          #battery.critical {
+            color: #${colors.base08};
+          }
+          #network {
+            font-size: 16px;
+          }
+          #custom-powermenu {
+            font-size: 15px;
+          }
+          #bluetooth {
+            font-size: 17px
+          }
+          window#waybar {
+            background-color: #${colors.base00};
+          }
+        '';
       };
-      style = ''
-        * {
-          font-size: 13px;
-          min-height: 0px;
-          border-radius: 6px;
-          color: #${colors.base05};
-          font-family: "${fonts.sans-serif}, ${fonts.monospace}";
-        }
-        .module {
-          padding: 0em 0.8em;
-        }
-        #battery.warning {
-          color: #${colors.base09};
-        }
-        #battery.critical {
-          color: #${colors.base08};
-        }
-        #network {
-          font-size: 16px;
-        }
-        #custom-powermenu {
-          font-size: 15px;
-        }
-        #bluetooth {
-          font-size: 17px
-        }
-        window#waybar {
-          background-color: #${colors.base00};
-        }
-      '';
     };
   };
 }

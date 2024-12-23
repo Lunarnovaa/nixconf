@@ -1,5 +1,7 @@
 {...}: {
   imports = [
+    ./spotify/default.nix
+    
     ./git.nix
     ./nushell.nix
     ./obsidian.nix

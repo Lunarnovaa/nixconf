@@ -5,7 +5,6 @@
 }: {
   home-manager.sharedModules = with inputs; [
     self.outputs.homeManagerModules.default
-    spicetify-nix.homeManagerModules.default
     nvf.homeManagerModules.default
   ];
 

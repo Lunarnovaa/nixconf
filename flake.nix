@@ -65,6 +65,7 @@
           #inputs.lix-module.nixosModules.default
           inputs.agenix.nixosModules.default
           inputs.hjem.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];
@@ -79,6 +80,7 @@
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.agenix.nixosModules.default
           inputs.hjem.nixosModules.default
+          inputs.spicetify-nix.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];

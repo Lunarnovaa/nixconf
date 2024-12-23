@@ -21,16 +21,10 @@
 in {
   config = mkIf gaming.apps.minecraft {
     homes.lunarnova = {
-      packages = with pkgs; [prismlauncher];
+      packages = with pkgs; [ prismlauncher ];
       files = {
-        ".local/share/PrismLauncher/themes/catppuccin-macchiato/theme.json" = {
-          enable = true;
-          source = "${catppuccin-prism-launcher}/themes/Macchiato/theme.json";
-        };
-        ".local/share/PrismLauncher/themes/catppuccin-macchiato/themeStyle.css" = {
-          enable = true;
-          source = "${catppuccin-prism-launcher}/themes/Macchiato/themeStyle.css";
-        };
+        ".local/share/PrismLauncher/themes/catppuccin-macchiato/theme.json".source = "${catppuccin-prism-launcher}/themes/Macchiato/theme.json";
+        ".local/share/PrismLauncher/themes/catppuccin-macchiato/themeStyle.css".source = "${catppuccin-prism-launcher}/themes/Macchiato/themeStyle.css";
       };
     };
   };

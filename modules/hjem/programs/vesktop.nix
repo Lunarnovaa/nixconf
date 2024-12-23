@@ -22,10 +22,7 @@ in {
     homes.lunarnova = {
       packages = with pkgs; [vesktop];
       files = {
-        ".config/vesktop/themes/catppuccin-macchiato.css" = {
-          enable = true;
-          source = catppuccin-macchiato-css;
-        };
+        ".config/vesktop/themes/catppuccin-macchiato.css".source = catppuccin-macchiato-css;
       };   
     };
   };

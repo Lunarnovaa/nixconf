@@ -10,6 +10,10 @@
     mkIf
     ;
   inherit
+    (builtins)
+    toJSON
+  ;
+  inherit
     (config.theme)
     fonts
     ;
@@ -26,7 +30,7 @@ in {
         nixd
       ];
       files = {
-        ".config/Code/User/settings.json".text = (builtins.toJSON {
+        ".config/Code/User/settings.json".text = (toJSON {
           "editor.fontFamily" = "${fonts.monospace}";
           "editor.fontLigatures" = true;
           "workbench.colorTheme" = "Catppuccin Macchiato";

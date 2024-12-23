@@ -7,6 +7,6 @@
   inherit (lib) mkIf;
 in {
   config = mkIf config.hyprland.enable {
-    home.packages = with pkgs; [blueberry];
+    homes.lunarnova.packages = with pkgs; [pcmanfm];
   };
 }

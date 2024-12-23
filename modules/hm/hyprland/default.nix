@@ -12,7 +12,6 @@
   pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in {
   imports = [
-    ./apps/default.nix
     ./optionals/default.nix
     ./utils/default.nix
     ./binds.nix

@@ -8,6 +8,10 @@
     (lib)
     mkIf
     ;
+  inherit
+    (builtins)
+    toJSON
+  ;
   firefox-csshacks = pkgs.fetchFromGitHub {
     owner = "MrOtherGuy";
     repo = "firefox-csshacks";
@@ -16,12 +20,14 @@
   };
 in {
   config = mkIf config.sysconf.verticalTabs {
-    programs.firefox.profiles.lunarnova = {
-      #extensions = [inputs.firefox-addons.packages."x86_64-linux".sidebery];
-
-      settings = {"toolkit.legacyUserProfileCustomizations.stylesheets" = true;};
-
-      userChrome = ''
+    homes.lunarnova.files = {
+      ".mozilla/firefox/distribution/policies.json" =  {
+        clobber = true;
+        text = (toJSON {
+          "policies"."preferences"."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        });
+      };
+      ".mozilla/firefox/lunarnova/chrome/userChrome.css".text = ''
         @import url(${firefox-csshacks}/chrome/window_control_placeholder_support.css);
         @import url(${firefox-csshacks}/chrome/hide_tabs_toolbar.css);
       '';

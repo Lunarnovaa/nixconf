@@ -13,6 +13,7 @@ in {
   profiles = {
     gaming = {
       enable = true;
+      apps.obs = false;
     };
     server = {
       enable = false;

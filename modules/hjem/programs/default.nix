@@ -6,6 +6,7 @@
     ./alacritty.nix
     ./git.nix
     ./nushell.nix
+    ./obs.nix
     ./obsidian.nix
     ./prism-launcher.nix
     ./starship.nix

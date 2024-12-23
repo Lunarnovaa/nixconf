@@ -3,6 +3,7 @@
     ./nvf/default.nix
     ./spotify/default.nix
 
+    ./alacritty.nix
     ./git.nix
     ./nushell.nix
     ./obsidian.nix

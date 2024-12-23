@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit
@@ -12,11 +13,12 @@
     colors
     fonts
     ;
+  toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.alacritty {
-    programs.alacritty = {
-      enable = true;
-      settings = {
+    homes.lunarnova = {
+      packages = with pkgs; [ alacritty ];
+      files.".config/alacritty/alacritty.toml".source = (toTOML "alacritty config" {
         font = {
           size = fonts.size;
           normal.family = "${fonts.monospace}";
@@ -61,7 +63,7 @@ in {
             foreground = "0x${colors.base06}";
           };
         };
-      };
+      });
     };
   };
 }

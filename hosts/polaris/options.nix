@@ -3,10 +3,7 @@
   config,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
+  inherit (lib) mkIf;
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";
 in {

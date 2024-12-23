@@ -65,10 +65,9 @@
       url = "github:edolstra/flake-compat";
     };
 
-    flake-parts ={
+    flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-
   };
 
   outputs = {

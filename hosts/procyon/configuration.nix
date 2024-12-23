@@ -1,8 +1,5 @@
 {lib, ...}: let
-  inherit
-    (lib)
-    mkForce
-    ;
+  inherit (lib) mkForce;
 in {
   imports = [
     ./hardware-configuration.nix

@@ -3,15 +3,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    mkMerge
-    ;
-  inherit
-    (config.hyprland)
-    monitors
-    ;
+  inherit (lib) mkIf mkMerge;
+  inherit (config.hyprland) monitors;
 in {
   config = mkIf config.hyprland.enable {
     wayland.windowManager.hyprland.settings = {

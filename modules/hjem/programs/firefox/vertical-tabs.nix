@@ -4,14 +4,8 @@
   config,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (builtins)
-    toJSON
-  ;
+  inherit (lib) mkIf;
+  inherit (builtins) toJSON;
   firefox-csshacks = pkgs.fetchFromGitHub {
     owner = "MrOtherGuy";
     repo = "firefox-csshacks";
@@ -21,11 +15,11 @@
 in {
   config = mkIf config.sysconf.verticalTabs {
     homes.lunarnova.files = {
-      ".mozilla/firefox/distribution/policies.json" =  {
+      ".mozilla/firefox/distribution/policies.json" = {
         clobber = true;
-        text = (toJSON {
+        text = toJSON {
           "policies"."preferences"."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        });
+        };
       };
       ".mozilla/firefox/lunarnova/chrome/userChrome.css".text = ''
         @import url(${firefox-csshacks}/chrome/window_control_placeholder_support.css);

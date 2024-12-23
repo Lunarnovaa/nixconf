@@ -4,14 +4,8 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.profiles)
-    gaming
-    ;
+  inherit (lib) mkIf;
+  inherit (config.profiles) gaming;
 in {
   config = mkIf (gaming.enable && gaming.apps.vr) {
     services.wivrn = {

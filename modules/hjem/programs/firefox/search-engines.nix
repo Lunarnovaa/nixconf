@@ -1,8 +1,5 @@
 {pkgs, ...}: let
-  inherit
-  (builtins)
-  toJSON
-  ;
+  inherit (builtins) toJSON;
   pdbImageLink = "https://www.protondb.com/sites/protondb/images/site-logo.svg";
 
   pdbImage = pkgs.fetchurl {
@@ -12,7 +9,7 @@
 in {
   homes.lunarnova.files."mozilla/firefox/distribution/policies.json" = {
     clobber = true;
-    text = (toJSON { 
+    text = toJSON {
       "policies"."SearchEngines"."Add" = [
         {
           "Name" = "Nix Packages";
@@ -25,7 +22,7 @@ in {
           "Name" = "Nix Options";
           "URLTemplate" = "https://search.nixos.org/options?channel=unstable&query={searchTerms}";
           "Method" = "GET";
-          "IconURL" = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg"; 
+          "IconURL" = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           "Alias" = "@no";
         }
         {
@@ -56,6 +53,6 @@ in {
           "Alias" = "@rmp";
         }
       ];
-    });
+    };
   };
 }

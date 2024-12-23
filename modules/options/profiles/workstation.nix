@@ -3,14 +3,8 @@
   config,
   ...
 }: let
-  inherit
-    (lib.options)
-    mkOption
-    ;
-  inherit
-    (lib.types)
-    bool
-    ;
+  inherit (lib.options) mkOption;
+  inherit (lib.types) bool;
 in {
   options.profiles.workstation = {
     enable = mkOption {

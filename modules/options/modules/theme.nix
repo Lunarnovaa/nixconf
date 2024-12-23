@@ -1,15 +1,6 @@
 {lib, ...}: let
-  inherit
-    (lib.options)
-    mkOption
-    ;
-  inherit
-    (lib.types)
-    attrs
-    str
-    int
-    path
-    ;
+  inherit (lib.options) mkOption;
+  inherit (lib.types) attrs str int path;
 in {
   options.theme = {
     colors = mkOption {

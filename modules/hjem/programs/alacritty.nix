@@ -4,21 +4,14 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.theme)
-    colors
-    fonts
-    ;
+  inherit (lib) mkIf;
+  inherit (config.theme) colors fonts;
   toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.alacritty {
     homes.lunarnova = {
-      packages = with pkgs; [ alacritty ];
-      files.".config/alacritty/alacritty.toml".source = (toTOML "alacritty config" {
+      packages = with pkgs; [alacritty];
+      files.".config/alacritty/alacritty.toml".source = toTOML "alacritty config" {
         font = {
           size = fonts.size;
           normal.family = "${fonts.monospace}";
@@ -63,7 +56,7 @@ in {
             foreground = "0x${colors.base06}";
           };
         };
-      });
+      };
     };
   };
 }

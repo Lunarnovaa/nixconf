@@ -4,9 +4,7 @@
   config,
   ...
 }: let
-  inherit (lib) 
-    mkIf
-  ;
+  inherit (lib) mkIf;
 in {
   config = mkIf config.loose.via {
     services.udev.packages = with pkgs; [

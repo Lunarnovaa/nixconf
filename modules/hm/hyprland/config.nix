@@ -5,18 +5,9 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.theme)
-    colors
-    ;
-  inherit
-    (config.hyprland)
-    monitors
-    ;
+  inherit (lib) mkIf;
+  inherit (config.theme) colors;
+  inherit (config.hyprland) monitors;
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     mako &

@@ -5,22 +5,10 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (builtins)
-    toJSON
-  ;
-  inherit
-    (config.theme)
-    fonts
-    ;
-  inherit
-    (config.profiles)
-    workstation
-    ;
+  inherit (lib) mkIf;
+  inherit (builtins) toJSON;
+  inherit (config.theme) fonts;
+  inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.vscode {
     homes.lunarnova = {
@@ -30,7 +18,7 @@ in {
         nixd
       ];
       files = {
-        ".config/Code/User/settings.json".text = (toJSON {
+        ".config/Code/User/settings.json".text = toJSON {
           "editor.fontFamily" = "${fonts.monospace}";
           "editor.fontLigatures" = true;
           "workbench.colorTheme" = "Catppuccin Macchiato";
@@ -40,7 +28,7 @@ in {
           "nix.enableLanguageServer" = true;
           "nixpkgs"."expr" = "import ${inputs.nixpkgs} { }";
           "formatting"."command" = ["alejandra"];
-        });
+        };
       };
     };
   };

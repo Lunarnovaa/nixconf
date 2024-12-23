@@ -5,14 +5,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.profiles)
-    server
-    ;
+  inherit (lib) mkIf;
+  inherit (config.profiles) server;
 in {
   config = mkIf server.services.minecraft {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];

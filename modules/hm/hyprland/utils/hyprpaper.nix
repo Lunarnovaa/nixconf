@@ -3,14 +3,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.theme)
-    wallpapers
-    ;
+  inherit (lib) mkIf;
+  inherit (config.theme) wallpapers;
 in {
   config = mkIf config.hyprland.enable {
     services.hyprpaper = {

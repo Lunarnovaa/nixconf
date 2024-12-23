@@ -1,12 +1,6 @@
 {lib, ...}: let
-  inherit
-    (lib.options)
-    mkOption
-    ;
-  inherit
-    (lib.types)
-    bool
-    ;
+  inherit (lib.options) mkOption;
+  inherit (lib.types) bool;
 in {
   options.sysconf = {
     nvidia = mkOption {

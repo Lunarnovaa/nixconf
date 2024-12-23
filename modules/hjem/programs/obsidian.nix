@@ -4,14 +4,8 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.profiles)
-    workstation
-    ;
+  inherit (lib) mkIf;
+  inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.obsidian {
     homes.lunarnova = {

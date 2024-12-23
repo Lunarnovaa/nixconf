@@ -3,10 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit
-    (config.theme)
-    fonts
-    ;
+  inherit (config.theme) fonts;
 in {
   gtk = {
     enable = true;

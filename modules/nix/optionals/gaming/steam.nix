@@ -4,14 +4,8 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.profiles)
-    gaming
-    ;
+  inherit (lib) mkIf;
+  inherit (config.profiles) gaming;
 in {
   config = mkIf gaming.apps.steam {
     programs.steam = {

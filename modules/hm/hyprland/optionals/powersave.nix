@@ -3,11 +3,7 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    mkForce
-    ;
+  inherit (lib) mkIf mkForce;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.powersave) {
     wayland.windowManager.hyprland.settings = {

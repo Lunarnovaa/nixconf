@@ -4,14 +4,8 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.profiles)
-    gaming
-    ;
+  inherit (lib) mkIf;
+  inherit (config.profiles) gaming;
   # Referenced from NotAShelf/nyx, fetching css file directly as opposed to importing the import of this style sheet :)
   catppuccin-macchiato-css = pkgs.fetchurl {
     url = "https://catppuccin.github.io/discord/dist/catppuccin-macchiato.theme.css";
@@ -23,7 +17,7 @@ in {
       packages = with pkgs; [vesktop];
       files = {
         ".config/vesktop/themes/catppuccin-macchiato.css".source = catppuccin-macchiato-css;
-      };   
+      };
     };
   };
 }

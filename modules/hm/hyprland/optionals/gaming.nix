@@ -4,10 +4,7 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
+  inherit (lib) mkIf;
   gamemode = pkgs.pkgs.writeShellScriptBin "enable-gamemode" ''
     HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
     if [ "$HYPRGAMEMODE" = 1 ] ; then

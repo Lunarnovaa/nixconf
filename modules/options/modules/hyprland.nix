@@ -1,14 +1,6 @@
 {lib, ...}: let
-  inherit
-    (lib.options)
-    mkOption
-    ;
-  inherit
-    (lib.types)
-    bool
-    listOf
-    str
-    ;
+  inherit (lib.options) mkOption;
+  inherit (lib.types) bool listOf str;
 in {
   options.hyprland = {
     enable = mkOption {

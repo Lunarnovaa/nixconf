@@ -5,10 +5,7 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
+  inherit (lib) mkIf;
   pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in {
   config = mkIf config.hyprland.enable {

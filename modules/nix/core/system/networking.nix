@@ -1,8 +1,5 @@
 {config, ...}: let
-  inherit
-    (config.age.secrets)
-    wifiPassword
-    ;
+  inherit (config.age.secrets) wifiPassword;
 in {
   # Enable Networking
   networking = {

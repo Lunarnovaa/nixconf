@@ -4,15 +4,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.theme)
-    fonts
-    wallpapers
-    ;
+  inherit (lib) mkIf;
+  inherit (config.theme) fonts wallpapers;
 in {
   config = mkIf config.hyprland.enable {
     environment.systemPackages = [

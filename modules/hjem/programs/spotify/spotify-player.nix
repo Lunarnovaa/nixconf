@@ -14,7 +14,7 @@ in {
   homes.lunarnova = {
     packages = with pkgs; [spotify-player];
     files = {
-      ".config/spotify-player/app.toml".source = (toTOML "spotify-player config" {
+      ".config/spotify-player/app.toml".source = toTOML "spotify-player config" {
         client_id_command = "cat ${config.age.secrets.spotifyClientID.path}";
         device = {
           name = "${config.networking.hostName}";
@@ -23,7 +23,7 @@ in {
           normalization = true;
           theme = "Catppuccin-macchiato";
         };
-      });
+      };
       ".config/spotify-player/theme.toml".source = "${catppuccin-spotify-player}/theme.toml";
     };
   };

@@ -3,10 +3,7 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
+  inherit (lib) mkIf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
     wayland.windowManager.hyprland.settings = {

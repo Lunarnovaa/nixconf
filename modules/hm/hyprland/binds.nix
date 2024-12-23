@@ -4,15 +4,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    mkMerge
-    ;
-  inherit
-    (config.hyprland)
-    monitors
-    ;
+  inherit (lib) mkIf mkMerge;
+  inherit (config.hyprland) monitors;
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''
     if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
         xdotool getactivewindow windowunmap

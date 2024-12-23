@@ -4,16 +4,8 @@
   lib,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
-  inherit
-    (config.theme)
-    wallpapers
-    fonts
-    colors
-    ;
+  inherit (lib) mkIf;
+  inherit (config.theme) wallpapers fonts colors;
 in {
   config = mkIf config.hyprland.enable {
     programs.swaylock = {

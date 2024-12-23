@@ -6,15 +6,16 @@
 }: let
   inherit (lib) mkIf;
   inherit (config.theme) colors;
-  hyprland-settings = config.wayland.windowManager.hyprland.settings;
+  toINI = lib.generators.toINIWithGlobalSection {};
+  #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
-    programs.tofi = {
-      enable = true;
-      settings = {
+    homes.lunarnova = {
+      packages = with pkgs; [ tofi ];
+      files.".config/tofi/config".text = (toINI { globalSection = {
         outline-width = 0;
-        border-width = hyprland-settings.general.border_size;
-        corner-radius = hyprland-settings.decoration.rounding;
+        border-width = 3;
+        corner-radius = 3;
         width = "25%";
         height = "15%";
         font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
@@ -23,7 +24,7 @@ in {
         border-color = "#${colors.base08}";
         text-color = "#${colors.base05}";
         selection-color = "#${colors.base12}";
-      };
+      };});
     };
   };
 }

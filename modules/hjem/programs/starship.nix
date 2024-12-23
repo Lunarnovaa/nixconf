@@ -12,9 +12,9 @@ in {
   config = mkIf config.terminal.apps.spaceship {
     homes.lunarnova = {
       packages = with pkgs; [ starship ];
-      files.".config/starship.toml".text = ''
-        add_newline = false
-      '';
+      files.".config/starship.toml".source = ((pkgs.formats.toml {}).generate "starship config" {
+        add_newline = false;
+      });
     };
   };
 }

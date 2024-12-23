@@ -66,6 +66,7 @@
           inputs.agenix.nixosModules.default
           inputs.hjem.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
+          inputs.nvf.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];

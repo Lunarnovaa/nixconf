@@ -1,12 +1,25 @@
 {lib, ...}: let
   inherit (lib.options) mkOption;
-  inherit (lib.types) bool listOf str;
+  inherit (lib.types) bool listOf str attrs;
 in {
   options.hyprland = {
     enable = mkOption {
       type = bool;
       default = false;
       description = "Whether to enable hyprland modules";
+    };
+    settings = mkOption {
+      type = attrs;
+      example = {
+        "$mod" = "$super";
+        decoration = {
+          rounding = "3";
+        };
+      };
+      description = ''
+        Settings for hyprland wayland compositor to be
+        written to the config file.      
+      '';
     };
     monitors = {
       configuration = mkOption {

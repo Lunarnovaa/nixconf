@@ -18,6 +18,9 @@ in {
       package = pkgs-unstable.hyprland;
       # Set portal package as well so that they are in sync
       portalPackage = pkgs-unstable.xdg-desktop-portal-hyprland;
+
+      # Install and use UWSM, a wayland compositor wrapper for tighter service integration
+      withUWSM = true;
     };
   };
 }

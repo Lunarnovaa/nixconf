@@ -75,12 +75,16 @@
     nixpkgs,
     ...
   } @ inputs: let
+    extended-lib = nixpkgs.lib.extend (final: prev: import ./modules/lib/toHyprconf.nix { lib = prev; });
     system = "x86.64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
       polaris = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          lib = extended-lib;  
+        };
         modules = [
           ./hosts/polaris/configuration.nix
           ./modules/default.nix

@@ -1,5 +1,5 @@
 {...}: {
   imports = [
-    ./theming/default.nix
+
   ];
 }

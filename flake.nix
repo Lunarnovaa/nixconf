@@ -73,13 +73,14 @@
     extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/default.nix {lib = prev;});
     system = "x86.64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = {
+      inherit inputs;
+      lib = extended-lib;
+    };
   in {
     nixosConfigurations = {
       polaris = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          lib = extended-lib;
-        };
+        inherit specialArgs;
         modules = [
           ./hosts/polaris/configuration.nix
           ./modules/default.nix
@@ -93,10 +94,7 @@
         ];
       };
       procyon = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          lib = extended-lib;
-        };
+        inherit specialArgs;
         modules = [
           ./hosts/procyon/configuration.nix
           ./modules/default.nix

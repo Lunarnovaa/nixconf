@@ -10,7 +10,7 @@
   inherit (config.hyprland) monitors;
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-    mako &
+    ${pkgs.mako}/bin/mako &
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
     waybar &
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &

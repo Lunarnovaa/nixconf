@@ -8,7 +8,7 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
       inputs.flake-utils.follows = "flake-utils";
@@ -70,7 +70,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/toHyprconf.nix { lib = prev; });
+    extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/toHyprconf.nix {lib = prev;});
     system = "x86.64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -78,7 +78,7 @@
       polaris = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          lib = extended-lib;  
+          lib = extended-lib;
         };
         modules = [
           ./hosts/polaris/configuration.nix

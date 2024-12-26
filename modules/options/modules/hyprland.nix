@@ -18,7 +18,7 @@ in {
       };
       description = ''
         Settings for hyprland wayland compositor to be
-        written to the config file.      
+        written to the config file.
       '';
     };
     monitors = {

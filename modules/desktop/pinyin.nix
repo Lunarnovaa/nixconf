@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Add support for typing Pinyin -> Hanzi
   i18n.inputMethod = {
     enable = true;

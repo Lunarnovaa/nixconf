@@ -8,7 +8,6 @@
   starshipCache = "${config.homes.lunarnova.directory}/.cache/starship";
 in {
   config = mkIf config.terminal.apps.nushell {
-    
     users.users.lunarnova.shell = pkgs.nushell;
     homes.lunarnova = {
       packages = with pkgs; [nushell];

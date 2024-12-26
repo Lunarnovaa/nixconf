@@ -24,26 +24,28 @@ in {
   config = mkIf (config.hyprland.enable && config.profiles.gaming.enable) {
     homes.lunarnova.files.".config/hypr/hyprland.conf" = {
       clobber = true;
-      text = (toHyprconf { attrs = {
-        "$mod" = "SUPER"; 
-        bind = [
-          "$mod, F1, exec, ${gamemode}/bin/enable-gamemode"
+      text = toHyprconf {
+        attrs = {
+          "$mod" = "SUPER";
+          bind = [
+            "$mod, F1, exec, ${gamemode}/bin/enable-gamemode"
 
-          # Game mode settings
+            # Game mode settings
 
-          ## Unbinding the homerow arrow keys for The Core RTS keybinds
-          "$mod, B, exec, hyprctl keyword unbind CONTROL, n"
-          "$mod, B, exec, hyprctl keyword unbind CONTROL, e"
-          "$mod, B, exec, hyprctl keyword unbind CONTROL, i"
-          "$mod, B, exec, hyprctl keyword unbind CONTROL, u"
+            ## Unbinding the homerow arrow keys for The Core RTS keybinds
+            "$mod, B, exec, hyprctl keyword unbind CONTROL, n"
+            "$mod, B, exec, hyprctl keyword unbind CONTROL, e"
+            "$mod, B, exec, hyprctl keyword unbind CONTROL, i"
+            "$mod, B, exec, hyprctl keyword unbind CONTROL, u"
 
-          ## Rebinding homerow arrow keys
-          "$mod, K, exec, hyprctl keyword bind CONTROL, n, sendshortcut,, Left, activewindow"
-          "$mod, K, exec, hyprctl keyword bind CONTROL, e, sendshortcut,, Down, activewindow"
-          "$mod, K, exec, hyprctl keyword bind CONTROL, i, sendshortcut,, Right, activewindow"
-          "$mod, K, exec, hyprctl keyword bind CONTROL, u, sendshortcut,, Up, activewindow"
-        ];
-      };});
+            ## Rebinding homerow arrow keys
+            "$mod, K, exec, hyprctl keyword bind CONTROL, n, sendshortcut,, Left, activewindow"
+            "$mod, K, exec, hyprctl keyword bind CONTROL, e, sendshortcut,, Down, activewindow"
+            "$mod, K, exec, hyprctl keyword bind CONTROL, i, sendshortcut,, Right, activewindow"
+            "$mod, K, exec, hyprctl keyword bind CONTROL, u, sendshortcut,, Up, activewindow"
+          ];
+        };
+      };
     };
   };
 }

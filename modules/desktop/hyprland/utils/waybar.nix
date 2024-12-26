@@ -39,9 +39,9 @@
 in {
   config = mkIf config.hyprland.enable {
     homes.lunarnova = {
-      packages = with pkgs; [ waybar ];
+      packages = with pkgs; [waybar];
       files = {
-        ".config/waybar/config.jsonc".text = (toJSON {
+        ".config/waybar/config.jsonc".text = toJSON {
           layer = "top";
           position = "top";
           height = 24; #makes the bar as short as possible
@@ -114,7 +114,7 @@ in {
             timezone = "${config.time.timeZone}";
             format = "[{:%m.%d.%y %H:%M}]";
           };
-        });
+        };
         ".config/waybar/style.css".text = ''
           * {
             font-size: 13px;

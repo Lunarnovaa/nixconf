@@ -11,20 +11,22 @@
 in {
   config = mkIf config.hyprland.enable {
     homes.lunarnova = {
-      packages = with pkgs; [ tofi ];
-      files.".config/tofi/config".text = (toINI { globalSection = {
-        outline-width = 0;
-        border-width = 3;
-        corner-radius = 3;
-        width = "25%";
-        height = "15%";
-        font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
-        font-size = 13;
-        background-color = "#${colors.base00}";
-        border-color = "#${colors.base08}";
-        text-color = "#${colors.base05}";
-        selection-color = "#${colors.base12}";
-      };});
+      packages = with pkgs; [tofi];
+      files.".config/tofi/config".text = toINI {
+        globalSection = {
+          outline-width = 0;
+          border-width = 3;
+          corner-radius = 3;
+          width = "25%";
+          height = "15%";
+          font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
+          font-size = 13;
+          background-color = "#${colors.base00}";
+          border-color = "#${colors.base08}";
+          text-color = "#${colors.base05}";
+          selection-color = "#${colors.base12}";
+        };
+      };
     };
   };
 }

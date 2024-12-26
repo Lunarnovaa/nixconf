@@ -10,16 +10,18 @@ in {
   config = mkIf config.hyprland.enable {
     homes.lunarnova.files.".config/hypr/hyprpaper.conf" = {
       clobber = true;
-      text = (toHyprconf { attrs = { 
-        preload = [
-          "${wallpapers.primary}"
-        ];
-        wallpaper = [
-          ",${wallpapers.primary}"
-        ];
-      };});
+      text = toHyprconf {
+        attrs = {
+          preload = [
+            "${wallpapers.primary}"
+          ];
+          wallpaper = [
+            ",${wallpapers.primary}"
+          ];
+        };
+      };
     };
-    
+
     systemd.user.services.hyprpaper = {
       description = "wallpaper service for hyprland";
       partOf = ["graphical-session.target"];

@@ -1,5 +1,4 @@
 {config, ...}: {
-
   # Define the User
   users.users.lunarnova = {
     isNormalUser = true;

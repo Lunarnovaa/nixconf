@@ -1,49 +1,67 @@
 # Taken from https://github.com/nix-community/home-manager
 # The following is available under the MIT License.
+{lib}: {
+  toHyprconf = {
+    attrs,
+    indentLevel ? 0,
+    importantPrefixes ? ["$"],
+  }: let
+    inherit
+      (lib)
+      all
+      concatMapStringsSep
+      concatStrings
+      concatStringsSep
+      filterAttrs
+      foldl
+      generators
+      hasPrefix
+      isAttrs
+      isList
+      mapAttrsToList
+      replicate
+      ;
 
-{ lib }:
+    initialIndent = concatStrings (replicate indentLevel "  ");
 
-{
-  toHyprconf = { attrs, indentLevel ? 0, importantPrefixes ? [ "$" ], }:
-    let
-      inherit (lib)
-        all concatMapStringsSep concatStrings concatStringsSep filterAttrs foldl
-        generators hasPrefix isAttrs isList mapAttrsToList replicate;
+    toHyprconf' = indent: attrs: let
+      sections =
+        filterAttrs (n: v: isAttrs v || (isList v && all isAttrs v)) attrs;
 
-      initialIndent = concatStrings (replicate indentLevel "  ");
+      mkSection = n: attrs:
+        if lib.isList attrs
+        then (concatMapStringsSep "\n" (a: mkSection n a) attrs)
+        else ''
+          ${indent}${n} {
+          ${toHyprconf' "  ${indent}" attrs}${indent}}
+        '';
 
-      toHyprconf' = indent: attrs:
-        let
-          sections =
-            filterAttrs (n: v: isAttrs v || (isList v && all isAttrs v)) attrs;
+      mkFields = generators.toKeyValue {
+        listsAsDuplicateKeys = true;
+        inherit indent;
+      };
 
-          mkSection = n: attrs:
-            if lib.isList attrs then
-              (concatMapStringsSep "\n" (a: mkSection n a) attrs)
-            else ''
-              ${indent}${n} {
-              ${toHyprconf' "  ${indent}" attrs}${indent}}
-            '';
+      allFields =
+        filterAttrs (n: v: !(isAttrs v || (isList v && all isAttrs v)))
+        attrs;
 
-          mkFields = generators.toKeyValue {
-            listsAsDuplicateKeys = true;
-            inherit indent;
-          };
+      isImportantField = n: _:
+        foldl (acc: prev:
+          if hasPrefix prev n
+          then true
+          else acc)
+        false
+        importantPrefixes;
 
-          allFields =
-            filterAttrs (n: v: !(isAttrs v || (isList v && all isAttrs v)))
-            attrs;
+      importantFields = filterAttrs isImportantField allFields;
 
-          isImportantField = n: _:
-            foldl (acc: prev: if hasPrefix prev n then true else acc) false
-            importantPrefixes;
-
-          importantFields = filterAttrs isImportantField allFields;
-
-          fields = builtins.removeAttrs allFields
-            (mapAttrsToList (n: _: n) importantFields);
-        in mkFields importantFields
-        + concatStringsSep "\n" (mapAttrsToList mkSection sections)
-        + mkFields fields;
-    in toHyprconf' initialIndent attrs;
+      fields =
+        builtins.removeAttrs allFields
+        (mapAttrsToList (n: _: n) importantFields);
+    in
+      mkFields importantFields
+      + concatStringsSep "\n" (mapAttrsToList mkSection sections)
+      + mkFields fields;
+  in
+    toHyprconf' initialIndent attrs;
 }

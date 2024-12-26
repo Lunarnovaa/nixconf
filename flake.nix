@@ -40,6 +40,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
+      # stop agenix from importing home-manager and darwin
       inputs.home-manager.follows = "";
       inputs.darwin.follows = "";
     };
@@ -81,8 +82,6 @@
     ...
   } @ inputs: let
     extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/default.nix {lib = prev;});
-    system = "x86.64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     specialArgs = {
       inherit inputs;
       lib = extended-lib;

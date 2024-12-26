@@ -3,7 +3,8 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf toHyprconf;
+  inherit (lib) mkIf;
+  inherit (lib.extendedLib.generators) toHyprconf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
     homes.lunarnova.files.".config/hypr/hyprland.conf" = {

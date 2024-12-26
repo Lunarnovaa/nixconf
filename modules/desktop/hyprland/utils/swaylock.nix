@@ -3,22 +3,14 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf concatStrings mapAttrsToList;
+  inherit (lib) mkIf;
   inherit (config.theme) wallpapers fonts colors;
+  inherit (lib.extendedLib.generators) toSwaylockConf;
 in {
   config = mkIf config.hyprland.enable {
     # The conversion is referenced from https://github.com/nix-community/home-manager
     # It is available under the MIT License
-    homes.lunarnova.files.".config/swaylock/config".text = concatStrings (mapAttrsToList (n: v:
-      if v == false
-      then ""
-      else
-        (
-          if v == true
-          then n
-          else n + "=" + builtins.toString v
-        )
-        + "\n") {
+    homes.lunarnova.files.".config/swaylock/config".text = toSwaylockConf { attrs = {
       font = fonts.sans-serif;
       font-size = 18;
 
@@ -43,7 +35,7 @@ in {
 
       ring-wrong-color = "${colors.base10}";
       inside-wrong-color = "${colors.base12}";
-    });
+    };};
     security.pam.services = {
       swaylock = {
         name = "swaylock";

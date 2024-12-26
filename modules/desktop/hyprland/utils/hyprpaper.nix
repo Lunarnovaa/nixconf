@@ -4,7 +4,8 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf toHyprconf;
+  inherit (lib) mkIf;
+  inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) wallpapers;
 in {
   config = mkIf config.hyprland.enable {

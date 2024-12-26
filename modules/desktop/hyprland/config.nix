@@ -5,7 +5,8 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf toHyprconf;
+  inherit (lib) mkIf;
+  inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) colors;
   inherit (config.hyprland) monitors;
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''

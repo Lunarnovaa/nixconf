@@ -4,30 +4,8 @@
   lib,
   ...
 }: let
-  inherit (lib) generators isBool boolToString isString escape concatMapStrings mapAttrsToList;
   inherit (config.theme) fonts;
-
-  # toGtk3Ini , formatGtk2Option , and finalGtk2Text are all taken from https://github.com/nix-community/home-manager
-  # They are all available under the MIT License.
-  toGtk3Ini = generators.toINI {
-    mkKeyValue = key: value: let
-      value' =
-        if isBool value
-        then boolToString value
-        else toString value;
-    in "${escape ["="] key}=${value'}";
-  };
-  formatGtk2Option = n: v: let
-    v' =
-      if isBool v
-      then boolToString v
-      else if isString v
-      then ''"${v}"''
-      else toString v;
-  in "${escape ["="] n} = ${v'}";
-  finalGtk2Text = concatMapStrings (l: l + "\n") (mapAttrsToList formatGtk2Option gtk-settings);
-  # End of Copy
-  # End of availability under MIT License.
+  inherit (lib.extendedLib.generators.gtk) finalGtk2Text toGtk3Ini;
 
   gtk-settings = {
     gtk-icon-theme-name = "Papirus-Dark";
@@ -43,7 +21,7 @@
 in {
   homes.lunarnova = {
     files = {
-      ".gtkrc-2.0".text = finalGtk2Text;
+      ".gtkrc-2.0".text = finalGtk2Text { attrs = gtk-settings;};
       ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
         Settings = gtk-settings;
       };

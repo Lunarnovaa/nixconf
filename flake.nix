@@ -8,12 +8,7 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
       inputs.flake-utils.follows = "flake-utils";
@@ -39,7 +34,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
+      #inputs.home-manager.follows = "home-manager";
     };
 
     niqspkgs = {
@@ -88,7 +83,6 @@
         modules = [
           ./hosts/polaris/configuration.nix
           ./modules/default.nix
-          inputs.home-manager.nixosModules.default
           #inputs.lix-module.nixosModules.default
           inputs.agenix.nixosModules.default
           inputs.hjem.nixosModules.default
@@ -103,7 +97,6 @@
         modules = [
           ./hosts/procyon/configuration.nix
           ./modules/default.nix
-          inputs.home-manager.nixosModules.default
           #inputs.lix-module.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           inputs.agenix.nixosModules.default
@@ -114,6 +107,5 @@
         ];
       };
     };
-    homeManagerModules.default = ./modules/hm;
   };
 }

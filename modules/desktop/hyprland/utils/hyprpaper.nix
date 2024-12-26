@@ -7,32 +7,32 @@
   inherit (lib) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) wallpapers;
-in {
-  config = mkIf config.hyprland.enable {
-    homes.lunarnova.files.".config/hypr/hyprpaper.conf" = {
-      clobber = true;
-      text = toHyprconf {
-        attrs = {
-          preload = [
-            "${wallpapers.primary}"
-          ];
-          wallpaper = [
-            ",${wallpapers.primary}"
-          ];
-        };
+
+  hyprpaper-conf = pkgs.writeTextFile {
+    name = "hyprpaper-conf";
+    text = toHyprconf {
+      attrs = {
+        preload = [
+          "${wallpapers.primary}"
+        ];
+        wallpaper = [
+          ",${wallpapers.primary}"
+        ];
       };
     };
-
+  };
+in {
+  config = mkIf config.hyprland.enable {
     systemd.user.services.hyprpaper = {
       description = "wallpaper service for hyprland";
       partOf = ["graphical-session.target"];
       wantedBy = ["graphical-session.target"];
       after = ["graphical-session.target"];
-      reloadTriggers = ["${config.homes.lunarnova.files.".config/hypr/hyprpaper.conf".text}"];
+      reloadTriggers = ["${hyprpaper-conf}"];
 
       unitConfig.ConditionEnvironment = "WAYLAND_DISPLAY";
       serviceConfig = {
-        ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper -c /home/lunarnova/.config/hypr/hyprpaper.conf";
+        ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper -c ${hyprpaper-conf}";
         Restart = "always";
         RestartSec = "10";
       };

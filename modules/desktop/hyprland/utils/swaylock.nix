@@ -39,6 +39,14 @@ in {
           ring-wrong-color = "${colors.base10}";
           inside-wrong-color = "${colors.base12}";
     });
-      # config referenced in part from notashelf/nyx
+    security.pam.services = {
+      swaylock = {
+        name = "swaylock";
+        text = ''
+          auth  include login
+        '';
+      };
+    };
+    # config and pam module both referenced in part from notashelf/nyx
   };
 }

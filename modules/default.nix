@@ -1,7 +1,8 @@
 {...}: {
   imports = [
-    ./hjem/default.nix
-    ./nix/default.nix
+    ./core/default.nix
+    ./desktop/default.nix
     ./options/default.nix
+    ./programs/default.nix
   ];
 }

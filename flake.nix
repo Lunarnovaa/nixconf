@@ -70,7 +70,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    extended-lib = nixpkgs.lib.extend (final: prev: import ./modules/lib/toHyprconf.nix { lib = prev; });
+    extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/toHyprconf.nix { lib = prev; });
     system = "x86.64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {

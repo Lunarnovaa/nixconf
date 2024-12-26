@@ -1,8 +1,8 @@
 {...}: {
   imports = [
     ./gamemode.nix
-    ./graphics.nix
     ./lutris.nix
+    ./prism-launcher.nix
     ./steam.nix
     ./vr.nix
   ];

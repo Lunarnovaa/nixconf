@@ -9,10 +9,4 @@
     pulse.enable = true;
     #jack.enable = true;
   };
-
-  # Enables Colemak systemwide
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "colemak";
-  };
 }

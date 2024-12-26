@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # If you ever get a non x86-64 host, adjust accordingly
+    systems = {
+      url = "github:nix-systems/x86_64-linux";
+    };
+
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,12 +39,15 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.home-manager.follows = "home-manager";
+      inputs.systems.follows = "systems";
+      inputs.home-manager.follows = "";
+      inputs.darwin.follows = "";
     };
 
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
       inputs.lix.follows = "lix-module";
       inputs.flake-parts.follows = "flake-parts";
     };
@@ -47,6 +55,7 @@
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-parts.follows = "flake-parts";
     };
@@ -54,6 +63,7 @@
     # these inputs exist for other inputs to follow to reduce redundancies
     flake-utils = {
       url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
     };
 
     flake-compat = {

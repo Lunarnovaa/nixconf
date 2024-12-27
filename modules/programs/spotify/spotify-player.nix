@@ -11,7 +11,7 @@
   };
   toTOML = (pkgs.formats.toml {}).generate;
 in {
-  homes.lunarnova = {
+  hjem.users.lunarnova = {
     packages = with pkgs; [spotify-player];
     files = {
       ".config/spotify-player/app.toml".source = toTOML "spotify-player config" {

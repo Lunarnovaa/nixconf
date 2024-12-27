@@ -13,7 +13,7 @@
   };
 in {
   config = mkIf gaming.apps.discord {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [vesktop];
       files = {
         ".config/vesktop/themes/catppuccin-macchiato.css".source = catppuccin-macchiato-css;

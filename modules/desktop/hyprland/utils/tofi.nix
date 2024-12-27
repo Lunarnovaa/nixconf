@@ -10,7 +10,7 @@
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [tofi];
       files.".config/tofi/config".text = toINI {
         globalSection = {

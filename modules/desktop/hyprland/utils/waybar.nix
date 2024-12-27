@@ -38,7 +38,7 @@
   '';
 in {
   config = mkIf config.hyprland.enable {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [waybar];
       files = {
         ".config/waybar/config.jsonc".text = toJSON {

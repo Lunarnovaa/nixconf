@@ -8,7 +8,7 @@
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {
-    homes.lunarnova.files.".config/mako/config".text = ''
+    hjem.users.lunarnova.files.".config/mako/config".text = ''
       max-visible=5
       sort=-time
 

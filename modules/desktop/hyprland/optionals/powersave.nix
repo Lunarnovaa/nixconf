@@ -3,13 +3,12 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf mkForce;
+  inherit (lib) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.powersave) {
-    homes.lunarnova.files.".config/hypr/hyprland.conf" = {
-      clobber = true;
-      text = toHyprconf {
+    hjem.users.lunarnova.files = {
+      ".config/hypr/hyprland.conf".text = toHyprconf {
         attrs = {
           decoration = {
             blur.enabled = false;
@@ -18,14 +17,14 @@ in {
           misc.vfr = true;
         };
       };
-    };
-    homes.lunarnova.files.".config/hypr/hyprpaper.conf" = {
-      clobber = true;
-      text = toHyprconf {
+
+      /*
+      ".config/hypr/hyprpaper.conf".text = toHyprconf {
         attrs = {
           ipc = mkForce false;
         };
       };
+      */
     };
   };
 }

@@ -14,7 +14,7 @@
   };
 in {
   config = mkIf gaming.apps.minecraft {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [prismlauncher];
       files = {
         ".local/share/PrismLauncher/themes/catppuccin-macchiato/theme.json".source = "${catppuccin-prism-launcher}/themes/Macchiato/theme.json";

@@ -8,7 +8,7 @@
   toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.spaceship {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [starship];
       files.".config/starship.toml".source = toTOML "starship config" {
         add_newline = false;

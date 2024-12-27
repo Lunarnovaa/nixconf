@@ -7,9 +7,12 @@
   };
 
   # Setup hjem
-  homes.lunarnova = {
-    directory = "/home/lunarnova";
-    enable = true;
-    user = "lunarnova";
+  hjem = {
+    clobberByDefault = true;
+    users.lunarnova = {
+      enable = true;
+      directory = "/home/lunarnova";
+      user = "lunarnova";
+    };
   };
 }

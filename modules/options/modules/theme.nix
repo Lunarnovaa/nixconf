@@ -72,7 +72,7 @@ in {
     wallpapers = {
       primary = mkOption {
         type = path;
-        default = "${config.homes.lunarnova.directory}/wallpapers/nauragarden.png";
+        default = "${config.hjem.users.lunarnova.directory}/wallpapers/nauragarden.png";
         description = "Defines the primary wallpaper";
       };
     };

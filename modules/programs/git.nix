@@ -5,7 +5,7 @@
 }: let
   toINI = lib.generators.toINI {};
 in {
-  homes.lunarnova = {
+  hjem.users.lunarnova = {
     packages = with pkgs; [git];
     files.".config/git/config".text = toINI {
       user = {

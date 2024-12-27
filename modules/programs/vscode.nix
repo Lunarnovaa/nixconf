@@ -11,7 +11,7 @@
   inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.vscode {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [
         vscode
         alejandra

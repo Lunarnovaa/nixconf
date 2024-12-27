@@ -5,11 +5,11 @@
   ...
 }: let
   inherit (lib) mkIf;
-  starshipCache = "${config.homes.lunarnova.directory}/.cache/starship";
+  starshipCache = "${config.hjem.users.lunarnova.directory}/.cache/starship";
 in {
   config = mkIf config.terminal.apps.nushell {
     users.users.lunarnova.shell = pkgs.nushell;
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [nushell];
       files = {
         ".config/nushell/config.nu".text = ''

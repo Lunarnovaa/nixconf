@@ -7,19 +7,16 @@
   inherit (lib.extendedLib.generators) toHyprconf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
-    homes.lunarnova.files.".config/hypr/hyprland.conf" = {
-      clobber = true;
-      text = toHyprconf {
-        attrs = {
-          env = [
-            "LIBVA_DRIVER_NAME,nvidia"
-            "XDG_SESSION_TYPE,wayland"
-            "GBM_BACKEND,nvidia-drm"
-            "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          ];
-          cursor = {
-            "no_hardware_cursors" = true;
-          };
+    hjem.users.lunarnova.files.".config/hypr/hyprland.conf".text = toHyprconf {
+      attrs = {
+        env = [
+          "LIBVA_DRIVER_NAME,nvidia"
+          "XDG_SESSION_TYPE,wayland"
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        ];
+        cursor = {
+          "no_hardware_cursors" = true;
         };
       };
     };

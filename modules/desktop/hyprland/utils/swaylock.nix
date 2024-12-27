@@ -9,7 +9,7 @@
 in {
   config = mkIf config.hyprland.enable {
     # config and pam module both referenced in part from notashelf/nyx
-    homes.lunarnova.files.".config/swaylock/config".text = toSwaylockConf {
+    hjem.users.lunarnova.files.".config/swaylock/config".text = toSwaylockConf {
       attrs = {
         font = fonts.sans-serif;
         font-size = 18;

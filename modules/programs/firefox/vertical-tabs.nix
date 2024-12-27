@@ -14,12 +14,9 @@
   };
 in {
   config = mkIf config.sysconf.verticalTabs {
-    homes.lunarnova.files = {
-      ".mozilla/firefox/distribution/policies.json" = {
-        clobber = true;
-        text = toJSON {
-          "policies"."preferences"."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        };
+    hjem.users.lunarnova.files = {
+      ".mozilla/firefox/distribution/policies.json".text = toJSON {
+        "policies"."preferences"."toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
       ".mozilla/firefox/lunarnova/chrome/userChrome.css".text = ''
         @import url(${firefox-csshacks}/chrome/window_control_placeholder_support.css);

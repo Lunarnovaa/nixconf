@@ -9,7 +9,7 @@
   swaylock = "${pkgs.swaylock-effects}/bin/swaylock -C /home/lunarnova/.config/swaylock/config";
 in {
   config = mkIf config.hyprland.enable {
-    homes.lunarnova.files.".config/hypr/hypridle.conf".text = toHyprconf {
+    hjem.users.lunarnova.files.".config/hypr/hypridle.conf".text = toHyprconf {
       attrs = {
         general = {
           lock_cmd = "pidof ${swaylock} || ${swaylock}";
@@ -35,7 +35,7 @@ in {
       after = ["graphical-session.target"];
       wantedBy = ["graphical-session.target"];
       partOf = ["graphical-session.target"];
-      reloadTriggers = ["${config.homes.lunarnova.files.".config/hypr/hypridle.conf".text}"];
+      reloadTriggers = ["${config.hjem.users.lunarnova.files.".config/hypr/hypridle.conf".text}"];
 
       unitConfig.ConditionEnvironment = "WAYLAND_DISPLAY";
       serviceConfig = {

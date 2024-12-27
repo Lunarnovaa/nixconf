@@ -9,7 +9,7 @@
   toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.alacritty {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [alacritty];
       files.".config/alacritty/alacritty.toml".source = toTOML "alacritty config" {
         font = {

@@ -8,7 +8,7 @@
   inherit (config.profiles) gaming;
 in {
   config = mkIf gaming.apps.obs {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = [
         (pkgs.wrapOBS {
           plugins = with pkgs.obs-studio-plugins; [

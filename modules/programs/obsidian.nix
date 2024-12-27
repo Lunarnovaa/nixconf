@@ -8,7 +8,7 @@
   inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.obsidian {
-    homes.lunarnova = {
+    hjem.users.lunarnova = {
       packages = with pkgs; [obsidian];
     };
   };

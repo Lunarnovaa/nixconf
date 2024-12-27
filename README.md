@@ -1,28 +1,28 @@
 # nixconf
 
-I've been using NixOS since 22 June 2024. This is the config I run on all my systems. I am very much not an expert, so I would suggest you reference others before mine.
+I've been using NixOS since 22 June 2024. This is the config I run on all my systems. It has gone through many, many iterations and has come to be a passion project of mine; I am sure it will continue to be iterated upon, improved, and expanded. I have learned much from it and I look forward to continuing to learn from it.
 
 ## Structure
 
-My nixconf is structured specifically to be logical and help me work with it. Here's a basic rundown.
+My nixconf is structured specifically to be logical and help me work with it. Here's a basic rundown:
 
 - [`flake.nix`](./flake.nix) Nix Flake: Importing flakes, pinning versions, defining module directories
 - [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
-  - [`${hostName}/configuration.nix`](./hosts/polaris/configuration.nix) System-level configurations exclusive to the host
+  - [`${hostName}/configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
   - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
-  - [`${hostName}/options.nix`](./hosts/polaris/options.nix) Option selection
-- [`modules/`](./modules) Modular system configuration: HM and Nix modules stored in one place to highlight option sharing
-  - [`hm`](./modules/hm) Home-Manager Modules: Program configuration
-    - [`apps`](./modules/hm/apps) App Configuration: Configures specific apps
-    - [`hyprland`](./modules/hm/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
-    - [`theming`](./modules/hm/theming) Theming: Themes GTK and QT
-  - [`nix`](./modules/nix) Nix Modules: System-level configuration
-    - [`core`](./modules/nix/core) Core Nix Modules: Critical infrastructure for systems
-    - [`optionals`](./modules/nix/optionals) Optional Nix Modules: Profile specific system-level modules
-  - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system & per profile
-    - [`apps`](./modules/options/apps) Declaration of app options
+- [`modules/`](./modules) Modular system configuration: The bulk of my system configuration
+  - [`core`](./modules/core) Critical modules for the nix system to function
+    - [`system`](./modules/core/system) Drivers, booting, and other nix- and system-essential modules
+    - [`users`](./modules/core/users) User declaration and the agenix module
+  - [`desktop`](./modules/desktop) Desktop related modules: Functionality and configuration
+    - [`hyprland`](./modules/desktop/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
+    - [`theming`](./modules/desktop/theming) GTK and QT Customization
+  - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system and per profile
+    - [`config`](./modules/options/config) Special host configuration options
     - [`modules`](./modules/options/modules) Custom module declaration
-    - [`profiles`](./modules/options/profiles) Options configured by profile
+    - [`profiles`](./modules/options/profiles) Options and apps configured by profile
+  - [`programs`](./modules/programs) Program configuration
+- [`lib`](./lib) Extended Lib: Custom function declaration
 - [`secrets`](./secrets) Agenix Secrets Management
 
 ### How the profiles work
@@ -35,9 +35,19 @@ My nixconf is structured specifically to be logical and help me work with it. He
 
 Credit to [@NotAShelf](https://github.com/NotAShelf/Nyx) for inspiration and references.
 
-### Where's `home.nix`?
+### Why don't you use Home Manager?
 
-I replaced it with [`options.nix`](./hosts/polaris/options.nix). I previously only used it for home-manager options, so when I replaced my option system it was no longer needed. This allows me to make system-specific configuration that may be referenced in both Nix and HM modules.
+[Home Manager](https://github.com/nix-community/home-manager) is a lovely tool for many people that helps manage their dotfiles for them. I used it myself for the first 6 months of my journey on NixOS. I then decided it was best to move away from it. With [@NotAShelf](https://github.com/NotAShelf) and [@éclairevoyant](https://github.com/eclairevoyant)'s [hjem](https://github.com/feel-co/hjem), I successfully migrated from Home Manager and began managing my dotfiles myself.
+
+Home Manager has a few problems for me, in increasing severity:
+
+1. Abstracts too much;
+2. Lengthens eval times; and
+3. Requires a differentiation between HM modules and Nix modules.
+
+In the past, I structured my nixconf to account for the differentiation between the two module types, but it caused me  incoveniences that I would rather have gone without.
+
+If you wish to do the same, I would consider this config to be a decent jumping-off point. I am also looking into creating a flake for abstracted hjem options to solve the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 
 ## Hosts
 
@@ -56,10 +66,10 @@ No project is done alone. This is especially so in the FOSS World. I would like 
 
 [@itslychee](https://github.com/itslychee), for help on Discord.
 
-[@NotAShelf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and probably for other reasons that I may be missing.
+[@NotAShelf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and most certainly for other reasons that I may be missing.
 
 This list will be sure to grow, and I have probably missed pepole. So to everyone else I have interacted with on my Nix journey, thank you.
 
 ## Licensing
 
-This repo is protected under [GPLv3](./LICENSE). If you use any of my code I would prefer if you could give me credit either with a comment or in the README, but I'm not really picky.
+Unless explicitly stated otherwise, all code within this repo is protected under [GPLv3](./LICENSE). If you use any of my code please give me credit with a comment and optionally in the README.

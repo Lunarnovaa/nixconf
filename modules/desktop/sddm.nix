@@ -14,7 +14,8 @@ in {
           flavor = "macchiato";
           font = "${fonts.sans-serif}";
           fontSize = "11";
-          background = "${wallpapers.primary}";
+          background = wallpapers.primary; # for some reason, this doesn't work rn
+          loginBackground = true;
         }
       )
     ];

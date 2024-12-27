@@ -1,6 +1,6 @@
 {lib}: {
-# Taken from https://github.com/nix-community/home-manager
-# toHyprconf is available under the MIT License.
+  # Taken from https://github.com/nix-community/home-manager
+  # toHyprconf is available under the MIT License.
 
   toHyprconf = {
     attrs,
@@ -69,23 +69,23 @@
   # Partially taken from https://github.com/nix-community/home-manager
   # the function itself is available under the MIT License.
   toSwaylockConf = {attrs}: let
-   inherit (lib) concatStrings mapAttrsToList;
-    in
-      concatStrings (mapAttrsToList (n: v:
-            if v == false
-            then ""
-            else
-              (
-                if v == true
-                then n
-                else n + "=" + builtins.toString v
-              )
-              + "\n") attrs);
-
+    inherit (lib) concatStrings mapAttrsToList;
+  in
+    concatStrings (mapAttrsToList (n: v:
+      if v == false
+      then ""
+      else
+        (
+          if v == true
+          then n
+          else n + "=" + builtins.toString v
+        )
+        + "\n")
+    attrs);
 
   # toGtk3Ini , formatGtk2Option , and finalGtk2Text are all taken from https://github.com/nix-community/home-manager, with some minor modifications to their function.
   # All of the gtk generator functions are available under the MIT License.
-  gtk = let 
+  gtk = let
     inherit (lib) generators isBool boolToString mapAttrsToList concatMapStrings isString escape;
     formatGtk2Option = n: v: let
       v' =
@@ -114,5 +114,4 @@
     in "${escape ["="] n} = ${v'}";
     finalGtk2Text = {attrs}: concatMapStrings (l: l + "\n") (mapAttrsToList formatGtk2Option attrs);
   };
-
 }

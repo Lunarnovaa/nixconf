@@ -1,4 +1,8 @@
-{lib, config, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkIf mkForce;
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";

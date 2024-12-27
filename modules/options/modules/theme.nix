@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.options) mkOption;
   inherit (lib.types) attrs str int path;
 in {
@@ -68,7 +72,7 @@ in {
     wallpapers = {
       primary = mkOption {
         type = path;
-        default = /home/lunarnova/wallpapers/nauragarden.png;
+        default = "${config.homes.lunarnova.directory}/wallpapers/nauragarden.png";
         description = "Defines the primary wallpaper";
       };
     };

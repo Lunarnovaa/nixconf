@@ -21,7 +21,7 @@
 in {
   homes.lunarnova = {
     files = {
-      ".gtkrc-2.0".text = finalGtk2Text { attrs = gtk-settings;};
+      ".gtkrc-2.0".text = finalGtk2Text {attrs = gtk-settings;};
       ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
         Settings = gtk-settings;
       };

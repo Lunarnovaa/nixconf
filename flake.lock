@@ -171,17 +171,37 @@
         ]
       },
       "locked": {
-        "lastModified": 1735338156,
-        "narHash": "sha256-EPGpTQoBuK/B8onj/Lo8aYo7m4ZktV7/Xj7iyVSSGsw=",
+        "lastModified": 1735415443,
+        "narHash": "sha256-t/OSIIGVflXP70kQieq72x+zhLVYfMejRopPgOZnV0s=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "d8910e575fcc86af3b5804af13a19ef2177f84af",
+        "rev": "2979f66c4a1e6f662e4cb7fa9e20b9a6609919f9",
         "type": "github"
       },
       "original": {
         "owner": "feel-co",
         "repo": "hjem",
         "type": "github"
+      }
+    },
+    "hjem-rum": {
+      "inputs": {
+        "hjem": [
+          "hjem"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735346963,
+        "narHash": "sha256-fS5R3XRfFAmtJ6cNZ9dkA2B4aJCppvgo1xKBUJOdco0=",
+        "path": "/home/lunarnova/NUG/hjem-rum",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/lunarnova/NUG/hjem-rum",
+        "type": "path"
       }
     },
     "hyprcursor": {
@@ -2773,6 +2793,7 @@
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "hjem": "hjem",
+        "hjem-rum": "hjem-rum",
         "hyprland": "hyprland",
         "lix-module": "lix-module",
         "niqspkgs": "niqspkgs",

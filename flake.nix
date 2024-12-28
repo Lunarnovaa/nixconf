@@ -14,6 +14,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hjem-rum = {
+      url = "path:/home/lunarnova/NUG/hjem-rum";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hjem.follows = "hjem";
+    };
+
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
       inputs.flake-utils.follows = "flake-utils";
@@ -96,6 +102,7 @@
           #inputs.lix-module.nixosModules.default
           inputs.agenix.nixosModules.default
           inputs.hjem.nixosModules.default
+          inputs.hjem-rum.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
           inputs.nvf.nixosModules.default
 

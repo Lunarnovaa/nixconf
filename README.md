@@ -37,7 +37,7 @@ Credit to [@NotAShelf](https://github.com/NotAShelf/Nyx) for inspiration and ref
 
 ### Why don't you use Home Manager?
 
-[Home Manager](https://github.com/nix-community/home-manager) is a lovely tool for many people that helps manage their dotfiles for them. I used it myself for the first 6 months of my journey on NixOS. I then decided it was best to move away from it. With [@NotAShelf](https://github.com/NotAShelf) and [@éclairevoyant](https://github.com/eclairevoyant)'s [hjem](https://github.com/feel-co/hjem), I successfully migrated from Home Manager and began managing my dotfiles myself.
+[Home Manager](https://github.com/nix-community/home-manager) is a lovely tool for many people that helps manage their dotfiles for them. I used it myself for the first 6 months of my journey on NixOS. I then decided it was best to move away from it. With [@NotAShelf](https://github.com/NotAShelf) and [@éclairevoyant](https://github.com/eclairevoyant)'s [Hjem](https://github.com/feel-co/hjem), I successfully migrated from Home Manager and began managing my dotfiles myself.
 
 Home Manager has a few problems for me, in increasing severity:
 
@@ -47,7 +47,7 @@ Home Manager has a few problems for me, in increasing severity:
 
 In the past, I structured my nixconf to account for the differentiation between the two module types, but it caused me  incoveniences that I would rather have gone without.
 
-If you wish to do the same, I would consider this config to be a decent jumping-off point. I am also looking into creating a flake for abstracted hjem options to solve the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
+If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently very WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 
 ## Hosts
 

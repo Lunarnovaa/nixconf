@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
 
     # If you ever get a non x86-64 host, adjust accordingly
     systems = {
@@ -41,6 +41,8 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     agenix = {
       url = "github:ryantm/agenix";
@@ -105,6 +107,7 @@
           inputs.hjem-rum.nixosModules.default
           inputs.spicetify-nix.nixosModules.default
           inputs.nvf.nixosModules.default
+          inputs.nixos-cosmic.nixosModules.default
 
           inputs.nix-minecraft.nixosModules.minecraft-servers
         ];

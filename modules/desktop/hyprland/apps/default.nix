@@ -1,6 +1,6 @@
 {...}: {
   imports = [
     ./blueberry.nix
-    ./pcmanfm.nix
+    ./nemo.nix
   ];
 }

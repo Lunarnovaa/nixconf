@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./cosmic/default.nix
     ./hyprland/default.nix
     ./theming/default.nix
 
@@ -7,6 +8,5 @@
     ./fonts.nix
     ./keyboard.nix
     ./pinyin.nix
-    ./sddm.nix
   ];
 }

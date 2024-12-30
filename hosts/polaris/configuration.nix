@@ -13,11 +13,17 @@ in {
   # Defining the Hostname
   networking.hostName = "polaris";
 
-  # Specialisation for "Focus Mode": Disables Gaming Module
   specialisation = {
+    # "Focus Mode": Disables Gaming Modules
     focusMode.configuration = {
       environment.etc."specialisation".text = "focusMode";
       profiles.gaming.enable = mkForce false;
+    };
+    # "Cosmic Session": Enables Cosmic DE
+    cosmicSession.configuration = {
+      environment.etc."specialisation".text = "cosmicSession";
+      cosmic.enable = mkForce true;
+      hyprland.enable = mkForce false;
     };
   };
 
@@ -46,6 +52,9 @@ in {
     via = false;
   };
 
+  cosmic =  {
+    enable = false;
+  };
   hyprland = {
     enable = true;
     monitors = {

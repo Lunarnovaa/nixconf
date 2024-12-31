@@ -15,6 +15,7 @@
     };
 
     hjem-rum = {
+      #url = "github:/hjem-rum/";
       url = "path:/home/lunarnova/snug/hjem-rum";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hjem.follows = "hjem";

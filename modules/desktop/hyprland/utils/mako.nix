@@ -15,17 +15,17 @@ in {
       layer=overlay
       anchor=top-center
 
-      font=${fonts.sans-serif}}
-      background-color=#${colors.base01}
-      text-color=#${colors.base05}
+      font=${fonts.sans-serif}
+      background-color=${colors.base01}
+      text-color=${colors.base05}
       width=300
       height=80
       margin=10
       padding=5
       border-size=2
-      border-color=#${colors.base08}
+      border-color=${colors.base08}
       border-radius=3
-      progress-color=over #5588AAFF
+      progress-color=#5588aa
       icons=true
       max-icon-size=64
 

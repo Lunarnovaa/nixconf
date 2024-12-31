@@ -48,16 +48,16 @@ in {
           ];
 
           general = {
-            border_size = "3";
+            border_size = "1";
             gaps_out = "4,10,10,10";
             gaps_in = "4";
 
-            "col.inactive_border" = "0xff${colors.base03}";
-            "col.active_border" = "0xff${colors.base08}";
+            "col.inactive_border" = "0x00${colors.base03}";
+            "col.active_border" = "0xffFAF9F6";
           };
 
           decoration = {
-            rounding = "3";
+            rounding = "0";
           };
         };
       };

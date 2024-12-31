@@ -15,7 +15,7 @@
     };
 
     hjem-rum = {
-      url = "path:/home/lunarnova/NUG/hjem-rum";
+      url = "path:/home/lunarnova/snug/hjem-rum";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hjem.follows = "hjem";
     };
@@ -67,6 +67,13 @@
       inputs.systems.follows = "systems";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-parts.follows = "flake-parts";
+    };
+
+    basix = {
+      url = "github:notashelf/basix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "flake-compat";
     };
 
     # these inputs exist for other inputs to follow to reduce redundancies

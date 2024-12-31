@@ -3,7 +3,7 @@
 
   hjem.users.lunarnova.packages = [
     (pkgs.catppuccin-kde.override {
-      flavour = ["macchiato"];
+      flavour = ["mocha"];
       accents = ["red"];
     })
   ];

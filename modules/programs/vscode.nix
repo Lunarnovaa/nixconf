@@ -21,8 +21,8 @@ in {
         ".config/Code/User/settings.json".text = toJSON {
           "editor.fontFamily" = "${fonts.monospace}";
           "editor.fontLigatures" = true;
-          "workbench.colorTheme" = "Catppuccin Macchiato";
-          "catppuccin.accentColor" = "red";
+          "workbench.colorTheme" = "Catppuccin Mocha";
+          "catppuccin"."accentColor" = "red";
 
           "nix.serverPath" = "nixd";
           "nix.enableLanguageServer" = true;

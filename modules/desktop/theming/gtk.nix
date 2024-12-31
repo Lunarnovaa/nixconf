@@ -10,7 +10,7 @@
   gtk-settings = {
     gtk-icon-theme-name = "Papirus-Dark";
 
-    gtk-theme-name = "catppuccin-macchiato-red-standard";
+    gtk-theme-name = "catppuccin-mocha-red-standard+normal";
 
     gtk-font-name = "${fonts.sans-serif} ${builtins.toString fonts.size}";
 
@@ -32,11 +32,13 @@ in {
     packages = with pkgs; [
       (catppuccin-gtk.override {
         accents = ["red"];
-        variant = "macchiato";
+        variant = "mocha";
+        size = "standard";
+        tweaks = ["normal"];
       })
       (catppuccin-papirus-folders.override {
         accent = "red";
-        flavor = "macchiato";
+        flavor = "mocha";
       })
       bibata-cursors
     ];

@@ -120,17 +120,17 @@ in {
             font-size: 13px;
             min-height: 0px;
             border-radius: 6px;
-            color: #${colors.base05};
+            color: ${colors.base05};
             font-family: "${fonts.sans-serif}, ${fonts.monospace}";
           }
           .module {
             padding: 0em 0.8em;
           }
           #battery.warning {
-            color: #${colors.base09};
+            color: ${colors.base09};
           }
           #battery.critical {
-            color: #${colors.base08};
+            color: ${colors.base08};
           }
           #network {
             font-size: 16px;
@@ -142,7 +142,7 @@ in {
             font-size: 17px
           }
           window#waybar {
-            background-color: #${colors.base00};
+            background-color: ${colors.base00};
           }
         '';
       };

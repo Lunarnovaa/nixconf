@@ -1,13 +1,10 @@
 {
-  lib,
-  pkgs,
   ...
 }: let
-  toINI = lib.generators.toINI {};
 in {
-  hjem.users.lunarnova = {
-    packages = with pkgs; [git];
-    files.".config/git/config".text = toINI {
+  programs.git = {
+    enable = true;
+    config = {
       user = {
         email = "35857948+Lunarnovaa@users.noreply.github.com";
         name = "lunarnovaa";

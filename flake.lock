@@ -58,6 +58,32 @@
         "type": "github"
       }
     },
+    "basix": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734147225,
+        "narHash": "sha256-96KTY+X0f4l/k/jiQ/kKRR1W+fnZdWNPaAkBc8ZNVRI=",
+        "owner": "notashelf",
+        "repo": "basix",
+        "rev": "a6f0fd75ba19ac220590616ff0a94e47c4d293bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "basix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1733328505,
@@ -210,13 +236,13 @@
         ]
       },
       "locked": {
-        "lastModified": 1735419689,
+        "lastModified": 1735609843,
         "narHash": "sha256-M0FdQmNVBqtC175rfon5J6OXnlWMxsNFZx5c/QaAz3I=",
-        "path": "/home/lunarnova/NUG/hjem-rum",
+        "path": "/home/lunarnova/snug/hjem-rum",
         "type": "path"
       },
       "original": {
-        "path": "/home/lunarnova/NUG/hjem-rum",
+        "path": "/home/lunarnova/snug/hjem-rum",
         "type": "path"
       }
     },
@@ -2842,6 +2868,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "basix": "basix",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",

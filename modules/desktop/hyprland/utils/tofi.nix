@@ -21,10 +21,10 @@ in {
           height = "15%";
           font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
           font-size = 13;
-          background-color = "#${colors.base00}";
-          border-color = "#${colors.base08}";
-          text-color = "#${colors.base05}";
-          selection-color = "#${colors.base12}";
+          background-color = "${colors.base00}";
+          border-color = "${colors.base08}";
+          text-color = "${colors.base05}";
+          selection-color = "${colors.base12}";
         };
       };
     };

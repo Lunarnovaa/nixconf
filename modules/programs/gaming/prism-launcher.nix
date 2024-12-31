@@ -17,8 +17,8 @@ in {
     hjem.users.lunarnova = {
       packages = with pkgs; [prismlauncher];
       files = {
-        ".local/share/PrismLauncher/themes/catppuccin-macchiato/theme.json".source = "${catppuccin-prism-launcher}/themes/Macchiato/theme.json";
-        ".local/share/PrismLauncher/themes/catppuccin-macchiato/themeStyle.css".source = "${catppuccin-prism-launcher}/themes/Macchiato/themeStyle.css";
+        ".local/share/PrismLauncher/themes/catppuccin-mocha/theme.json".source = "${catppuccin-prism-launcher}/themes/Mocha/theme.json";
+        ".local/share/PrismLauncher/themes/catppuccin-mocha/themeStyle.css".source = "${catppuccin-prism-launcher}/themes/Mocha/themeStyle.css";
       };
     };
   };

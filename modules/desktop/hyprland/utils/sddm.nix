@@ -11,7 +11,7 @@ in {
     environment.systemPackages = [
       (
         pkgs.catppuccin-sddm.override {
-          flavor = "macchiato";
+          flavor = "mocha";
           font = "${fonts.sans-serif}";
           fontSize = "11";
           background = wallpapers.primary; # for some reason, this doesn't work rn
@@ -22,7 +22,7 @@ in {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "catppuccin-macchiato";
+      theme = "catppuccin-mocha";
       package = pkgs.kdePackages.sddm;
     };
   };

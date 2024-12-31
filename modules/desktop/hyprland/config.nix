@@ -5,10 +5,17 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) colors;
   inherit (config.hyprland) monitors;
+  inherit (builtins) mapAttrs substring;
+
+  # cleansing the imported colors from basix of the prepended '#'
+  # bc colors don't work here without it
+  # optimized by diniamo
+  hyprCol = mapAttrs (n: v: substring 1 (-1) v) colors;
+
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     ${pkgs.mako}/bin/mako &
@@ -48,16 +55,21 @@ in {
           ];
 
           general = {
-            border_size = "1";
+            border_size = "3";
             gaps_out = "4,10,10,10";
             gaps_in = "4";
 
-            "col.inactive_border" = "0x00${colors.base03}";
-            "col.active_border" = "0xffFAF9F6";
+            "col.inactive_border" = "0x00${hyprCol.base03}";
+            "col.active_border" = "0xee${hyprCol.base04} 0xee${hyprCol.base06} 45deg"; #Gradient from surface2 to red
           };
 
           decoration = {
-            rounding = "0";
+            rounding = "5";
+
+            shadow = {
+              #range = 6;
+              render_power = 1;
+            };
           };
         };
       };

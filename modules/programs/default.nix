@@ -8,6 +8,7 @@
 
     ./alacritty.nix
     ./git.nix
+    ./nh.nix
     ./nushell.nix
     ./obs.nix
     ./obsidian.nix

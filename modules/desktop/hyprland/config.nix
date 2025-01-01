@@ -9,12 +9,13 @@
   inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) colors;
   inherit (config.hyprland) monitors;
-  inherit (builtins) mapAttrs substring;
+  inherit (lib.strings) removePrefix;
+  inherit (builtins) mapAttrs;
 
   # cleansing the imported colors from basix of the prepended '#'
   # bc colors don't work here without it
-  # optimized by diniamo
-  hyprCol = mapAttrs (n: v: substring 1 (-1) v) colors;
+  # optimized by notashelf
+  hyprCol = mapAttrs (n: v: removePrefix "#" v) colors;
 
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

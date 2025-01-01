@@ -1,10 +1,7 @@
-{
-  lib,
-  ...
-}: let 
+{lib, ...}: let
   inherit (lib.options) mkOption;
   inherit (lib.types) bool;
-in  {
+in {
   options.cosmic = {
     enable = mkOption {
       type = bool;

@@ -2,7 +2,7 @@
   config,
   lib,
   ...
-}: let 
+}: let
   inherit (lib) mkIf;
 in {
   config = mkIf config.cosmic.enable {

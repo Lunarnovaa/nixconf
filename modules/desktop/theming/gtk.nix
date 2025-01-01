@@ -20,12 +20,12 @@
     gtk-application-prefer-dark-theme = true;
   };
 
-  gtk-theme-pkg = (pkgs.catppuccin-gtk.override {
+  gtk-theme-pkg = pkgs.catppuccin-gtk.override {
     accents = ["red"];
     variant = "mocha";
     size = "standard";
     tweaks = ["normal"];
-  });
+  };
 in {
   hjem.users.lunarnova = {
     files = {
@@ -48,8 +48,8 @@ in {
     ];
   };
 
-    environment.sessionVariables = {
-      GTK2_RC_FILES = "${config.hjem.users.lunarnova.directory}/.gtkrc-2.0";
-      GTK_THEME = "${gtk-settings.gtk-theme-name}";
-    };
+  environment.sessionVariables = {
+    GTK2_RC_FILES = "${config.hjem.users.lunarnova.directory}/.gtkrc-2.0";
+    GTK_THEME = "${gtk-settings.gtk-theme-name}";
+  };
 }

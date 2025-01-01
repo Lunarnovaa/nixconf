@@ -52,7 +52,7 @@ in {
     via = false;
   };
 
-  cosmic =  {
+  cosmic = {
     enable = false;
   };
   hyprland = {

@@ -60,7 +60,7 @@ in {
             gaps_in = "4";
 
             "col.inactive_border" = "0x00${hyprCol.base03}";
-            "col.active_border" = "0xee${hyprCol.base04} 0xee${hyprCol.base06} 45deg"; #Gradient from surface2 to red
+            "col.active_border" = "0xee${hyprCol.base06} 0xee${hyprCol.base08} 0xee${hyprCol.base06} 45deg"; #Gradient from surface2 to red
           };
 
           decoration = {

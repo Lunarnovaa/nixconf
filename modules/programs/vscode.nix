@@ -6,29 +6,22 @@
   ...
 }: let
   inherit (lib) mkIf;
-  inherit (builtins) toJSON;
   inherit (config.theme) fonts;
   inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.vscode {
-    hjem.users.lunarnova = {
-      packages = with pkgs; [
-        vscode
-        alejandra
-        nixd
-      ];
-      files = {
-        ".config/Code/User/settings.json".text = toJSON {
-          "editor.fontFamily" = "${fonts.monospace}";
-          "editor.fontLigatures" = true;
-          "workbench.colorTheme" = "Catppuccin Mocha";
-          "catppuccin"."accentColor" = "red";
+    hjem.users.lunarnova.rum.programs.vscode = {
+      enable = true;
+      settings = {
+        "editor.fontFamily" = "${fonts.monospace}";
+        "editor.fontLigatures" = true;
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "catppuccin"."accentColor" = "red";
 
-          "nix.serverPath" = "nixd";
-          "nix.enableLanguageServer" = true;
-          "nixpkgs"."expr" = "import ${inputs.nixpkgs} { }";
-          "formatting"."command" = ["alejandra"];
-        };
+        "nix.serverPath" = "${pkgs.nixd}";
+        "nix.enableLanguageServer" = true;
+        "nixpkgs"."expr" = "import ${inputs.nixpkgs} { }";
+        "formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
       };
     };
   };

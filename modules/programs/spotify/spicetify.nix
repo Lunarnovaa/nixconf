@@ -28,7 +28,7 @@ in {
         newReleases
       ];
       theme = spicePkgs.themes.catppuccin;
-      colorScheme = "macchiato";
+      colorScheme = "mocha";
     };
   };
 }

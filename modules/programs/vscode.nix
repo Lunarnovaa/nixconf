@@ -18,7 +18,7 @@ in {
         "workbench.colorTheme" = "Catppuccin Mocha";
         "catppuccin"."accentColor" = "red";
 
-        "nix.serverPath" = "${pkgs.nixd}";
+        "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
         "nix.enableLanguageServer" = true;
         "nixpkgs"."expr" = "import ${inputs.nixpkgs} { }";
         "formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];

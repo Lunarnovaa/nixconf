@@ -121,7 +121,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
-    moduleInputs = with inputs; [
+    moduleInputs =  with inputs; [
       agenix.nixosModules.default
       hjem.nixosModules.default
       hjem-rum.nixosModules.default
@@ -130,6 +130,7 @@
       nixos-cosmic.nixosModules.default
       nix-minecraft.nixosModules.minecraft-servers
     ];
+    inherit (builtins) concatLists;
   in {
     # define the formatter to be run on 'nix fmt'
     formatter.${system} = pkgs.alejandra;
@@ -137,39 +138,41 @@
     nixosConfigurations = {
       polaris = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        modules = builtins.concatLists [
-          [
-            ./hosts/polaris/configuration.nix
-            ./modules/default.nix
-          ]
+        modules = concatLists [
           moduleInputs
+          [
+            ./modules/default.nix
+            ./hosts/polaris/configuration.nix
+          ]
         ];
       };
       procyon = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        modules = builtins.concatLists [
+        modules = concatLists [
+          moduleInputs
           [
-            ./hosts/procyon/configuration.nix
             ./modules/default.nix
+            ./hosts/procyon/configuration.nix
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ]
-          moduleInputs
         ];
       };
     };
     # ags derivation for typescript
     packages.${system}.ags = inputs.ags.lib.bundle {
       inherit pkgs;
-      src = ./modules/desktop/hyprland/astal/app;
-      name = "lag-shell";
+      src = ./modules/desktop/hyprland/astal/src;
+      name = "lags";
       entry = "app.ts";
       gtk4 = true;
 
       extraPackages = [
+        inputs.ags.packages.${system}.hyprland
+        ( with pkgs;
+          pwvucontrol
+          blueberry
+        )
       ];
-    };
-    devShells.${system} = {
-
     };
   };
 }

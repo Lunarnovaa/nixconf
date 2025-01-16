@@ -21,7 +21,7 @@
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     ${pkgs.mako}/bin/mako &
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
-    waybar &
+    nix run system#ags &
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &
   '';
 in {
@@ -57,7 +57,7 @@ in {
 
           general = {
             border_size = "3";
-            gaps_out = "4,10,10,10";
+            gaps_out = "10,10,10,10";
             gaps_in = "4";
 
             "col.inactive_border" = "0x00${hyprCol.base03}";

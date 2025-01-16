@@ -1,20 +1,30 @@
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{"@theme_fg_color"};
-$bg-color: #{"@theme_bg_color"};
+@import "/home/lunarnova/tmp/astal-colors.scss";
+
 
 window.Bar {
-    background: transparent;
-    color: $fg-color;
+    background: $base00;
+    color: $base05;
+    font-family: "Fira Code Nerdfont";
     font-weight: bold;
+    font-size: 20px;
 
     >centerbox {
-        background: $bg-color;
-        border-radius: 10px;
+        border-radius: 5px;
         margin: 8px;
     }
 
-    button {
-        border-radius: 8px;
+    .element {
+        background: $base02;
+        color: $base05;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: "Fira Code Nerdfont";
         margin: 2px;
+    }
+    button {
+        border-radius: 0px;
+        background: transparent;
+        border-width: 4px;
     }
 }

@@ -32,6 +32,10 @@ in {
               nix develop --command nu
           }
 
+          def agsr [] {
+            nix shell github:aylur/ags#agsFull -c ags run ~/nixconf/modules/desktop/hyprland/astal/src/app.ts --gtk4
+          }
+
           def webdev [--run (-r)] {
             cd ~/aurabora.org
             if $run {

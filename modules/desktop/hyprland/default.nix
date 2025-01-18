@@ -1,7 +1,6 @@
 {
   imports = [
     ./apps/default.nix
-    ./astal/default.nix
     ./optionals/default.nix
     ./utils/default.nix
 

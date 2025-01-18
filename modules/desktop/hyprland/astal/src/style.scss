@@ -1,11 +1,13 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-@import "/home/lunarnova/tmp/astal-colors.scss";
+$base00: #1e1e2e;
+$base02: #313244;
+$base05: #cdd6f4;
+$font: "Fira Code Nerdfont";
 
 
 window.Bar {
     background: $base00;
     color: $base05;
-    font-family: "Fira Code Nerdfont";
+    font-family: $font;
     font-weight: bold;
     font-size: 20px;
 
@@ -19,7 +21,7 @@ window.Bar {
         color: $base05;
         font-weight: bold;
         font-size: 20px;
-        font-family: "Fira Code Nerdfont";
+        font-family: $font;
         margin: 2px;
     }
     button {

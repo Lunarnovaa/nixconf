@@ -159,19 +159,44 @@
       };
     };
     # ags derivation for typescript
-    packages.${system}.ags = inputs.ags.lib.bundle {
+    packages.${system}.lags = inputs.ags.lib.bundle {
       inherit pkgs;
       src = ./modules/desktop/hyprland/astal/src;
       name = "lags";
       entry = "app.ts";
       gtk4 = true;
 
-      extraPackages = [
-        inputs.ags.packages.${system}.hyprland
-        ( with pkgs;
+      extraPackages = let 
+        ags-pkgs = with inputs.ags.packages.${system}; [
+          hyprland
+          wireplumber
+        ];
+        nix-pkgs = with pkgs; [
           pwvucontrol
           blueberry
-        )
+        ];
+      in concatLists [
+        ags-pkgs
+        nix-pkgs
+      ];
+    };
+    devShells.${system}.lags = pkgs.mkShell {
+      buildInputs = [
+        (inputs.ags.packages.${system}.default.override {
+          extraPackages = let 
+            ags-pkgs = with inputs.ags.packages.${system}; [
+              hyprland
+              wireplumber
+            ];
+            nix-pkgs = with pkgs; [
+              pwvucontrol
+              blueberry
+            ];
+          in concatLists [
+            ags-pkgs
+            nix-pkgs
+          ];
+        })
       ];
     };
   };

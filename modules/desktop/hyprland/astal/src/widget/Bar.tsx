@@ -24,18 +24,27 @@ function Workspaces() {
     </box>
 }
 
-function AudioSlider(show = false) {
+function AudioSlider() {
     const speaker = Wp.get_default()?.audio.defaultSpeaker!
 
 
-    return <box>
-        
-        <slider
-            hexpand
-            onDragged={({ value }) => speaker.volume = value}
-            value={bind(speaker, "volume")}
-        />
-    </box>
+    return <menubutton direction={Gtk.ArrowType.RIGHT} valign={Gtk.Align.CENTER}>
+        <image iconName={bind(speaker, "volumeIcon")}/>
+        <popover hasArrow={false}>
+            <box>
+                
+                <slider
+                    widthRequest={150}
+                    onNotify={({value}) => (speaker.set_volume(value))}
+                    value={bind(speaker,"volume")}
+                    round_digits={2}
+                    
+                    
+                />
+                
+            </box>
+        </popover>
+    </menubutton>
 }
 
 function SysTray() {
@@ -45,7 +54,7 @@ function SysTray() {
         orientation={1}
         cssClasses={["element", "systray"]}
         visible>
-            <button onClicked={() => }>S</button>
+            <AudioSlider/>
             <button onClicked="pwvucontrol">󰈀</button>
             <button onClicked="blueberry &">󰂲
                 

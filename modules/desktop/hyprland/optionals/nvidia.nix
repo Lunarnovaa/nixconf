@@ -15,9 +15,6 @@ in {
           "GBM_BACKEND,nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         ];
-        cursor = {
-          "no_hardware_cursors" = true;
-        };
       };
     };
   };

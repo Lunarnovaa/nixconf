@@ -13,7 +13,7 @@
 ## other
 
 - [ ] add ozone envar with hjem when implemented
-- [ ] update hyprland and enable hardware cursors for nvidia
+- [x] update hyprland and enable hardware cursors for nvidia
 - [x] optimize imports
 - [ ] integrate options modules into standard module sets
 - [x] cleanup inherits

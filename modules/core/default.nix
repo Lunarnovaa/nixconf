@@ -1,6 +1,6 @@
-{...}: {
+{
   imports = [
-    ./system/default.nix
-    ./users/default.nix
+    ./system
+    ./users
   ];
 }

@@ -1,8 +1,8 @@
 {
   imports = [
-    ./apps/default.nix
-    ./optionals/default.nix
-    ./utils/default.nix
+    ./apps
+    ./optionals
+    ./utils
 
     ./binds.nix
     ./config.nix

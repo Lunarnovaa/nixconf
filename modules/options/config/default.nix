@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./loose.nix
     ./sysconf.nix

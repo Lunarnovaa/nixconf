@@ -1,10 +1,10 @@
-{...}: {
+{
   imports = [
-    ./firefox/default.nix
-    ./gaming/default.nix
-    ./nvf/default.nix
-    ./servers/default.nix
-    ./spotify/default.nix
+    ./firefox
+    ./gaming
+    ./nvf
+    ./servers
+    ./spotify
 
     ./alacritty.nix
     ./git.nix

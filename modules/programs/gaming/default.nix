@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./gamemode.nix
     ./lutris.nix

@@ -1,6 +1,6 @@
-{...}: {
+{
   imports = [
-    ./drivers/default.nix
+    ./drivers
 
     ./bootloader.nix
     ./caches.nix

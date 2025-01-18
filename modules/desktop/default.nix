@@ -1,8 +1,8 @@
-{...}: {
+{
   imports = [
-    ./cosmic/default.nix
-    ./hyprland/default.nix
-    ./theming/default.nix
+    ./cosmic
+    ./hyprland
+    ./theming
 
     ./audio.nix
     ./fonts.nix

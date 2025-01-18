@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./firefox.nix
     ./search-engines.nix

@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ./minecraft-server.nix
   ];

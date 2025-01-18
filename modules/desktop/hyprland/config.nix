@@ -48,9 +48,6 @@ in {
             accel_profile = "flat";
 
             sensitivity = "-0.2";
-
-            # Touchpad gestures
-            workspace_swipe = true;
           };
 
           env = [

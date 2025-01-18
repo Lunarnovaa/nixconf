@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (builtins) toJSON;
   firefox-csshacks = pkgs.fetchFromGitHub {
     owner = "MrOtherGuy";

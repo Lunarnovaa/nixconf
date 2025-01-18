@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.profiles) gaming;
 in {
   config = mkIf gaming.apps.lutris {

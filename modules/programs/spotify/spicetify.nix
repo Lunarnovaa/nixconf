@@ -5,10 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit
-    (lib)
-    mkIf
-    ;
+  inherit (lib.modules) mkIf;
 in {
   config = mkIf config.loose.spicetify {
     programs.spicetify = let

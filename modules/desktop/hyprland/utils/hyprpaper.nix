@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) wallpapers;
 

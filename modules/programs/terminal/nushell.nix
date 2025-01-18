@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   starshipCache = "${config.hjem.users.lunarnova.directory}/.cache/starship";
 in {
   config = mkIf config.terminal.apps.nushell {

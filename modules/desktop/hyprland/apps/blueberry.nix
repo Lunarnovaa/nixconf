@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
 in {
   config = mkIf config.hyprland.enable {
     hjem.users.lunarnova.packages = with pkgs; [blueberry];

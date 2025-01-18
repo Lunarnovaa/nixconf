@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.theme) colors;
   toINI = lib.generators.toINIWithGlobalSection {};
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;

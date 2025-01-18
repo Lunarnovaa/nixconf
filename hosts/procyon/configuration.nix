@@ -1,5 +1,5 @@
 {lib, ...}: let
-  inherit (lib) mkForce;
+  inherit (lib.modules) mkForce;
   primaryDisplay = "eDP-1";
 in {
   imports = [

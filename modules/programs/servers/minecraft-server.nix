@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.profiles) server;
 in {
   config = mkIf server.services.minecraft {

@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (builtins) toJSON;
   inherit (config.theme) colors fonts;
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;

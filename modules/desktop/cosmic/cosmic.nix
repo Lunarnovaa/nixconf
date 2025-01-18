@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
 in {
   config = mkIf config.cosmic.enable {
     services.desktopManager.cosmic.enable = true;

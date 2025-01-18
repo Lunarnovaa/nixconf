@@ -13,10 +13,10 @@
 ## other
 
 - [ ] add ozone envar with hjem when implemented
-- [ ] double check special nvidia hyprland settings
-- [ ] optimize imports
+- [ ] update hyprland and enable hardware cursors for nvidia
+- [x] optimize imports
 - [ ] integrate options modules into standard module sets
-- [ ] cleanup inherits
+- [x] cleanup inherits
 - [ ] possibly move away from hm copied generators
 - [ ] move to schizofox
 - [ ] switch to hyprlock

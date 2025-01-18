@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.theme) wallpapers fonts colors;
   inherit (lib.extendedLib.generators) toSwaylockConf;
 in {

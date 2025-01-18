@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (builtins) toJSON;
 in {
   config = mkIf (! config.sysconf.verticalTabs) {

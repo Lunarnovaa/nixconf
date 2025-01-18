@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.powersave) {

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.profiles) gaming;
   catppuccin-prism-launcher = pkgs.fetchFromGitHub {
     owner = "catppuccin";

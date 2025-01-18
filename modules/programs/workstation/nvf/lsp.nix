@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.profiles) workstation;
 in {
   config = mkIf workstation.apps.nvf {

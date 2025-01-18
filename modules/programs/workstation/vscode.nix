@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.theme) fonts;
   inherit (config.profiles) workstation;
 in {

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.profiles) gaming;
   # Referenced from NotAShelf/nyx, fetching css file directly as opposed to importing the import of this style sheet :)
   catppuccin-mocha-css = pkgs.fetchurl {

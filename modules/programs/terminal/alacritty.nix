@@ -4,7 +4,7 @@
   #pkgs,
   ...
 }: let
-  inherit (lib) mkIf;
+  inherit (lib.modules) mkIf;
   inherit (config.theme) colors fonts;
   #toTOML = (pkgs.formats.toml {}).generate;
 in {

@@ -170,6 +170,7 @@
         ags-pkgs = with inputs.ags.packages.${system}; [
           hyprland
           wireplumber
+          network
         ];
         nix-pkgs = with pkgs; [
           pwvucontrol
@@ -187,6 +188,7 @@
             ags-pkgs = with inputs.ags.packages.${system}; [
               hyprland
               wireplumber
+              network
             ];
             nix-pkgs = with pkgs; [
               pwvucontrol

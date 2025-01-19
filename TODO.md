@@ -5,7 +5,7 @@
 - [ ] app launcher
 - [ ] improve workspace indicators
 - [ ] add bluetooth indicator
-- [ ] fix network and bluetooth applets
+- [x] fix network and bluetooth applets
 - [ ] add power functionality
 - [ ] implement notifications
 - [ ] implement media player / indicator

@@ -121,7 +121,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
-    moduleInputs =  with inputs; [
+    moduleInputs = with inputs; [
       agenix.nixosModules.default
       hjem.nixosModules.default
       hjem-rum.nixosModules.default
@@ -166,7 +166,7 @@
       entry = "app.ts";
       gtk4 = true;
 
-      extraPackages = let 
+      extraPackages = let
         ags-pkgs = with inputs.ags.packages.${system}; [
           hyprland
           wireplumber
@@ -176,15 +176,16 @@
           pwvucontrol
           blueberry
         ];
-      in concatLists [
-        ags-pkgs
-        nix-pkgs
-      ];
+      in
+        concatLists [
+          ags-pkgs
+          nix-pkgs
+        ];
     };
     devShells.${system}.lags = pkgs.mkShell {
       buildInputs = [
         (inputs.ags.packages.${system}.default.override {
-          extraPackages = let 
+          extraPackages = let
             ags-pkgs = with inputs.ags.packages.${system}; [
               hyprland
               wireplumber
@@ -194,10 +195,11 @@
               pwvucontrol
               blueberry
             ];
-          in concatLists [
-            ags-pkgs
-            nix-pkgs
-          ];
+          in
+            concatLists [
+              ags-pkgs
+              nix-pkgs
+            ];
         })
       ];
     };

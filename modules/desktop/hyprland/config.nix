@@ -74,9 +74,8 @@ in {
 
             active_opacity = 0.95;
             inactive_opacity = 0.95;
-            
-            blur = {
 
+            blur = {
             };
           };
         };

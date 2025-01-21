@@ -57,6 +57,7 @@ in {
   };
   hyprland = {
     enable = true;
+    smartgaps.enable = true;
     monitors = {
       configuration = [
         "${primaryDisplay}, preferred, auto, 1"

@@ -48,5 +48,12 @@ in {
         description = "Sets workspace rules for monitors";
       };
     };
+    smartgaps = {
+      enable = mkOption {
+        type = bool;
+        default = false;
+        description = "Whether to enable smartgaps for hyprland.";
+      };
+    };
   };
 }

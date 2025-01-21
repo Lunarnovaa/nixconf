@@ -1,50 +1,60 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.theme) fonts;
+  inherit (builtins) concatLists;
+
+  fallbackPackages = with pkgs; [
+    corefonts
+    vistafonts
+  ];
+  fallbackFonts = [
+    "corefonts"
+    "vistafonts"
+  ];
+in {
   fonts = {
     enableDefaultPackages = false;
-    packages = with pkgs; [
-      # Latin fonts
-      roboto-serif
-      inter
-      nerd-fonts.fira-code
-
-      # CJK fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-
-      # Emoji
-      noto-fonts-color-emoji
-
-      # Microsoft fonts for fallback
-      corefonts
-      vistafonts
+    packages = concatLists [
+      [
+        fonts.monospace.package
+        fonts.sans.package
+        fonts.serif.package
+        fonts.emoji.package
+        fonts.cjk.sans.package
+        fonts.cjk.serif.package
+      ]
+      fallbackPackages
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [
-          "Roboto Serif"
-          "Noto Serif CJK SC"
-
-          "corefonts"
-          "vistafonts"
+        serif = concatLists [
+          [
+            fonts.serif.name
+            fonts.cjk.serif.name
+          ]
+          fallbackFonts
         ];
 
-        sansSerif = [
-          "Inter"
-          "Noto Sans CJK SC"
-
-          "corefonts"
-          "vistafonts"
+        sansSerif = concatLists [
+          [
+            fonts.sans.name
+            fonts.cjk.sans.name
+          ]
+          fallbackFonts
         ];
 
-        monospace = [
-          "Fira Code Nerdfont"
-          "Noto Sans Mono CJK SC"
-
-          "corefonts"
-          "vistafonts"
+        monospace = concatLists [
+          [
+            fonts.monospace.name
+            fonts.cjk.serif.name
+          ]
+          fallbackFonts
         ];
         emoji = [
-          "Noto Color Emoji"
+          fonts.emoji.name
         ];
       };
     };

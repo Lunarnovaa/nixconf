@@ -3,10 +3,10 @@
   lib,
   ...
 }: let
-  inherit (lib.modules) mkIf; 
+  inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
 in {
-    config = mkIf (config.hyprland.enable && config.hyprland.smartgaps.enable) {
+  config = mkIf (config.hyprland.enable && config.hyprland.smartgaps.enable) {
     hjem.users.lunarnova.files.".config/hypr/hyprland.conf".text = toHyprconf {
       attrs = {
         windowrulev2 = [
@@ -23,5 +23,4 @@ in {
       };
     };
   };
-
 }

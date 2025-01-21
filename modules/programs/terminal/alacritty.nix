@@ -14,7 +14,7 @@ in {
       settings = {
         font = {
           size = fonts.size;
-          normal.family = "${fonts.monospace}";
+          normal.family = "${fonts.monospace.name}";
         };
         window = {
           dimensions = {

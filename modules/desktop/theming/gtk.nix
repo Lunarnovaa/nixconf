@@ -13,7 +13,7 @@
 
     gtk-theme-name = "catppuccin-mocha-red-standard+normal";
 
-    gtk-font-name = "${fonts.sans-serif} ${toString fonts.size}";
+    gtk-font-name = "${fonts.sans.name} ${toString fonts.size}";
 
     gtk-cursor-theme-name = "Bibata-Modern-Classic";
 

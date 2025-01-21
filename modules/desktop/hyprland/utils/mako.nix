@@ -15,7 +15,7 @@ in {
       layer=overlay
       anchor=top-center
 
-      font=${fonts.sans-serif}
+      font=${fonts.sans.name}
       background-color=${colors.base01}
       text-color=${colors.base05}
       width=300

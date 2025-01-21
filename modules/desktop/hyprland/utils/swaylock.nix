@@ -11,7 +11,7 @@ in {
     # config and pam module both referenced in part from notashelf/nyx
     hjem.users.lunarnova.files.".config/swaylock/config".text = toSwaylockConf {
       attrs = {
-        font = fonts.sans-serif;
+        font = fonts.sans.name;
         font-size = 18;
 
         image = "${wallpapers.primary}";

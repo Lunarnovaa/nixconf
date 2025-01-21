@@ -2,9 +2,10 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }: let
-  inherit (lib.options) mkOption;
+  inherit (lib.options) mkOption mkPackageOption;
   inherit (lib.types) attrs str int path;
 in {
   options.theme = {
@@ -18,26 +19,61 @@ in {
     };
     fonts = {
       # Emoji font is declared within other font types rather than on its own to
-      sans-serif = mkOption {
-        type = str;
-        default = "Inter";
-        description = "Defines the sans-serif font";
+      monospace = {
+        package = mkPackageOption pkgs ["nerd-fonts" "fira-code"] {}; # defaults package to nerd-fonts.fira-code
+        name = mkOption {
+          type = str;
+          default = "Fira Code Nerdfont";
+          description = "Defines the monospace font";
+        };
       };
-      serif = mkOption {
-        type = str;
-        default = "Roboto Serif";
-        description = "Defines the serif font";
+
+      sans = {
+        package = mkPackageOption pkgs "inter" {};
+        name = mkOption {
+          type = str;
+          default = "Inter";
+          description = "Defines the sans font";
+        };
       };
-      monospace = mkOption {
-        type = str;
-        default = "Fira Code Nerdfont";
-        description = "Defines the monospace font";
+
+      serif = {
+        package = mkPackageOption pkgs "roboto-serif" {};
+        name = mkOption {
+          type = str;
+          default = "Roboto Serif";
+          description = "Defines the serif font";
+        };
       };
-      emoji = mkOption {
-        type = str;
-        default = "Noto Color Emoji";
-        description = "Defines the emoji font";
+
+      emoji = {
+        package = mkPackageOption pkgs "noto-fonts-color-emoji" {};
+        name = mkOption {
+          type = str;
+          default = "Noto Color Emoji";
+          description = "Defines the emoji font";
+        };
       };
+
+      cjk = {
+        sans = {
+          package = mkPackageOption pkgs "noto-fonts-cjk-sans" {};
+          name = mkOption {
+            type = str;
+            default = "Noto Sans CJK SC";
+            description = "Defines the CJK sans font";
+          };
+        };
+        serif = {
+          package = mkPackageOption pkgs "noto-fonts-cjk-serif" {};
+          name = mkOption {
+            type = str;
+            default = "Noto Serif CJK SC";
+            description = "Defines the CJK serif font";
+          };
+        };
+      };
+
       size = mkOption {
         type = int;
         default = 11;

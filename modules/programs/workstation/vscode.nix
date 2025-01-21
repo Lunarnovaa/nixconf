@@ -13,7 +13,7 @@ in {
     hjem.users.lunarnova.rum.programs.vscode = {
       enable = true;
       settings = {
-        "editor.fontFamily" = "${fonts.monospace}";
+        "editor.fontFamily" = "${fonts.monospace.name}";
         "editor.fontLigatures" = true;
         "workbench.colorTheme" = "Catppuccin Mocha";
         "catppuccin"."accentColor" = "red";

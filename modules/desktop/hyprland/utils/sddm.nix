@@ -12,7 +12,7 @@ in {
       (
         pkgs.catppuccin-sddm.override {
           flavor = "mocha";
-          font = "${fonts.sans-serif}";
+          font = "${fonts.sans.name}";
           fontSize = "11";
           background = wallpapers.primary; # for some reason, this doesn't work rn
           loginBackground = true;

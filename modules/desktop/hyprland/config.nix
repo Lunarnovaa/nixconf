@@ -50,6 +50,10 @@ in {
             sensitivity = "-0.2";
           };
 
+          misc = {
+            middle_click_paste = false;
+          };
+
           env = [
             "HYPRCURSOR_THEME,Bibata-modern"
             "HYPRCURSOR_SIZE,24"

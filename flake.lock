@@ -513,6 +513,43 @@
         "type": "github"
       }
     },
+    "iosevka-upstream": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737190003,
+        "narHash": "sha256-kB4CsC/hHstajLcVYBxO7RD0lsZymrxlUha4cRtQ7Ak=",
+        "owner": "be5invis",
+        "repo": "Iosevka",
+        "rev": "a5d26cb87836c7245dcae2c741663017245cdd18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "be5invis",
+        "repo": "Iosevka",
+        "type": "github"
+      }
+    },
+    "ioshelfka": {
+      "inputs": {
+        "iosevka-upstream": "iosevka-upstream",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737576425,
+        "narHash": "sha256-SmrSGmqxQLKnL/wn3IzXIIugLep3FlJBqEKil02Ix28=",
+        "owner": "notashelf",
+        "repo": "ioshelfka",
+        "rev": "5449004167b8dc346e13c3f6ea59352ed8eb743b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notashelf",
+        "repo": "ioshelfka",
+        "type": "github"
+      }
+    },
     "mnw": {
       "locked": {
         "lastModified": 1735150973,
@@ -2854,6 +2891,7 @@
         "hjem": "hjem",
         "hjem-rum": "hjem-rum",
         "hyprland": "hyprland",
+        "ioshelfka": "ioshelfka",
         "niqspkgs": "niqspkgs",
         "nix-minecraft": "nix-minecraft",
         "nixos-cosmic": "nixos-cosmic",

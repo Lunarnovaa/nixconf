@@ -43,13 +43,6 @@
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
-    basix = {
-      url = "github:notashelf/basix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-
     # module specific stuff
 
     spicetify-nix = {
@@ -65,12 +58,26 @@
       inputs.flake-compat.follows = "flake-compat";
     };
 
+    # shelfware
+
+    basix = {
+      url = "github:notashelf/basix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-parts.follows = "flake-parts";
+    };
+
+    ioshelfka = {
+      url = "github:notashelf/ioshelfka";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # hjem business

@@ -18,9 +18,8 @@ in {
       '';
     };
     fonts = {
-      # Emoji font is declared within other font types rather than on its own to
       monospace = {
-        package = mkPackageOption pkgs ["nerd-fonts" "fira-code"] {}; # defaults package to nerd-fonts.fira-code
+        package = mkPackageOption pkgs ["nerd-fonts" "fira-code"] {}; #defaults to nerd-fonts.fira-code
         name = mkOption {
           type = str;
           default = "Fira Code Nerdfont";
@@ -87,5 +86,10 @@ in {
         description = "Defines the primary wallpaper";
       };
     };
+  };
+
+  config.theme.fonts.monospace = {
+    package = inputs.ioshelfka.packages.x86_64-linux.ioshelfka-mono-nerd;
+    name = "Ioshelfka Mono Nerdfont";
   };
 }

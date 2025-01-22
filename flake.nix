@@ -4,9 +4,9 @@
   inputs = {
     # pkgs
 
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    niqspkgs = {
+    niqspkgs = { # used for 
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";
@@ -39,9 +39,8 @@
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.astal.follows = "astal";
     };
-
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     # module specific stuff
 
@@ -134,7 +133,6 @@
       hjem-rum.nixosModules.default
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default
-      nixos-cosmic.nixosModules.default
       nix-minecraft.nixosModules.minecraft-servers
     ];
     inherit (builtins) concatLists;

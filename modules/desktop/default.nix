@@ -1,6 +1,5 @@
 {
   imports = [
-    ./cosmic
     ./hyprland
     ./theming
 

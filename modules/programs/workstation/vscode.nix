@@ -22,6 +22,11 @@ in {
         "nix.enableLanguageServer" = true;
         "nixpkgs"."expr" = "import ${inputs.nixpkgs} { }";
         "formatting"."command" = ["${pkgs.alejandra}/bin/alejandra"];
+      
+        "files.exclude" = {
+          "**/.git" = false;
+        };
+
       };
     };
   };

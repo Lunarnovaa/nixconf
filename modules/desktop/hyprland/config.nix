@@ -55,6 +55,8 @@ in {
           };
 
           env = [
+            "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
             "HYPRCURSOR_THEME,Bibata-modern"
             "HYPRCURSOR_SIZE,24"
           ];

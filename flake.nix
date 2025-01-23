@@ -6,7 +6,8 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    niqspkgs = { # used for 
+    niqspkgs = {
+      # used for bibata-hyprcursors
       url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.systems.follows = "systems";

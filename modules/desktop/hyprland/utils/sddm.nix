@@ -12,9 +12,9 @@ in {
       (
         pkgs.catppuccin-sddm.override {
           flavor = "mocha";
-          font = "${fonts.sans.name}";
+          font = "${fonts.monospace.name}";
           fontSize = "11";
-          background = wallpapers.primary; # for some reason, this doesn't work rn
+          background = "${wallpapers.primary}"; # for some reason, this doesn't work rn
           loginBackground = true;
         }
       )

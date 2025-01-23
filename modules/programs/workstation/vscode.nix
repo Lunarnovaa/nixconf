@@ -17,10 +17,15 @@ in {
       rum.programs.vscode = {
         enable = true;
         settings = {
+          "editor.semanticHighlighting.enabled" = true;
+          "terminal.integrated.minimumContrastRatio" = 1;
+          "window.titleBarStyle" = "custom";
+
           "editor.fontFamily" = "${fonts.monospace.name}";
           "editor.fontLigatures" = true;
           "workbench.colorTheme" = "Catppuccin Mocha";
-          "catppuccin"."accentColor" = "red";
+
+          "catppuccin"."accentColor" = "rosewater";
 
           "nix.serverPath" = "${pkgs.nixd}/bin/nixd";
           "nix.enableLanguageServer" = true;

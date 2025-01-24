@@ -137,17 +137,6 @@
       nix-minecraft.nixosModules.minecraft-servers
     ];
 
-    modules = let
-      inherit (nixpkgs.lib.filesystem) listFilesRecursive;
-      inherit (nixpkgs.lib.trivial) pipe;
-      inherit (builtins) filter;
-      inherit (nixpkgs.lib.strings) hasSuffix;
-    in
-      pipe ./modules [
-        listFilesRecursive
-        (filter (hasSuffix ".nix"))
-      ];
-
     inherit (builtins) concatLists;
   in {
     # define the formatter to be run on 'nix fmt'
@@ -158,8 +147,8 @@
         inherit specialArgs;
         modules = concatLists [
           moduleInputs
-          modules
           [
+            ./modules.nix
             ./hosts/polaris/configuration.nix
           ]
         ];
@@ -168,8 +157,8 @@
         inherit specialArgs;
         modules = concatLists [
           moduleInputs
-          modules
           [
+            ./modules.nix
             ./hosts/procyon/configuration.nix
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ]

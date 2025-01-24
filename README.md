@@ -49,6 +49,12 @@ In the past, I structured my nixconf to account for the differentiation between 
 
 If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently very WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 
+### What's [`modules.nix`](./modules.nix) / Where are your `default.nix`'s?
+
+Rather than relying on having `default.nix`'s sprinkled throughout my config like a skeleton, I simply created a function to recursively import all Nix files in my modules directory. I don't believe this is collosally silly, but if you believe it is feel free to let me know.
+
+I still, however, use a standard `default.nix` schema in my [extended lib](./lib/).
+
 ## Hosts
 
 | Name                          | Description                                                                                     | Profiles            | Type    |

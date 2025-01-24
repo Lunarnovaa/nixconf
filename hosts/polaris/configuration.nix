@@ -19,12 +19,6 @@ in {
       environment.etc."specialisation".text = "focusMode";
       profiles.gaming.enable = mkForce false;
     };
-    # "Cosmic Session": Enables Cosmic DE
-    cosmicSession.configuration = {
-      environment.etc."specialisation".text = "cosmicSession";
-      cosmic.enable = mkForce true;
-      hyprland.enable = mkForce false;
-    };
   };
 
   # Custom option definitions
@@ -52,9 +46,6 @@ in {
     via = false;
   };
 
-  cosmic = {
-    enable = false;
-  };
   hyprland = {
     enable = true;
     smartgaps.enable = true;

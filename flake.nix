@@ -135,6 +135,7 @@
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default
       nix-minecraft.nixosModules.minecraft-servers
+      hyprland.nixosModules.default
     ];
 
     inherit (builtins) concatLists;

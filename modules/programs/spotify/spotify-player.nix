@@ -4,7 +4,6 @@
   lib,
   ...
 }: let
-
   inherit (lib.modules) mkDefault;
   catppuccin-spotify-player = pkgs.fetchFromGitHub {
     owner = "catppuccin";
@@ -16,7 +15,7 @@ in {
   hjem.users.lunarnova = {
     rum.programs.spotify-player = {
       enable = true;
-      settings = { 
+      settings = {
         client_id_command = "cat ${config.age.secrets.spotifyClientID.path}";
         theme = "Catppuccin-mocha";
         device = {

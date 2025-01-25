@@ -26,66 +26,61 @@
   '';
 in {
   config = mkIf config.hyprland.enable {
-    hjem.users.lunarnova = {
-      packages = [inputs.niqspkgs.packages.x86_64-linux.bibata-hyprcursor];
+    hjem.users.lunarnova.packages = [inputs.niqspkgs.packages.x86_64-linux.bibata-hyprcursor];
 
-      # hjem is working on implementation
-      #sessionVariables.NIXOS_OZONE_WL = "1";
+    programs.hyprland.settings = {
+      exec-once = ''${startupScript}/bin/start'';
 
-      files.".config/hypr/hyprland.conf".text = toHyprconf {
-        attrs = {
-          exec-once = ''${startupScript}/bin/start'';
+      monitor = monitors.configuration;
 
-          monitor = monitors.configuration;
+      input = {
+        # Set Colemak as the primary layout and QWERTY as secondary
+        kb_layout = "us,us";
+        kb_variant = "colemak,";
 
-          input = {
-            # Set Colemak as the primary layout and QWERTY as secondary
-            kb_layout = "us,us";
-            kb_variant = "colemak,";
+        # Remap CAPSLOCK to CTRL, WIN+SPACE kb layout change
+        kb_options = "ctrl:nocaps,grp:win_space_toggle";
+        accel_profile = "flat";
 
-            # Remap CAPSLOCK to CTRL, WIN+SPACE kb layout change
-            kb_options = "ctrl:nocaps,grp:win_space_toggle";
-            accel_profile = "flat";
+        sensitivity = "-0.2";
+      };
 
-            sensitivity = "-0.2";
-          };
+      misc = {
+        middle_click_paste = false;
+      };
 
-          misc = {
-            middle_click_paste = false;
-          };
+      env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
 
-          env = [
-            "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        "HYPRCURSOR_THEME,Bibata-modern"
+        "HYPRCURSOR_SIZE,24"
+      ];
 
-            "HYPRCURSOR_THEME,Bibata-modern"
-            "HYPRCURSOR_SIZE,24"
-          ];
+      general = {
+        border_size = "3";
+        gaps_out = "10,10,10,10";
+        gaps_in = "4";
 
-          general = {
-            border_size = "3";
-            gaps_out = "10,10,10,10";
-            gaps_in = "4";
+        "col.inactive_border" = "0x00${hyprCol.base03}";
+        "col.active_border" = "0xee${hyprCol.base04} 0xee${hyprCol.base06} 45deg"; #Gradient from surface2 to red
+      };
 
-            "col.inactive_border" = "0x00${hyprCol.base03}";
-            "col.active_border" = "0xee${hyprCol.base04} 0xee${hyprCol.base06} 45deg"; #Gradient from surface2 to red
-          };
+      decoration = {
+        rounding = "5";
 
-          decoration = {
-            rounding = "5";
+        shadow = {
+          #range = 6;
+          render_power = 1;
+        };
 
-            shadow = {
-              #range = 6;
-              render_power = 1;
-            };
+        active_opacity = 0.95;
+        inactive_opacity = 0.95;
 
-            active_opacity = 0.95;
-            inactive_opacity = 0.95;
-
-            blur = {
-            };
-          };
+        blur = {
         };
       };
     };
+    # hjem is working on implementation
+    #hjem.users.lunarnova.sessionVariables.NIXOS_OZONE_WL = "1";
   };
 }

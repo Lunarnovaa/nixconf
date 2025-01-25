@@ -27,6 +27,6 @@ in {
         };
       };
     };
-    files.".config/spotify-player/theme.toml".source = mkDefault "${catppuccin-spotify-player}/theme.toml";
+    files.".config/spotify-player/theme.toml".source = "${catppuccin-spotify-player}/theme.toml";
   };
 }

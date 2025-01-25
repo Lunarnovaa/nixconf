@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  inherit (lib.attrsets) mergeAttrsList optionalAttrs;
   inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) wallpapers;
@@ -11,14 +12,19 @@
   hyprpaper-conf = pkgs.writeTextFile {
     name = "hyprpaper-conf";
     text = toHyprconf {
-      attrs = {
-        preload = [
-          "${wallpapers.primary}"
-        ];
-        wallpaper = [
-          ",${wallpapers.primary}"
-        ];
-      };
+      attrs = mergeAttrsList [
+        {
+          preload = [
+            "${wallpapers.primary}"
+          ];
+          wallpaper = [
+            ",${wallpapers.primary}"
+          ];
+        }
+        (optionalAttrs config.sysconf.powersave {
+          ipc = false;
+        })
+      ];
     };
   };
 in {

@@ -14,13 +14,5 @@ in {
       };
       misc.vfr = true;
     };
-
-    /*
-    ".config/hypr/hyprpaper.conf".text = toHyprconf {
-      attrs = {
-        ipc = mkForce false;
-      };
-    };
-    */
   };
 }

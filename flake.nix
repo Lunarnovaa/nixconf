@@ -28,6 +28,10 @@
       inputs.darwin.follows = "";
     };
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+
     # desktop stuff
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -105,10 +109,6 @@
       url = "github:edolstra/flake-compat";
     };
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
-
     systems = {
       # If you ever get a non x86-64 host, adjust accordingly
       url = "github:nix-systems/x86_64-linux";
@@ -120,11 +120,12 @@
     nixpkgs,
     ...
   } @ inputs: let
-    extended-lib = nixpkgs.lib.extend (final: prev: import ./lib/default.nix {lib = prev;});
+  lib = nixpkgs.lib.extend (final: prev: import ./flake/_lib/default.nix {lib = final;});
+  
     specialArgs = {
-      inherit inputs;
-      lib = extended-lib;
+      inherit inputs lib;
     };
+    #lib = import ./flake/_lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -138,68 +139,70 @@
       hyprland.nixosModules.default
     ];
 
+    inherit (lib.extendedLib.importers) importNixRecursive;
     inherit (builtins) concatLists;
-  in {
-    # define the formatter to be run on 'nix fmt'
-    formatter.${system} = pkgs.alejandra;
+  in
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      # Systems for which the flake will be built
+      # is made relative of the systems flake input
+      # As referenced in NotAShelf/nyx
+      #systems = import inputs.systems;
 
-    nixosConfigurations = {
-      polaris = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = concatLists [
-          moduleInputs
-          [
-            ./modules.nix
-            ./hosts/polaris/configuration.nix
-          ]
-        ];
-      };
-      procyon = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = concatLists [
-          moduleInputs
-          [
-            ./modules.nix
-            ./hosts/procyon/configuration.nix
-            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          ]
-        ];
-      };
-    };
-    # ags derivation for typescript
-    packages.${system}.lags = inputs.ags.lib.bundle {
-      inherit pkgs;
-      src = ./modules/desktop/hyprland/astal/src;
-      name = "lags";
-      entry = "app.ts";
-      gtk4 = true;
+      systems = [
+        "86_64-linux"
+      ];
 
-      extraPackages = let
-        ags-pkgs = with inputs.ags.packages.${system}; [
-          hyprland
-          wireplumber
-          network
-          bluetooth
-          battery
-        ];
-        nix-pkgs = with pkgs; [
-          pwvucontrol
-          blueberry
-        ];
-      in
-        concatLists [
-          ags-pkgs
-          nix-pkgs
-        ];
-    };
-    devShells.${system}.lags = pkgs.mkShell {
-      buildInputs = [
-        (inputs.ags.packages.${system}.default.override {
+      imports = importNixRecursive ./flake;
+      
+
+      perSystem = {config, ...}: {
+        formatter = config.packages.alejandra;
+      };
+
+      #imports = lib.extendedLib.importers.importNixRecursive {path = ./flake;};
+
+      flake = {
+        # define the formatter to be run on 'nix fmt'
+        #formatter.${system} = pkgs.alejandra;
+
+        nixosConfigurations = {
+          polaris = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            modules = concatLists [
+              moduleInputs
+              [
+                ./modules.nix
+                ./hosts/polaris/configuration.nix
+              ]
+            ];
+          };
+          procyon = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            modules = concatLists [
+              moduleInputs
+              [
+                ./modules.nix
+                ./hosts/procyon/configuration.nix
+                inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+              ]
+            ];
+          };
+        };
+        # ags derivation for typescript
+        packages.${system}.lags = inputs.ags.lib.bundle {
+          inherit pkgs;
+          src = ./modules/desktop/hyprland/astal/src;
+          name = "lags";
+          entry = "app.ts";
+          gtk4 = true;
+
           extraPackages = let
             ags-pkgs = with inputs.ags.packages.${system}; [
               hyprland
               wireplumber
               network
+              bluetooth
+              battery
             ];
             nix-pkgs = with pkgs; [
               pwvucontrol
@@ -210,8 +213,28 @@
               ags-pkgs
               nix-pkgs
             ];
-        })
-      ];
+        };
+        devShells.${system}.lags = pkgs.mkShell {
+          buildInputs = [
+            (inputs.ags.packages.${system}.default.override {
+              extraPackages = let
+                ags-pkgs = with inputs.ags.packages.${system}; [
+                  hyprland
+                  wireplumber
+                  network
+                ];
+                nix-pkgs = with pkgs; [
+                  pwvucontrol
+                  blueberry
+                ];
+              in
+                concatLists [
+                  ags-pkgs
+                  nix-pkgs
+                ];
+            })
+          ];
+        };
+      };
     };
-  };
 }

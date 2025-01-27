@@ -179,6 +179,8 @@
           hyprland
           wireplumber
           network
+          bluetooth
+          battery
         ];
         nix-pkgs = with pkgs; [
           pwvucontrol

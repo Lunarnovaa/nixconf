@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit (lib.modules) mkIf;
@@ -41,6 +42,13 @@ in {
         autopairs = {
           nvim-autopairs.enable = true;
         };
+        keymaps = [
+                {
+                        key = "<leader>fm";
+                        mode = ["n"];
+                        action = "<cmd>${pkgs.alejandra}/bin/alejandra .<CR>";
+                }
+        ];
       };
     };
   };

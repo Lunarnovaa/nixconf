@@ -1,8 +1,6 @@
-import { App } from "astal/gtk4"
 import { Variable, GLib, bind, exec } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk4"
 
-import Hyprland from "gi://AstalHyprland"
 
 import Workspaces from "./elements/Workspaces"
 import SysTray from "./elements/SysTray"

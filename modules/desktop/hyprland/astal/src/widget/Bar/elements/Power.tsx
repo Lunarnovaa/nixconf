@@ -8,7 +8,7 @@ function Confirm(Show) {
     return <window
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         anchor={TOP}
-        visible={}
+        visible
     >
         <box
         hexpand

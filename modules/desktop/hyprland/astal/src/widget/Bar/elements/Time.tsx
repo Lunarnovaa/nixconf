@@ -1,4 +1,3 @@
-import { App } from "astal/gtk4"
 import { Variable, GLib, bind, exec } from "astal"
 import { Astal, Gtk, Gdk } from "astal/gtk4"
 
@@ -11,7 +10,7 @@ export default function Time({ format = "%H %M" }) {
         name="Time"
         onDestroy={() => time.drop()}
         label={time()}
-        maxWidthChars={2}
+         maxWidthChars={2}
         wrap
         cssClasses={["element", "time"]}
     />

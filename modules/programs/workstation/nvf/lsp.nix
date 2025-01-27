@@ -29,6 +29,12 @@ in {
           lsp.enable = true; #defaults to marksman
           treesitter.enable = true;
         };
+        ts = {
+          enable = true;
+          format.enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
       };
     };
   };

@@ -1,0 +1,22 @@
+# Credit to @notashelf for nyx which I learned how to extend lib in flake-parts from.
+# My implementation is a little janky, but works great.
+{inputs, ...}: let
+  inherit (inputs.nixpkgs) lib;
+  extended-lib = {lib}: {
+    extendedLib = {
+      generators = import ./generators.nix {inherit lib;};
+
+      importers = import ./importers.nix {inherit lib;};
+    };
+  };
+  extendedLib = lib.extend (final: prev: extended-lib {inherit lib;});
+in {
+  perSystem = {
+    # Extend lib for the flake
+    _module.args.lib = extendedLib;
+  };
+  flake = {
+    # And also as an output
+    lib = extendedLib;
+  };
+}

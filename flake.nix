@@ -1,6 +1,18 @@
 {
   description = "lunarnova's nixos flake";
 
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      # This outputs format is heavily inspired by NotAShelf/nyx
+
+      debug = true;
+      imports = [./flake];
+
+      # Systems for which the flake will be built is made relative
+      # of the systems flake input (referenced from NotAShelf/nyx)
+      systems = import inputs.systems;
+    };
+
   inputs = {
     # pkgs
 
@@ -15,7 +27,7 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    # system infra
+    # system infrastructure
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master"; #no nixpkgs necessary
 
@@ -114,127 +126,4 @@
       url = "github:nix-systems/x86_64-linux";
     };
   };
-
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-  lib = nixpkgs.lib.extend (final: prev: import ./flake/_lib/default.nix {lib = final;});
-  
-    specialArgs = {
-      inherit inputs lib;
-    };
-    #lib = import ./flake/_lib;
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-
-    moduleInputs = with inputs; [
-      agenix.nixosModules.default
-      hjem.nixosModules.default
-      hjem-rum.nixosModules.default
-      spicetify-nix.nixosModules.default
-      nvf.nixosModules.default
-      nix-minecraft.nixosModules.minecraft-servers
-      hyprland.nixosModules.default
-    ];
-
-    inherit (lib.extendedLib.importers) importNixRecursive;
-    inherit (builtins) concatLists;
-  in
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      # Systems for which the flake will be built
-      # is made relative of the systems flake input
-      # As referenced in NotAShelf/nyx
-      #systems = import inputs.systems;
-
-      systems = [
-        "86_64-linux"
-      ];
-
-      imports = importNixRecursive ./flake;
-      
-
-      perSystem = {config, ...}: {
-        formatter = config.packages.alejandra;
-      };
-
-      #imports = lib.extendedLib.importers.importNixRecursive {path = ./flake;};
-
-      flake = {
-        # define the formatter to be run on 'nix fmt'
-        #formatter.${system} = pkgs.alejandra;
-
-        nixosConfigurations = {
-          polaris = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            modules = concatLists [
-              moduleInputs
-              [
-                ./modules.nix
-                ./hosts/polaris/configuration.nix
-              ]
-            ];
-          };
-          procyon = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            modules = concatLists [
-              moduleInputs
-              [
-                ./modules.nix
-                ./hosts/procyon/configuration.nix
-                inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-              ]
-            ];
-          };
-        };
-        # ags derivation for typescript
-        packages.${system}.lags = inputs.ags.lib.bundle {
-          inherit pkgs;
-          src = ./modules/desktop/hyprland/astal/src;
-          name = "lags";
-          entry = "app.ts";
-          gtk4 = true;
-
-          extraPackages = let
-            ags-pkgs = with inputs.ags.packages.${system}; [
-              hyprland
-              wireplumber
-              network
-              bluetooth
-              battery
-            ];
-            nix-pkgs = with pkgs; [
-              pwvucontrol
-              blueberry
-            ];
-          in
-            concatLists [
-              ags-pkgs
-              nix-pkgs
-            ];
-        };
-        devShells.${system}.lags = pkgs.mkShell {
-          buildInputs = [
-            (inputs.ags.packages.${system}.default.override {
-              extraPackages = let
-                ags-pkgs = with inputs.ags.packages.${system}; [
-                  hyprland
-                  wireplumber
-                  network
-                ];
-                nix-pkgs = with pkgs; [
-                  pwvucontrol
-                  blueberry
-                ];
-              in
-                concatLists [
-                  ags-pkgs
-                  nix-pkgs
-                ];
-            })
-          ];
-        };
-      };
-    };
 }

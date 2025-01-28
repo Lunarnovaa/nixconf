@@ -43,11 +43,11 @@ in {
           nvim-autopairs.enable = true;
         };
         keymaps = [
-                {
-                        key = "<leader>fm";
-                        mode = ["n"];
-                        action = "<cmd>${pkgs.alejandra}/bin/alejandra .<CR>";
-                }
+          {
+            key = "<leader>fm";
+            mode = ["n"];
+            action = "<cmd>${pkgs.alejandra}/bin/alejandra .<CR>";
+          }
         ];
       };
     };

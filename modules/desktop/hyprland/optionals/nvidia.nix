@@ -4,7 +4,6 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
 in {
   config = mkIf (config.hyprland.enable && config.sysconf.nvidia) {
     programs.hyprland.settings = {

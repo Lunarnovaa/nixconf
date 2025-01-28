@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
   inherit (config.theme) colors;
   inherit (config.hyprland) monitors;
   inherit (lib.strings) removePrefix;

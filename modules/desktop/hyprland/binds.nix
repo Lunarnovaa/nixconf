@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
   inherit (builtins) concatLists;
   inherit (config.hyprland) monitors;
   killactive = pkgs.pkgs.writeShellScriptBin "save-steam" ''

@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
   gamemode = pkgs.pkgs.writeShellScriptBin "enable-gamemode" ''
     HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
     if [ "$HYPRGAMEMODE" = 1 ] ; then

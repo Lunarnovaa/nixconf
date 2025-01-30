@@ -1,7 +1,7 @@
 {
   imports = [
     ./lib
-    #./lags.nix
+    ./lags.nix
     ./formatter.nix
     ./nixosConfigurations.nix
   ];

@@ -1,6 +1,7 @@
 {
   inputs,
   self,
+  lib,
   ...
 }: let
   specialArgs = {
@@ -17,17 +18,30 @@
     hyprland.nixosModules.default
   ];
   inherit (builtins) concatLists;
+  inherit (lib.extendedLib.importers) mkModuleList;
+
+  moduleDir = ../modules;
 in {
   flake.nixosConfigurations = {
     polaris = inputs.nixpkgs.lib.nixosSystem {
       inherit specialArgs;
-      modules = concatLists [
+      modules = mkModuleList {
+        inherit moduleDir;
+        programs = [
+
+        ];
+        desktop = [
+          "hyprland"
+          "theme"
+        ];
+      };
+      /*modules = concatLists [
         moduleInputs
         [
           ../modules.nix
           ../hosts/polaris/configuration.nix
         ]
-      ];
+      ];*/
     };
     procyon = inputs.nixpkgs.lib.nixosSystem {
       inherit specialArgs;

@@ -2,11 +2,11 @@
   perSystem = {
     inputs',
     system,
-    #pkgs,
+    pkgs,
     ...
   }: let
     inherit (builtins) concatLists;
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    #pkgs = inputs.nixpkgs.legacyPackages.${system};
 
     astalPackages = with inputs'.ags.packages; [
       hyprland
@@ -15,7 +15,7 @@
       bluetooth
       battery
     ];
-    nixPackages = with inputs.nixpkgs.${system}; [
+    nixPackages = with pkgs; [
       pwvucontrol
       blueberry
     ];

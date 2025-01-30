@@ -324,7 +324,7 @@
         "hyprland-protocols": "hyprland-protocols",
         "hyprland-qtutils": "hyprland-qtutils",
         "hyprlang": "hyprlang_2",
-        "hyprutils": "hyprutils_3",
+        "hyprutils": "hyprutils_2",
         "hyprwayland-scanner": "hyprwayland-scanner",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks",
@@ -332,16 +332,17 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1738107811,
-        "narHash": "sha256-+57jB0fv53OmAQ8QpK3eiRXfypBfKJtfdepRusNX+DM=",
+        "lastModified": 1737978223,
+        "narHash": "sha256-pSPgvZyvNgiZv/6MquETA6KMfhZ5cJM+YnERJmXA8x8=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "3d1dd6b5c7b90e513e86c1ad27c6c01a5c69e4f8",
+        "rev": "04ac46c54357278fc68f0a95d26347ea0db99496",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
         "repo": "Hyprland",
+        "rev": "04ac46c54357278fc68f0a95d26347ea0db99496",
         "type": "github"
       }
     },
@@ -401,7 +402,10 @@
     "hyprland-qtutils": {
       "inputs": {
         "hyprland-qt-support": "hyprland-qt-support",
-        "hyprutils": "hyprutils_2",
+        "hyprutils": [
+          "hyprland",
+          "hyprutils"
+        ],
         "nixpkgs": [
           "hyprland",
           "nixpkgs"
@@ -516,33 +520,6 @@
       }
     },
     "hyprutils_2": {
-      "inputs": {
-        "nixpkgs": [
-          "hyprland",
-          "hyprland-qtutils",
-          "nixpkgs"
-        ],
-        "systems": [
-          "hyprland",
-          "hyprland-qtutils",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1737978343,
-        "narHash": "sha256-TfFS0HCEJh63Kahrkp1h9hVDMdLU8a37Zz+IFucxyfA=",
-        "owner": "hyprwm",
-        "repo": "hyprutils",
-        "rev": "6a8bc9d2a4451df12f5179dc0b1d2d46518a90ab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "hyprutils",
-        "type": "github"
-      }
-    },
-    "hyprutils_3": {
       "inputs": {
         "nixpkgs": [
           "hyprland",

@@ -59,7 +59,7 @@
     ## desktop stuff ##
 
     # hyprland flake
-    hyprland.url = "github:hyprwm/Hyprland/04ac46c54357278fc68f0a95d26347ea0db99496"; #v0.47.0
+    hyprland.url = "github:hyprwm/Hyprland/75dff7205f6d2bd437abfb4196f700abee92581a"; #v0.47.1
     # couple quick notes:
     # i use hyprland releases to make it easier to monitor breaking changes. hyprland moves pretty fast and i don't care too much about hyprland's bleeding edge.
     # no input follows because hyprland uses a cache

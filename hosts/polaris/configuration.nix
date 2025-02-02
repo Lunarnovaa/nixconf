@@ -7,27 +7,6 @@
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";
 in {
-  imports = builtins.concatLists [
-    [
-    ./hardware-configuration.nix
-    ]
-    lib.extendedLib.importers.mkModuleList {
-      moduleDir = ../../modules;
-      programs = [
-        "firefox"
-        "gaming"
-        "servers"
-        "spotify"
-        "terminal"
-        "workstation"
-        
-      ];
-      desktop = [
-        "hyprland"
-        "theming"
-      ];
-    }
-  ];
   # Defining the Hostname
   networking.hostName = "polaris";
 

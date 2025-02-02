@@ -8,6 +8,8 @@
   inherit (lib.modules) mkIf;
   inherit (config.profiles) server;
 in {
+  imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
+
   config = mkIf server.services.minecraft {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 

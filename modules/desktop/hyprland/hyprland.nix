@@ -8,8 +8,10 @@
   inherit (lib.modules) mkIf;
   pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
 in {
+  imports = [inputs.hyprland.nixosModules.default];
+
   config = mkIf config.hyprland.enable {
-    # Make Chromium + Eectron apps use Wayland
+    # Make Chromium + Electron apps use Wayland
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     programs.hyprland = {

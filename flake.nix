@@ -5,7 +5,10 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       # This outputs format is heavily inspired by NotAShelf/nyx
 
-      imports = [./flake];
+      imports = [
+        ./flake
+        ./hosts
+      ];
 
       # Systems for which the flake will be built is made relative
       # of the systems flake input (referenced from NotAShelf/nyx)

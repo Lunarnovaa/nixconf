@@ -30,15 +30,21 @@
 
   mkModuleList = {
     moduleDir,
-    programs ? [],
+    profiles ? [],
     desktop ? ["hyprland"],
+    specialImports ? [],
+    hostModule
   }:
     concatLists [
-      (map (n: "${moduleDir}/programs/" + n + "/module.nix") programs)
+      (map (n: "${moduleDir}/options/profiles/" + n + ".nix") profiles)
       (map (n: "${moduleDir}/desktop/" + n + "/module.nix") desktop)
-      importNixRecursive "${moduleDir}/common"
-    ];
+      (map (n: "${moduleDir}/profiles/" + n + "/module.nix") profiles)
 
+      (importNixRecursive "${moduleDir}/common")
+      (importNixRecursive hostModule)
+
+      specialImports
+    ];
 in {
   inherit
     listFilesRecursiveClean
@@ -46,11 +52,4 @@ in {
     importModule
     mkModuleList
     ;
-  /*
-  [
-    "hyprland"
-    "firefox"
-    "gaming"
-  ]
-  */
 }

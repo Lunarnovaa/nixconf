@@ -2,9 +2,6 @@
   inherit (lib.modules) mkForce;
   primaryDisplay = "eDP-1";
 in {
-  imports = [
-    ./hardware-configuration.nix
-  ];
   # Defining the Hostname
   networking.hostName = "procyon";
 

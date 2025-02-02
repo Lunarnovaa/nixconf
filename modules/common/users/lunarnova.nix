@@ -1,4 +1,13 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
+  imports = with inputs; [
+    hjem.nixosModules.default
+    hjem-rum.nixosModules.default
+  ];
+
   # Define the User
   users.users.lunarnova = {
     isNormalUser = true;

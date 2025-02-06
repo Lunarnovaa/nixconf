@@ -10,14 +10,17 @@ in {
   config = mkIf config.hyprland.enable {
     programs.hyprland.settings = {
       windowrulev2 = [
-        "workspace 3, class:(steam)" #gaming
-        "workspace 3, class:(lutris)"
+        # Gaming
+        "workspace 3, class:(steam)"
+        "workspace 3, initialTitle:(Lutris)"
         "workspace 3, class:(org.prismlauncher.PrismLauncher)"
 
-        "workspace 2, class:(vesktop)" #comforts
+        # Comforts
+        "workspace 2, class:(vesktop)"
         "workspace 2, initialTitle:(Spotify Premium)"
 
-        "workspace 1, class:(firefox)" #productivity
+        # Productivity
+        "workspace 1, class:(firefox)"
         "workspace 1, initialTitle:(Visual Studio Code)"
       ];
 

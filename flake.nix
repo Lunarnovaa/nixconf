@@ -16,7 +16,6 @@
     };
 
   inputs = {
- 
     ## Systems is a fancy flake to unify the systems ##
     ## for which the flake and its inputs are built. ##
 
@@ -138,7 +137,7 @@
       inputs.hjem.follows = "hjem";
     };
 
-    ## input unification, both added to 
+    ## input unification, both added to
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";

@@ -6,23 +6,20 @@ I've been using NixOS since 22 June 2024. This is the config I run on all my sys
 
 My nixconf is structured specifically to be logical and help me work with it. Here's a basic rundown:
 
-- [`flake.nix`](./flake.nix) Nix Flake: Importing flakes, pinning versions, defining module directories
+- [`flake.nix`](./flake.nix) Nix Flake: The entry-point of my system.
+- [`flake`](./flake) Flake modules: The parts of my flake that make up the whole, powered by [flake-parts](https://github.com/hercules-ci/flake-parts).
+  - [`lib`](./flake/lib) Extended Lib: Custom function declaration
 - [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
   - [`${hostName}/configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
   - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
 - [`modules/`](./modules) Modular system configuration: The bulk of my system configuration
-  - [`core`](./modules/core) Critical modules for the nix system to function
-    - [`system`](./modules/core/system) Drivers, booting, and other nix- and system-essential modules
-    - [`users`](./modules/core/users) User declaration and the agenix module
-  - [`desktop`](./modules/desktop) Desktop related modules: Functionality and configuration
-    - [`hyprland`](./modules/desktop/hyprland) Hyprland configuration: configures Hyprland and any programs associated with it
-    - [`theming`](./modules/desktop/theming) GTK and QT Customization
+  - [`common`](./modules/common) Modules that are generally made available to all my hosts.
+  - [`desktop`](./modules/desktop) Desktop modules: Primarily Hyprland currently.
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system and per profile
     - [`config`](./modules/options/config) Special host configuration options
     - [`modules`](./modules/options/modules) Custom module declaration
     - [`profiles`](./modules/options/profiles) Options and apps configured by profile
-  - [`programs`](./modules/programs) Program configuration
-- [`lib`](./lib) Extended Lib: Custom function declaration
+  - [`profiles`](./modules/profiles) Profile modules: Special programs, services, and configuration needed on each profile.
 - [`secrets`](./secrets) Agenix Secrets Management
 
 ### How the profiles work
@@ -49,11 +46,9 @@ In the past, I structured my nixconf to account for the differentiation between 
 
 If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently very WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 
-### What's [`modules.nix`](./modules.nix) / Where are your `default.nix`'s?
+### I have a million other questions :c
 
-Rather than relying on having `default.nix`'s sprinkled throughout my config like a skeleton, I simply created a function to recursively import all Nix files in my modules directory. I don't believe this is collosally silly, but if you believe it is feel free to let me know.
-
-I still, however, use a standard `default.nix` schema in my [extended lib](./lib/).
+For a while, I tried to document and explain any quirky choices I made in my config. But at this point, I'm past my limit, and I'm adding more insanity to it by the week. If you have any questions for how or why I did something a certain way, you can feel free to reach out to me.
 
 ## Hosts
 
@@ -72,9 +67,9 @@ No project is done alone. This is especially so in the FOSS World. I would like 
 
 [@itslychee](https://github.com/itslychee), for help on Discord.
 
-[@NotAShelf](https://github.com/NotAShelf), both on Discord and through his now archived Nix config that I have referenced for this README and for my profile options system, and most certainly for other reasons that I may be missing.
+[@NotAShelf](https://github.com/NotAShelf), for enough reasons that I am certain to leave something out. For his now archived Nix config, for the extensive help and patience he has given me, and for being insane enough to do a lot that I have learned from. Much of my config is heavily inspired by his.
 
-This list will be sure to grow, and I have probably missed pepole. So to everyone else I have interacted with on my Nix journey, thank you.
+This list will be sure to grow, and I have probably missed people. So to everyone else I have interacted with on my Nix journey, thank you.
 
 ## Licensing
 

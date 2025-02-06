@@ -1,40 +1,40 @@
 {
   inputs,
   self,
-  
   ...
 }: let
   inherit (self) lib;
+  inherit (inputs.nixpkgs.lib) nixosSystem;
+  inherit (lib.extendedLib.importers) mkModuleList;
+
   specialArgs = {
     inherit inputs lib;
   };
-  inherit (lib.extendedLib.importers) mkModuleList;
 
-  moduleDir = ../modules;
+  default = {
+    profiles = [
+      "gaming"
+      "workstation"
+    ];
+    desktop = ["hyprland"];
+  };
 in {
   flake.nixosConfigurations = {
-    polaris = inputs.nixpkgs.lib.nixosSystem {
+    polaris = nixosSystem {
       inherit specialArgs;
       modules = mkModuleList {
-        hostModule = ./polaris;
-        inherit moduleDir;
-        profiles = [
-          "gaming"
-          "workstation"
-        ];
-        desktop = ["hyprland"];
+        hostName = "polaris";
+
+        inherit (default) profiles desktop;
       };
     };
-    procyon = inputs.nixpkgs.lib.nixosSystem {
+    procyon = nixosSystem {
       inherit specialArgs;
       modules = mkModuleList {
-        inherit moduleDir;
         hostName = "procyon";
-        profiles = [
-          "gaming"
-          "workstation"
-        ];
-        desktop = ["hyprland"];
+
+        inherit (default) profiles desktop;
+
         specialImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
       };
     };

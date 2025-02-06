@@ -2,14 +2,14 @@
 # My implementation is a little janky, but works great.
 {inputs, ...}: let
   inherit (inputs.nixpkgs) lib;
-  extendedLib = lib.extend (final: prev: import ./extension.nix {lib = prev;});
+  extended-lib = lib.extend (final: prev: import ./extension.nix {inherit lib;});
 in {
   perSystem = {
     # Extend lib for the flake
-    _module.args.lib = extendedLib;
+    _module.args.lib = extended-lib;
   };
   flake = {
     # And also as an output
-    lib = extendedLib;
+    lib = extended-lib;
   };
 }

@@ -3,6 +3,7 @@
   config,
   inputs,
   pkgs,
+  self',
   ...
 }: let
   inherit (lib.options) mkOption mkPackageOption;
@@ -19,10 +20,12 @@ in {
     };
     fonts = {
       monospace = {
-        package = mkPackageOption pkgs ["nerd-fonts" "fira-code"] {}; #defaults to nerd-fonts.fira-code
+        # Defaults to the ioshelfka package in my flake.
+        # This line basically just sets the default package to self'.packages.ioshelfka.
+        package = mkPackageOption self' ["packages" "ioshelfka"] {};  
         name = mkOption {
           type = str;
-          default = "Fira Code Nerdfont";
+          default = "Ioshelfka Mono Nerdfont";
           description = "Defines the monospace font";
         };
       };
@@ -86,10 +89,5 @@ in {
         description = "Defines the primary wallpaper";
       };
     };
-  };
-
-  config.theme.fonts.monospace = {
-    package = inputs.ioshelfka.packages.x86_64-linux.ioshelfka-mono-nerd;
-    name = "Ioshelfka Mono Nerdfont";
   };
 }

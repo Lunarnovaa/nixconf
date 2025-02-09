@@ -115,12 +115,6 @@
       inputs.flake-parts.follows = "flake-parts";
     };
 
-    # modified iosevka builds
-    ioshelfka = {
-      url = "github:notashelf/ioshelfka";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ## hjem business ##
 
     # hjem, a replacement for home-manager's tooling

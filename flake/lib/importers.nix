@@ -5,7 +5,6 @@
   inherit (lib.attrsets) mapAttrsToList filterAttrs;
   inherit (lib.extendedLib.importers) listFilesRecursiveClean;
   inherit (builtins) filter readDir;
-
 in {
   # taken from nixpkgs and modified by me so that any directories
   # with the prefix _ would not have their files imported.

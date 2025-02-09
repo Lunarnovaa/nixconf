@@ -16,7 +16,7 @@
       inherit (pkgs) callPackage;
       directory = ./packages;
     };
-    
+
     # Here the packages are actually given to the flake-parts module
     # to create the overlay for each system
     overlayAttrs = config.packages;

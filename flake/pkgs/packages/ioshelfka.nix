@@ -17,7 +17,7 @@ in
   stdenv.mkDerivation {
     pname = "ioshelfka";
     inherit version;
-    
+
     src = fetchurl {
       # note: if url is changed, so too must hash be
       url = "https://github.com/NotAShelf/Ioshelfka/releases/download/${version}/${name}.zip";

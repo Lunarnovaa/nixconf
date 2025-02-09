@@ -32,10 +32,12 @@ in {
         in (
           flatten (
             concatLists [
-              [{
-                # Declare the hostName c:
-                networking.hostName = hostName;
-              }]
+              [
+                {
+                  # Declare the hostName c:
+                  networking.hostName = hostName;
+                }
+              ]
               # Import desktop and profile modules c:
               (map (n: (moduleDir + /desktop + /${n} + /module.nix)) desktop)
               (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)

@@ -1,4 +1,7 @@
-{lib, inputs}: {
+{
+  lib,
+  inputs,
+}: {
   extendedLib = {
     builders = import ./builders.nix {inherit lib inputs;};
 

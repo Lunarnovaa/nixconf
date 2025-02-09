@@ -22,7 +22,7 @@ in {
       monospace = {
         # Defaults to the ioshelfka package in my flake.
         # This line basically just sets the default package to self'.packages.ioshelfka.
-        package = mkPackageOption self' ["packages" "ioshelfka"] {};  
+        package = mkPackageOption self' ["packages" "ioshelfka"] {};
         name = mkOption {
           type = str;
           default = "Ioshelfka Mono Nerdfont";

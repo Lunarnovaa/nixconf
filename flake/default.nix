@@ -3,6 +3,6 @@
     ./apps
     ./lib
     ./pkgs
-    ./formatter.nix
+    ./misc
   ];
 }

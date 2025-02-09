@@ -1,5 +1,5 @@
 {
   imports = [
-    ./lags.nix
+    ./formatter.nix
   ];
 }

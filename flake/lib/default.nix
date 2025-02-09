@@ -2,7 +2,11 @@
 # My implementation is a little janky, but works great.
 {inputs, ...}: let
   inherit (inputs.nixpkgs) lib;
-  extended-lib = lib.extend (final: prev: import ./extension.nix {inherit lib;});
+  extended-lib = lib.extend (final: prev:
+    import ./extension.nix {
+      lib = final;
+      inherit inputs;
+    });
 in {
   perSystem = {
     # Extend lib for the flake

@@ -7,9 +7,6 @@
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";
 in {
-  # Defining the Hostname
-  networking.hostName = "polaris";
-
   specialisation = {
     # "Focus Mode": Disables Gaming Modules
     focusMode.configuration = {

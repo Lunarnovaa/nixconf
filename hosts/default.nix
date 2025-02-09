@@ -1,12 +1,11 @@
 {
   inputs,
   self,
-  withSystem,
+  withSystem, # flake-parts option
   ...
 }: let
   inherit (self) lib;
-  inherit (inputs.nixpkgs.lib) nixosSystem;
-  inherit (lib.extendedLib.importers) mkModuleList;
+  inherit (lib.extendedLib.builders) mkHost;
 
   default = {
     profiles = [
@@ -17,29 +16,22 @@
   };
 in {
   flake.nixosConfigurations = {
-    polaris = withSystem "x86_64-linux" ({self', ...}:
-      nixosSystem {
-        specialArgs = {
-          inherit lib inputs self';
-        };
-        modules = mkModuleList {
-          hostName = "polaris";
+    # If you're wondering what "mkHost" is, check lib/builders.nix
+    polaris = mkHost {
+      inherit withSystem;
+      system = "x86_64-linux";
+      hostName = "polaris";
 
-          inherit (default) profiles desktop;
-        };
-      });
-    procyon = withSystem "x86_64-linux" ({self', ...}:
-      nixosSystem {
-        specialArgs = {
-          inherit lib inputs self';
-        };
-        modules = mkModuleList {
-          hostName = "procyon";
+      inherit (default) profiles desktop;
+    };
+    procyon = mkHost {
+      inherit withSystem;
+      system = "x86_64-linux";
+      hostName = "procyon";
 
-          inherit (default) profiles desktop;
+      inherit (default) profiles desktop;
 
-          specialImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
-        };
-      });
+      specialImports = [inputs.nixos-hardware.nixosModules.framework-13-7040-amd];
+    };
   };
 }

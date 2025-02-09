@@ -3,7 +3,7 @@
   inherit (lib.strings) hasSuffix hasPrefix;
   inherit (lib.lists) flatten;
   inherit (lib.attrsets) mapAttrsToList filterAttrs;
-  inherit (builtins) filter readDir map concatLists;
+  inherit (builtins) filter readDir;
 
   # taken from nixpkgs and modified by me so that any directories
   # with the prefix _ would not have their files imported.
@@ -34,34 +34,10 @@
       importNixRecursive
       (filter (n: !hasSuffix "module.nix" n)) # Filter out module.nix
     ];
-
-  # this function and its use was inspired by notashelf's mkModuleTree schema
-  mkModuleList = {
-    hostName,
-    profiles ? [],
-    desktop ? [],
-    specialImports ? [],
-  }: let
-    moduleDir = ../../modules;
-  in (
-    flatten (
-      concatLists [
-        (map (n: (moduleDir + /desktop + /${n} + /module.nix)) desktop)
-        (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)
-
-        (importNixRecursive (moduleDir + /options))
-        (importNixRecursive (moduleDir + /common))
-        (importNixRecursive (../../hosts + /${hostName}))
-
-        specialImports
-      ]
-    )
-  );
 in {
   inherit
     listFilesRecursiveClean
     importNixRecursive
     importModule
-    mkModuleList
     ;
 }

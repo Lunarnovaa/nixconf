@@ -2,9 +2,6 @@
   inherit (lib.modules) mkForce;
   primaryDisplay = "eDP-1";
 in {
-  # Defining the Hostname
-  networking.hostName = "procyon";
-
   # Specialisation for "Gaming Mode": Enables Gaming Module
   specialisation = {
     gamingMode.configuration = {

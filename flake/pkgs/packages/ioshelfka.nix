@@ -30,19 +30,14 @@ in
       unzip
     ];
 
-    installPhase = let
-      installBase = "install -Dm644 result/share/fonts/truetype/*.ttf -t $out/share/fonts/truetype";
-      installNerd = "install -Dm644 result/share/fonts/truetype/NerdFonts/NerdFonts/IoshelfkaMono/*.ttf -t $out/share/fonts/truetype/NerdFonts/NerdFonts/IoshelfkaMono";
-    in ''
+    installPhase = ''
       runHook preInstall
 
+      install -Dm644 result/share/fonts/truetype/*.ttf -t $out/share/fonts/truetype
+
       ${
-        if nerd
-        then ''
-          ${installBase}
-          ${installNerd}
-        ''
-        else installBase
+        optionalString nerd
+        "install -Dm644 result/share/fonts/truetype/NerdFonts/NerdFonts/Ioshelfka${type}/*.ttf -t $out/share/fonts/truetype/NerdFonts/NerdFonts/Ioshelfka${type}"
       }
 
       runHook postInstall

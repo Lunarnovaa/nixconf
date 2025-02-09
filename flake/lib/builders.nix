@@ -3,7 +3,7 @@
   inputs,
 }: let
   inherit (lib) nixosSystem;
-  inherit (lib.extendedLib.importers) importNixRecursive;
+  inherit (lib.extendedLib.importers) listNixRecursive;
   inherit (lib.lists) flatten;
   inherit (builtins) map concatLists;
 in {
@@ -41,11 +41,11 @@ in {
               (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)
 
               # All hosts import all options and of course the common modules
-              (importNixRecursive (moduleDir + /options))
-              (importNixRecursive (moduleDir + /common))
+              (listNixRecursive (moduleDir + /options))
+              (listNixRecursive (moduleDir + /common))
 
               # Import host modules
-              (importNixRecursive (../../hosts + /${hostName}))
+              (listNixRecursive (../../hosts + /${hostName}))
 
               # Additional modules for importation can be declared as well.
               # This is usually system specific stuff.

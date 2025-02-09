@@ -1,5 +1,5 @@
 {lib, ...}: let
-  inherit (lib.extendedLib.importers) importModule;
+  inherit (lib.extendedLib.importers) listNixRecursive;
 in {
-  imports = importModule ./.;
+  imports = listNixRecursive ./.;
 }

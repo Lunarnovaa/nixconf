@@ -1,8 +1,8 @@
 {
   imports = [
+    ./apps
     ./lib
     ./pkgs
-    #./lags.nix
     ./formatter.nix
   ];
 }

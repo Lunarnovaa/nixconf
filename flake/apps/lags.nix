@@ -6,7 +6,6 @@
     ...
   }: let
     inherit (builtins) concatLists;
-    #pkgs = inputs.nixpkgs.legacyPackages.${system};
 
     astalPackages = with inputs'.ags.packages; [
       hyprland
@@ -27,6 +26,7 @@
     # ags derivation for typescript
     packages.lags = inputs.ags.lib.bundle {
       src = ../modules/desktop/hyprland/astal/src;
+      inherit pkgs;
       name = "lags";
       entry = "app.ts";
       gtk4 = true;

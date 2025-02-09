@@ -2,8 +2,8 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   version ? "v0.1.3",
-  nerd ? true,
-  type ? "Mono",
+  nerd ? true, # Include nerdfont icons
+  type ? "Mono", # 'Mono' or 'Term'
 }: let
   inherit (pkgs) fetchurl stdenv;
   inherit (lib.strings) concatStrings optionalString;

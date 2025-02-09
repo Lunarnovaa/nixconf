@@ -38,13 +38,21 @@ in {
                   networking.hostName = hostName;
                 }
               ]
-              # Import desktop and profile modules c:
+              # Import desktop and profile config modules
               (map (n: (moduleDir + /desktop + /${n} + /module.nix)) desktop)
               (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)
+              
+              # Import desktop and profile options modules
+              # In theory, this shouldn't cause problems, so long as each host
+              # import the desktop/profiles that they want to make available & configure
+              # I could restructure my config to simplify the function, but I want to make
+              # it easier to revert.
+              (map (n: (moduleDir + /options/desktop + /${n} + ".nix")) desktop)
+              (map (n: (moduleDir + /options/profiles + /${n} + ".nix")) profiles)
 
-              # All hosts import all options and of course the common modules
-              (listNixRecursive (moduleDir + /options))
+              # All hosts import the common modules
               (listNixRecursive (moduleDir + /common))
+              (listNixRecursive (moduleDir + /options/common))
 
               # Import host modules
               (listNixRecursive (../../hosts + /${hostName}))

@@ -21,9 +21,6 @@ in {
       enable = true;
       apps.obs = false;
     };
-    server = {
-      enable = false;
-    };
     workstation = {
       enable = true;
     };

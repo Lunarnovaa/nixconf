@@ -17,11 +17,6 @@ in {
       apps = {
       };
     };
-    server = {
-      enable = false;
-      services = {
-      };
-    };
     workstation = {
       enable = true;
       apps = {

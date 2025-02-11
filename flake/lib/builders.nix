@@ -4,7 +4,7 @@
 }: let
   inherit (lib) nixosSystem;
   inherit (lib.extendedLib.importers) listNixRecursive;
-  inherit (lib.lists) flatten;
+  inherit (lib.lists) flatten singleton;
   inherit (builtins) map concatLists;
 in {
   # Please note, this fucked up function was inspired by notashelf/nyx,
@@ -32,16 +32,15 @@ in {
         in (
           flatten (
             concatLists [
-              [
-                {
-                  # Declare the hostName c:
-                  networking.hostName = hostName;
-                }
-              ]
+              (singleton { # singleton just makes a list with one element
+                # Declare the hostName c:
+                networking.hostName = hostName;
+              })
+
               # Import desktop and profile config modules
               (map (n: (moduleDir + /desktop + /${n} + /module.nix)) desktop)
               (map (n: (moduleDir + /profiles + /${n} + /module.nix)) profiles)
-              
+
               # Import desktop and profile options modules
               # In theory, this shouldn't cause problems, so long as each host
               # import the desktop/profiles that they want to make available & configure

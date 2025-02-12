@@ -8,11 +8,24 @@
   inherit (pkgs) fetchurl stdenv;
   inherit (lib.strings) concatStrings optionalString;
 
-  name = concatStrings [
-    "Ioshelfka"
+  fontType = concatStrings [
     type
     (optionalString nerd "Nerd")
   ];
+
+  name = concatStrings [
+    "Ioshelfka"
+    fontType
+  ];
+
+  hash = {
+    "v0.1.3" = {
+      "Mono" = "1dkw4x9vsw2ysjn6m6p9r4rg012hl8hwfkmap8jivr6xs8yrncn5";
+      "MonoNerd" = "08asdzan247m5cginjk5wr1cnc5idhn50i5fva7hhb3qisx3hmys";
+      "Term" = "1sg7fyhpf6awaw7pbfpmg9a9qrpza7440rcx78ki4spjg5ly6zkw";
+      "TermNerd" = "0r4nii9v3nr1vpgg6sbf9w94q8sqjjnyq02naj1rf5k8brwhyc9a";
+    };
+  };
 in
   stdenv.mkDerivation {
     pname = "ioshelfka";
@@ -21,7 +34,7 @@ in
     src = fetchurl {
       # note: if url is changed, so too must hash be
       url = "https://github.com/NotAShelf/Ioshelfka/releases/download/${version}/${name}.zip";
-      sha256 = "08asdzan247m5cginjk5wr1cnc5idhn50i5fva7hhb3qisx3hmys";
+      sha256 = hash.${version}.${fontType};
     };
 
     sourceRoot = ".";

@@ -25,13 +25,11 @@
   in {
     # ags derivation for typescript
     packages.lags = inputs.ags.lib.bundle {
-      src = ../modules/desktop/hyprland/astal/src;
-      inherit pkgs;
+      src = ../../modules/desktop/hyprland/astal/src;
+      inherit pkgs extraPackages;
       name = "lags";
       entry = "app.ts";
       gtk4 = true;
-
-      inherit extraPackages;
     };
     devShells.${system}.lags = pkgs.mkShell {
       buildInputs = [

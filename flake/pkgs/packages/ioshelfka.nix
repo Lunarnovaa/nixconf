@@ -8,14 +8,9 @@
   inherit (pkgs) fetchurl stdenv;
   inherit (lib.strings) concatStrings optionalString;
 
-  fontType = concatStrings [
+  fontName = concatStrings [
     type
     (optionalString nerd "Nerd")
-  ];
-
-  name = concatStrings [
-    "Ioshelfka"
-    fontType
   ];
 
   hash = {
@@ -33,8 +28,8 @@ in
 
     src = fetchurl {
       # note: if url is changed, so too must hash be
-      url = "https://github.com/NotAShelf/Ioshelfka/releases/download/${version}/${name}.zip";
-      sha256 = hash.${version}.${fontType};
+      url = "https://github.com/NotAShelf/Ioshelfka/releases/download/${version}/Ioshelfka${fontName}.zip";
+      sha256 = hash.${version}.${fontName};
     };
 
     sourceRoot = ".";

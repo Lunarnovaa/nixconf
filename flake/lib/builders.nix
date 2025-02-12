@@ -22,10 +22,11 @@ in {
     desktop ? [],
     specialImports ? [],
   }:
-    withSystem system ({self', ...}:
+    withSystem system ({self', config, ...}:
       nixosSystem {
         specialArgs = {
           inherit lib inputs self';
+          inherit (config._module.args) theme;
         };
         modules = let
           moduleDir = ../../modules;

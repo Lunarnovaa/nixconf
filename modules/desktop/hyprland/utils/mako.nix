@@ -1,10 +1,11 @@
 {
   config,
   lib,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.theme) colors fonts;
+  inherit (theme) colors fonts;
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
   config = mkIf config.hyprland.enable {

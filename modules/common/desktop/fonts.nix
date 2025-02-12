@@ -1,9 +1,9 @@
 {
   pkgs,
-  config,
+  theme,
   ...
 }: let
-  inherit (config.theme) fonts;
+  inherit (theme) fonts;
   inherit (builtins) concatLists;
 
   fallbackPackages = with pkgs; [

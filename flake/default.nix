@@ -4,6 +4,8 @@
 
     ./lib # My extended-lib functions
 
+    ./modules # Special modules designed to be included in specialArgs
+
     ./pkgs # My own packages
 
     ./misc # Miscellaneous flake settings

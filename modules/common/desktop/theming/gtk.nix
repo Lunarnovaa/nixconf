@@ -2,9 +2,10 @@
   config,
   pkgs,
   lib,
+  theme,
   ...
 }: let
-  inherit (config.theme) fonts;
+  inherit (theme) fonts;
   inherit (lib.extendedLib.generators.gtk) finalGtk2Text toGtk3Ini;
   inherit (builtins) toString;
 

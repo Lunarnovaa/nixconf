@@ -1,10 +1,11 @@
 {
   config,
   lib,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.theme) wallpapers fonts colors;
+  inherit (theme) wallpapers fonts colors;
   inherit (lib.extendedLib.generators) toSwaylockConf;
 in {
   config = mkIf config.hyprland.enable {

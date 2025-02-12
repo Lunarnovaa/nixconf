@@ -2,10 +2,11 @@
   lib,
   config,
   #pkgs,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.theme) colors fonts;
+  inherit (theme) colors fonts;
   #toTOML = (pkgs.formats.toml {}).generate;
 in {
   config = mkIf config.terminal.apps.alacritty {

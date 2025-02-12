@@ -2,10 +2,11 @@
   config,
   pkgs,
   lib,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.theme) colors;
+  inherit (theme) colors;
   toINI = lib.generators.toINIWithGlobalSection {};
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {

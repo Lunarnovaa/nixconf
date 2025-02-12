@@ -2,11 +2,12 @@
   config,
   pkgs,
   lib,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
   inherit (builtins) toJSON;
-  inherit (config.theme) colors fonts;
+  inherit (theme) colors fonts;
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
   tofiPowermenu = pkgs.pkgs.writeShellScriptBin "powermenu" ''
     #from u/timblaktu, runs this command to gracefully close apps

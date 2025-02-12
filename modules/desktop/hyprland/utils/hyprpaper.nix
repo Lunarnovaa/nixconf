@@ -2,12 +2,13 @@
   config,
   lib,
   pkgs,
+  theme,
   ...
 }: let
   inherit (lib.attrsets) mergeAttrsList optionalAttrs;
   inherit (lib.modules) mkIf;
   inherit (lib.extendedLib.generators) toHyprconf;
-  inherit (config.theme) wallpapers;
+  inherit (theme) wallpapers;
 
   hyprpaper-conf = pkgs.writeTextFile {
     name = "hyprpaper-conf";

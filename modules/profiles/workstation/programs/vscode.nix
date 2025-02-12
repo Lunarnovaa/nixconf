@@ -3,10 +3,11 @@
   lib,
   config,
   pkgs,
+  theme,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.theme) fonts;
+  inherit (theme) fonts;
   inherit (config.profiles) workstation;
 
   flakeRev = "github:lunarnovaa/nixconf/f0d8932b16f1055fe2e1647d2a02e5a3213206d2";

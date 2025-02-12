@@ -32,10 +32,12 @@
     # used for bibata-hyprcursors
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-      inputs.lix.follows = "";
-      inputs.flake-parts.follows = "flake-parts";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        lix.follows = "";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     ## system infrastructure ##
@@ -46,11 +48,13 @@
     # secrets management
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-      # stop agenix from importing home-manager and darwin
-      inputs.home-manager.follows = "";
-      inputs.darwin.follows = "";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        # stop agenix from importing home-manager and darwin
+        home-manager.follows = "";
+        darwin.follows = "";
+      };
     };
 
     # modularizing my flake
@@ -75,8 +79,10 @@
     # ags, a scaffolding for using astal with typescript
     ags = {
       url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.astal.follows = "astal";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        astal.follows = "astal";
+      };
     };
 
     ## module specific stuff ##
@@ -84,16 +90,20 @@
     # a spotify ricer
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     # minecraft server configured with nix and ran as a service
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     ## shelfware ##
@@ -101,18 +111,22 @@
     # base16 palettes in nix
     basix = {
       url = "github:notashelf/basix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     # not a vim flake / neovim flake / pick your other poison
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-parts.follows = "flake-parts";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        flake-utils.follows = "flake-utils";
+        flake-parts.follows = "flake-parts";
+      };
     };
 
     ## hjem business ##
@@ -125,10 +139,12 @@
 
     # i use a local version for dogfeeding
     hjem-rum = {
-      #url = "github:/hjem-rum/";
-      url = "path:/home/lunarnova/snug/hjem-rum";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hjem.follows = "hjem";
+      url = "github:snugnug/hjem-rum/";
+      #url = "path:/home/lunarnova/snug/hjem-rum";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        hjem.follows = "hjem";
+      };
     };
 
     ## input unification, both added to

@@ -248,14 +248,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1737834920,
-        "narHash": "sha256-3ODoljJOWWYuCberDKUKl1aWNypeiRxk1IPFXtlCN2A=",
-        "path": "/home/lunarnova/snug/hjem-rum",
-        "type": "path"
+        "lastModified": 1739301619,
+        "narHash": "sha256-lUpzQdeTne3CfHfW6QlgNmIVvKq6jO1tWQOyuhgUDt4=",
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "rev": "0537c6ad02f26c28ed70f286a418087d581df2e5",
+        "type": "github"
       },
       "original": {
-        "path": "/home/lunarnova/snug/hjem-rum",
-        "type": "path"
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "type": "github"
       }
     },
     "hyprcursor": {

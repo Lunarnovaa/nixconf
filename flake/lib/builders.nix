@@ -26,7 +26,7 @@ in {
       nixosSystem {
         specialArgs = {
           inherit lib inputs self';
-          inherit (config._module.args) theme;
+          inherit (config._module.args) theme pkgs;
         };
         modules = let
           moduleDir = ../../modules;

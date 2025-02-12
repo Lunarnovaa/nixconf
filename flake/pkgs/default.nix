@@ -25,6 +25,15 @@
     # must do it myself, unfortunately
     legacyPackages = import inputs.nixpkgs {
       inherit system;
+
+      # This configures my pkgs version as needed within the flake
+      # as opposed to at the nixosModules level. This allows me to
+      # pass my overlayed 'pkgs' as the pkgs used in my nixosModules,
+      # meaning I do not need to use something confusing like "self'.packages.ioshelfka"
+      config = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+      };
       overlays = [inputs.self.overlays.default];
     };
 

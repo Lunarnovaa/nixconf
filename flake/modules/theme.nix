@@ -1,7 +1,6 @@
 {inputs, ...}: {
   # withSystem makes self' available so that different systems have the respective package set
   perSystem = {
-    self',
     pkgs,
     ...
   }: {
@@ -9,7 +8,7 @@
       colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
       fonts = {
         monospace = {
-          package = self'.packages.ioshelfka;
+          package = pkgs.ioshelfka; # packaged by yours truly
           name = "Ioshelfka Mono Nerdfont";
         };
         sans = {

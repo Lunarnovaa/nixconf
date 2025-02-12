@@ -22,7 +22,11 @@ in {
     desktop ? [],
     specialImports ? [],
   }:
-    withSystem system ({self', config, ...}:
+    withSystem system ({
+      self',
+      config,
+      ...
+    }:
       nixosSystem {
         specialArgs = {
           inherit lib inputs self';
@@ -33,7 +37,8 @@ in {
         in (
           flatten (
             concatLists [
-              (singleton { # singleton just makes a list with one element
+              (singleton {
+                # singleton just makes a list with one element
                 # Declare the hostName c:
                 networking.hostName = hostName;
               })

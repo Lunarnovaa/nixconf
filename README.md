@@ -11,25 +11,20 @@ My nixconf is structured specifically to be logical and help me work with it. He
   - [`lib`](./flake/lib) Extended Lib: Custom function declaration
   - [`pkgs`](./flake/pkgs) Nixpkgs Overlay: Custom mkDerivations written by yours truly
 - [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
-  - [`${hostName}/configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
-  - [`${hostName}/hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
+  - [`configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
+  - [`hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
 - [`modules/`](./modules) Modular system configuration: The bulk of my system configuration
   - [`common`](./modules/common) Modules that are generally made available to all my hosts.
   - [`desktop`](./modules/desktop) Desktop modules: Primarily Hyprland currently.
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system and per profile
-    - [`config`](./modules/options/config) Special host configuration options
-    - [`modules`](./modules/options/modules) Custom module declaration
-    - [`profiles`](./modules/options/profiles) Options and apps configured by profile
   - [`profiles`](./modules/profiles) Profile modules: Special programs, services, and configuration needed on each profile.
 - [`secrets`](./secrets) Agenix Secrets Management
 
 ### How the profiles work
 
-1. Specific profile option is declared as a module and enabled or disabled per-system.
-2. An option for each program included in the profile is declared.
-3. If that profile is enabled, the program options are enabled.
-4. Any of the program options can be forcibly enabled or disabled per-system.
-5. All of the above is imported into both Home Manager and NixOS as modules.
+1. Each profile has its own options for enabling and disabling apps and installing programs.
+2. Each host can select which profiles' modules to import.
+3. The profile itself can be enabled or disabled, and this sets the default option of its programs to be enabled or disabled by default.
 
 Credit to [@NotAShelf](https://github.com/NotAShelf/Nyx) for inspiration and references.
 
@@ -43,9 +38,9 @@ Home Manager has a few problems for me, in increasing severity:
 2. Lengthens eval times; and
 3. Requires a differentiation between HM modules and Nix modules.
 
-In the past, I structured my nixconf to account for the differentiation between the two module types, but it caused me  incoveniences that I would rather have gone without.
+In the past, I structured my nixconf to account for the differentiation between the two module types, but it caused me  inconveniences that I would rather have gone without.
 
-If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently very WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
+If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 
 ### I have a million other questions :c
 
@@ -62,13 +57,25 @@ For a while, I tried to document and explain any quirky choices I made in my con
 
 No project is done alone. This is especially so in the FOSS World. I would like to credit and thank the following people for sharing their configuration, wisdom, or knowledge:
 
-[@vimjoyer](https://www.youtube.com/@vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration.
+### The Originators of My Passion
 
-[@viperML](https://github.com/viperML), especially for his blogposts, but also for his projects like [nh](https://github.com/viperML/nh).
+[@0atman](https://github.com/0atman), whose NixOS video first got me interested in the space.
 
-[@itslychee](https://github.com/itslychee), for help on Discord.
+[@vimjoyer](https://github.com/vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration which shares its namesake.
+
+### SNUG
 
 [@NotAShelf](https://github.com/NotAShelf), for enough reasons that I am certain to leave something out. For his now archived Nix config, for the extensive help and patience he has given me, and for being insane enough to do a lot that I have learned from. Much of my config is heavily inspired by his.
+
+[@PolarFill](https://github.com/PolarFill), for collaborating with me on [Hjem Rum](https://github.com/snugnug/hjem-rum) and providing me with his thoughts.
+
+Many other members from [SNUG](https://github.com/snugnug), who have collaborated with me on projects like [Hjem Rum](https://github.com/snugnug/hjem-rum) and also allowed me to engage with community to further pursue Nix.
+
+### Other members of the NixOS community
+
+[@viperML](https://github.com/viperML), especially for his blogposts from which I learned to write mkDerivations, but also for his projects like [nh](https://github.com/viperML/nh).
+
+[@itslychee](https://github.com/itslychee), for help on Discord.
 
 This list will be sure to grow, and I have probably missed people. So to everyone else I have interacted with on my Nix journey, thank you.
 

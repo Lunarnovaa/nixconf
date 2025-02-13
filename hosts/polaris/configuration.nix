@@ -39,7 +39,7 @@ in {
 
   hyprland = {
     enable = true;
-    smartgaps.enable = true;
+    smartgaps = true;
     monitors = {
       configuration = [
         "${primaryDisplay}, preferred, auto, 1"

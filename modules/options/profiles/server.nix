@@ -3,26 +3,21 @@
   config,
   ...
 }: let
-  inherit (lib.options) mkOption;
-  inherit (lib.types) bool;
+  inherit (lib.options) mkEnableOption;
+  inherit (lib.modules) mkIf mkDefault;
 in {
   options.profiles.server = {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = ''
-        Enables the server modules. Currently this doesn't do much
-        since I haven't delved into server stuff quite yet.
+    enable = mkEnableOption ''
+      the server modules. Currently this doesn't do much
+      since I haven't delved into server stuff quite yet.
+    '';
+    services = {
+      minecraft = mkEnableOption ''
+        the Minecraft Server to run on boot.
       '';
     };
-    services = {
-      minecraft = mkOption {
-        type = bool;
-        default = config.profiles.server.enable;
-        description = ''
-          Enables the Minecraft-Server service to start up on boot.
-        '';
-      };
-    };
+  };
+  config = mkIf config.profiles.server.enable {
+    profiles.server.services.minecraft = mkDefault true;
   };
 }

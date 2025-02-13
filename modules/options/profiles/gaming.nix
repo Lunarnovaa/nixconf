@@ -3,52 +3,42 @@
   config,
   ...
 }: let
-  inherit (lib.options) mkOption;
-  inherit (lib.types) bool;
+  inherit (lib.options) mkEnableOption;
+  inherit (lib.modules) mkDefault mkIf;
 in {
   options.profiles.gaming = {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = ''
-        Enables the gaming modules. By default, this enables special
-        driver and DE configuration related to gaming, and enables
-        apps related to gaming.
-      '';
-    };
+    enable = mkEnableOption ''
+      the gaming modules. By default, this enables special
+      driver and DE configuration related to gaming, and enables
+      apps related to gaming.
+    '';
     apps = {
-      discord = mkOption {
-        type = bool;
-        default = config.profiles.gaming.enable;
-        description = "Enables the Discord module";
-      };
-      lutris = mkOption {
-        type = bool;
-        default = config.profiles.gaming.enable; # Enabled by gaming profile
-        description = "Enables the Lutris module";
-      };
-      minecraft = mkOption {
-        type = bool;
-        default = config.profiles.gaming.enable;
-        description = "Enables the Minecraft module, installing Prism-Launcher";
-      };
-      obs = mkOption {
-        type = bool;
-        default = false;
-        description = "Enables the OBS module";
-        # OBS is not enabled by default because its usecase is
-        # rather niche.
-      };
-      steam = mkOption {
-        type = bool;
-        default = config.profiles.gaming.enable;
-        description = "Enables the Steam module";
-      };
-      vr = mkOption {
-        type = bool;
-        default = false; # Disabled by default due to higher performance requirements
-        description = "Enables the VR module";
-      };
+      discord = mkEnableOption ''
+        Discord.
+      '';
+      lutris = mkEnableOption ''
+        Lutris.
+      '';
+      minecraft = mkEnableOption ''
+        Minecraft, installing Prism-Launcher.
+      '';
+      obs = mkEnableOption ''
+        "Open Broadcast Software."
+      ''; # OBS is not enabled by default.
+      steam = mkEnableOption ''
+        Steam.
+      '';
+      vr = mkEnableOption ''
+        VR.
+      ''; # VR is not enabled by default.
+    };
+  };
+  config = mkIf config.profiles.gaming.enable {
+    profiles.gaming.apps = {
+      discord = mkDefault true;
+      lutris = mkDefault true;
+      minecraft = mkDefault true;
+      steam = mkDefault true;
     };
   };
 }

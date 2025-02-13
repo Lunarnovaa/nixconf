@@ -1,13 +1,11 @@
 {lib, ...}: let
-  inherit (lib.options) mkOption;
-  inherit (lib.types) bool listOf str attrs;
+  inherit (lib.options) mkOption mkEnableOption;
+  inherit (lib.types) listOf str attrs;
 in {
   options.hyprland = {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = "Whether to enable hyprland modules";
-    };
+    enable = mkEnableOption ''
+      the Hyprland Wayland Compositor.
+    '';
     settings = mkOption {
       type = attrs;
       example = {
@@ -17,7 +15,7 @@ in {
         };
       };
       description = ''
-        Settings for hyprland wayland compositor to be
+        Settings for Hyprland Wayland Compositor to be
         written to the config file.
       '';
     };
@@ -31,7 +29,7 @@ in {
           "HDMI-A-1, 1920x1080@60, auto, 1"
           "DP-4, 1920x1080@60, auto-left, 1"
         ];
-        description = "Monitor configurations for hyprland";
+        description = "Monitor configurations for Hyprland";
       };
       bind = mkOption {
         type = listOf str;
@@ -48,12 +46,8 @@ in {
         description = "Sets workspace rules for monitors";
       };
     };
-    smartgaps = {
-      enable = mkOption {
-        type = bool;
-        default = false;
-        description = "Whether to enable smartgaps for hyprland.";
-      };
-    };
+    smartgaps = mkEnableOption ''
+      smartgaps for Hyprland.
+    '';
   };
 }

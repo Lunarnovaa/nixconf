@@ -21,7 +21,7 @@ in {
         device = {
           name = "${config.networking.hostName}";
           device_type = "computer";
-          volume = 40;
+          volume = 60;
           normalization = true;
         };
       };

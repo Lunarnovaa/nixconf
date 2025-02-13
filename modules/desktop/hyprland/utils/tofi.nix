@@ -6,7 +6,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (theme) colors;
+  inherit (theme) colors fonts;
   toINI = lib.generators.toINIWithGlobalSection {};
   #hyprland-settings = config.wayland.windowManager.hyprland.settings;
 in {
@@ -20,7 +20,7 @@ in {
           corner-radius = 3;
           width = "25%";
           height = "15%";
-          font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
+          font = fonts.sans.path;
           font-size = 13;
           background-color = "${colors.base00}";
           border-color = "${colors.base08}";

@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  # withSystem makes self' available so that different systems have the respective package set
+  # withSystem makes 'pkgs' available so that different systems have the respective package set
   perSystem = {pkgs, ...}: {
     _module.args.theme = {
       colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
@@ -11,6 +11,7 @@
         sans = {
           package = pkgs.inter;
           name = "Inter";
+          path = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
         };
         serif = {
           package = pkgs.roboto-serif;

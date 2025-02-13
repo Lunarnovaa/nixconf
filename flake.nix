@@ -1,4 +1,5 @@
 {
+  # https://github.com/Lunarnovaa/nixconf
   description = "lunarnova's nixos flake";
 
   outputs = inputs:
@@ -147,7 +148,8 @@
       };
     };
 
-    ## input unification, both added to
+    ## input unification, both added to be referenced in ##
+    ##           other flake input's inputs c:           ##
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";

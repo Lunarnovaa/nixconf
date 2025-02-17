@@ -1,11 +1,15 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   perSystem = {
     inputs',
     system,
     pkgs,
     ...
   }: let
-    inherit (builtins) concatLists;
+    inherit (lib.trivial) concat;
 
     astalPackages = with inputs'.ags.packages; [
       hyprland
@@ -13,15 +17,13 @@
       network
       bluetooth
       battery
+      apps
     ];
     nixPackages = with pkgs; [
       pwvucontrol
       blueberry
     ];
-    extraPackages = concatLists [
-      astalPackages
-      nixPackages
-    ];
+    extraPackages = concat astalPackages nixPackages;
   in {
     # ags derivation for typescript
     packages.lags = inputs.ags.lib.bundle {

@@ -1,42 +1,14 @@
 {
-  lib,
   config,
+  lib,
   ...
 }: let
-  inherit (lib.modules) mkIf mkForce;
+  inherit (lib.modules) mkIf;
+
   primaryDisplay = "HDMI-A-1";
   secondaryDisplay = "DP-4";
 in {
-  specialisation = {
-    # "Focus Mode": Disables Gaming Modules
-    focusMode.configuration = {
-      environment.etc."specialisation".text = "focusMode";
-      profiles.gaming.enable = mkForce false;
-    };
-  };
-
-  # Custom option definitions
-  profiles = {
-    gaming = {
-      enable = true;
-      apps.obs = false;
-    };
-    workstation = {
-      enable = true;
-    };
-  };
-
-  sysconf = {
-    nvidia = true;
-    verticalTabs = true;
-  };
-
-  loose = {
-    fastfetch = false;
-    spicetify = true;
-    via = false;
-  };
-
+  # Configure hyprland
   hyprland = {
     enable = true;
     smartgaps = true;

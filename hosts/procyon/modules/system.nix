@@ -1,0 +1,5 @@
+{...}: {
+  sysconf = {
+    powersave = true;
+  };
+}

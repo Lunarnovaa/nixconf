@@ -1,5 +1,4 @@
-import { Variable, GLib, bind, exec } from "astal"
-import { Astal, Gtk, Gdk } from "astal/gtk4"
+import { Astal, Gtk } from "astal/gtk4"
 
 
 import Workspaces from "./elements/Workspaces"

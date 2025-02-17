@@ -1,5 +1,4 @@
-import { Variable, GLib, bind, exec } from "astal"
-import { Astal, Gtk, Gdk } from "astal/gtk4"
+import { Variable, GLib } from "astal"
 
 
 export default function Time({ format = "%H %M" }) {

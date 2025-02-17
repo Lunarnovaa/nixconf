@@ -1,5 +1,5 @@
-import { Variable, GLib, bind, exec } from "astal"
-import { Astal, Gtk, Gdk } from "astal/gtk4"
+import { bind } from "astal"
+import { Gtk } from "astal/gtk4"
 
 import Wp from "gi://AstalWp"
 import Network from "gi://AstalNetwork"

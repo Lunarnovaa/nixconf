@@ -37,6 +37,6 @@
       overlays = [inputs.self.overlays.default];
     };
 
-    _module.args.pkgs = config.legacyPackages;
+    _module.args.lunarpkgs = config.legacyPackages;
   };
 }

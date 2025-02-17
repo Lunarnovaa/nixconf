@@ -3,6 +3,7 @@
   inputs,
 }: let
   inherit (lib) nixosSystem;
+  inherit (lib.modules) mkDefault;
   inherit (lib.extendedLib.importers) listNixRecursive;
   inherit (lib.lists) flatten singleton;
   inherit (builtins) map concatLists;
@@ -30,17 +31,21 @@ in {
       nixosSystem {
         specialArgs = {
           inherit lib inputs self';
-          inherit (config._module.args) theme pkgs;
+          inherit (config._module.args) theme lunarpkgs;
         };
         modules = let
           moduleDir = ../../modules;
         in (
           flatten (
             concatLists [
+              # singleton just makes a list with one element
               (singleton {
-                # singleton just makes a list with one element
                 # Declare the hostName c:
                 networking.hostName = hostName;
+
+                nixpkgs = {
+                  hostPlatform = mkDefault system;
+                };
               })
 
               # Import desktop and profile config modules

@@ -1,4 +1,7 @@
 {inputs, ...}: {
+  # Allow unfree packages to be installed
+  nixpkgs.config.allowUnfree = true;
+
   # Enable Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

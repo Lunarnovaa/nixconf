@@ -25,7 +25,7 @@ export default function Bar(monitor = 0) {
             <box orientation={1} vexpand valign={Gtk.Align.END}>
                 <SysTray />
                 <Time/>
-                <Power />
+                <button onClicked="poweroff">P</button>
             </box>
         </centerbox>
     </window>

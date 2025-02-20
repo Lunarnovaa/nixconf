@@ -1,10 +1,10 @@
 {pkgs, ...}: {
-  environment.variables.QT_STYLE_OVERRIDE = "Catppuccin-Macchiato-Dark";
+  environment.variables.QT_STYLE_OVERRIDE = "Catppuccin-Mocha-Dark";
 
   hjem.users.lunarnova.packages = [
     (pkgs.catppuccin-kde.override {
       flavour = ["mocha"];
-      accents = ["red"];
+      accents = ["rosewater"];
     })
   ];
 }

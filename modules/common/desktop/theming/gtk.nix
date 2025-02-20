@@ -2,43 +2,54 @@
   config,
   pkgs,
   theme,
+  lib,
   ...
 }: let
   inherit (theme) fonts;
+  inherit (lib.strings) optionalString;
+  inherit (builtins) readFile toString;
 
   cfg = config.hjem.users.lunarnova.rum.gtk;
+
+  packages = {
+    theme = (pkgs.catppuccin-gtk.override {
+      accents = ["rosewater"];
+      variant = "mocha";
+      size = "standard";
+      tweaks = ["normal"];
+    });
+    iconTheme = (pkgs.catppuccin-papirus-folders.override {
+      accent = "rosewater";
+      flavor = "mocha";
+    });
+    cursorTheme = pkgs.bibata-cursors;
+  };
 in {
   hjem.users.lunarnova.rum.gtk = {
     enable = true;
-    darkTheme = true;
-    theme = {
-      name = "catppuccin-mocha-rosewater-standard+normal";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["rosewater"];
-        variant = "mocha";
-        size = "standard";
-        tweaks = ["normal"];
-      };
+    packages = [
+      packages.theme
+      packages.iconTheme
+      packages.cursorTheme
+    ];
+    settings = {
+      application-prefer-dark-theme = true;
+      theme-name = "catppuccin-mocha-rosewater-standard+normal";
+      icon-theme-name = "Papirus-Dark";
+      font-name = "${fonts.sans.name} ${toString fonts.size}";
+      cursor-theme-name = "Bibata-Modern-Classic";
     };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        accent = "red";
-        flavor = "mocha";
-      };
-    };
-    font = {
-      name = fonts.sans.name;
-      size = fonts.size;
-    };
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
+    css = let
+      darkTheme = cfg.settings.application-prefer-dark-theme;
+      fileCSS = ver: "${packages.theme}/share/themes/${cfg.settings.theme-name}/gtk-${ver}/gtk${optionalString darkTheme "-dark"}.css";
+    in {
+      gtk3 = readFile (fileCSS "3.0");
+      gtk4 = readFile (fileCSS "4.0");
     };
   };
 
   environment.sessionVariables = {
     GTK2_RC_FILES = "${config.hjem.users.lunarnova.directory}/.gtkrc-2.0";
-    GTK_THEME = cfg.theme.name;
+    GTK_THEME = cfg.settings.theme-name;
   };
 }

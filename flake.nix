@@ -63,6 +63,15 @@
       url = "github:hercules-ci/flake-parts";
     };
 
+    # managing pre-commit hooks with nix
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
+      };
+    };
+
     ## desktop stuff ##
 
     # hyprland flake
@@ -127,6 +136,18 @@
         systems.follows = "systems";
         flake-utils.follows = "flake-utils";
         flake-parts.follows = "flake-parts";
+      };
+    };
+
+    schizofox = {
+      url = "path:/home/lunarnova/schizofox";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        hjem.follows = "hjem";
+        home-manager.follows = "";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
+        flake-compat.follows = "flake-compat";
       };
     };
 

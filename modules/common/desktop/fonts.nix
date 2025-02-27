@@ -4,7 +4,6 @@
   ...
 }: let
   inherit (theme) fonts;
-  inherit (builtins) concatLists;
 
   fallbackPackages = with pkgs; [
     corefonts
@@ -17,7 +16,7 @@
 in {
   fonts = {
     enableDefaultPackages = false;
-    packages = concatLists [
+    packages =
       [
         fonts.monospace.package
         fonts.sans.package
@@ -26,33 +25,27 @@ in {
         fonts.cjk.sans.package
         fonts.cjk.serif.package
       ]
-      fallbackPackages
-    ];
+      ++ fallbackPackages;
     fontconfig = {
       defaultFonts = {
-        serif = concatLists [
+        serif =
           [
             fonts.serif.name
             fonts.cjk.serif.name
           ]
-          fallbackFonts
-        ];
-
-        sansSerif = concatLists [
+          ++ fallbackFonts;
+        sansSerif =
           [
             fonts.sans.name
             fonts.cjk.sans.name
           ]
-          fallbackFonts
-        ];
-
-        monospace = concatLists [
+          ++ fallbackFonts;
+        monospace =
           [
             fonts.monospace.name
             fonts.cjk.serif.name
           ]
-          fallbackFonts
-        ];
+          ++ fallbackFonts;
         emoji = [
           fonts.emoji.name
         ];

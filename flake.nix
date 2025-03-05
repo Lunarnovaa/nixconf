@@ -7,7 +7,7 @@
       # This outputs format is heavily inspired by NotAShelf/nyx
 
       imports = [
-        ./flake
+        ./parts
         ./hosts
       ];
 
@@ -102,7 +102,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-compat.follows = "flake-compat";
+        systems.follows = "systems";
       };
     };
 

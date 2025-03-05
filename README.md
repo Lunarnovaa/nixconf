@@ -7,9 +7,9 @@ I've been using NixOS since 22 June 2024. This is the config I run on all my sys
 My nixconf is structured specifically to be logical and help me work with it. Here's a basic rundown:
 
 - [`flake.nix`](./flake.nix) Nix Flake: The entry-point of my system.
-- [`flake`](./flake) Flake modules: The parts of my flake that make up the whole, powered by [flake-parts](https://github.com/hercules-ci/flake-parts).
-  - [`lib`](./flake/lib) Extended Lib: Custom function declaration
-  - [`pkgs`](./flake/pkgs) Nixpkgs Overlay: Custom mkDerivations written by yours truly
+- [`parts`](./parts) Flake Modules: The parts of my flake that make up the whole, powered by [Flake Parts](https://github.com/hercules-ci/flake-parts).
+  - [`lib`](./parts/lib) Extended Lib: Custom function declaration
+  - [`pkgs`](./parts/pkgs) Nixpkgs Overlay: Custom mkDerivations written by yours truly
 - [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
   - [`configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
   - [`hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host

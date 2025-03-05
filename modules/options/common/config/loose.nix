@@ -10,6 +10,10 @@ in {
       fastfetch, a highly-configurable fetching tool.
     '';
 
+    miniflux = mkEnableOption ''
+      miniflux, an RSS reader.
+    '';
+
     spicetify = mkEnableOption ''
       the official Spotify client with theming from Spicetify.
     '';

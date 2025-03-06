@@ -5,10 +5,11 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
   inherit (builtins) toJSON;
+
+  cfg = config.profiles.gaming;
 in {
-  config = mkIf gaming.enable {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = with pkgs; [element-desktop];
       files.".config/Element/config.json".text = toJSON {

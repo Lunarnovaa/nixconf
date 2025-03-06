@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
+
+  cfg = config.profiles.gaming.programs.lutris;
 in {
-  config = mkIf gaming.apps.lutris {
+  config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       lutris
     ];

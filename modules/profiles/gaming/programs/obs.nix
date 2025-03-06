@@ -5,16 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
 
   catppuccin-mocha = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "obs";
     rev = "3f8af3bf1a1742529259a19d923277786b99e3ef";
     hash = "sha256-+X2ZkteIHVq9eP8yrzAERVp7IC2V9MWfcsJsBb+WBd0=";
-  }; 
+  };
+
+  cfg = config.profiles.gaming.programs.obs;
 in {
-  config = mkIf gaming.apps.obs {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       rum.programs.obs-studio = {
         enable = true;

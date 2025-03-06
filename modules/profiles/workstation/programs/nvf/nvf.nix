@@ -6,11 +6,12 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) workstation;
+
+  cfg = config.profiles.workstation.programs.nvf;
 in {
   imports = [inputs.nvf.nixosModules.default];
 
-  config = mkIf workstation.apps.nvf {
+  config = mkIf cfg.enable {
     programs.nvf = {
       enable = true;
 

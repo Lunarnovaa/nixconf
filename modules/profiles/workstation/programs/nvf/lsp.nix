@@ -4,9 +4,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) workstation;
+
+  cfg = config.profiles.workstation.programs.nvf;
 in {
-  config = mkIf workstation.apps.nvf {
+  config = mkIf cfg.enable {
     programs.nvf.settings.vim = {
       lsp = {
         enable = true;

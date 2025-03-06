@@ -5,6 +5,8 @@
 }: let
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkDefault mkIf;
+
+  cfg = config.profiles.workstation;
 in {
   options.profiles.workstation = {
     enable = mkEnableOption ''
@@ -12,26 +14,26 @@ in {
       configures noteable programs like neovim and obsidian for
       writing and programming.
     '';
-    apps = {
-      nvf = mkEnableOption ''
+    programs = {
+      nvf.enable = mkEnableOption ''
         nvf (nix vim flake) for neovim usage and configuration.
       '';
-      obsidian = mkEnableOption ''
+      obsidian.enable = mkEnableOption ''
         Obsidian Markdown Editor.
       '';
-      vscode = mkEnableOption ''
+      vscode.enable = mkEnableOption ''
         VSCode, a code editor.
       '';
-      zed = mkEnableOption ''
+      zed.enable = mkEnableOption ''
         Zed, a code editor.
       ''; # Zed is currently disabled by default.
     };
   };
-  config = mkIf config.profiles.workstation.enable {
-    profiles.workstation.apps = {
-      nvf = mkDefault true;
-      obsidian = mkDefault true;
-      vscode = mkDefault true;
+  config = mkIf cfg.enable {
+    profiles.workstation.programs = {
+      nvf.enable = mkDefault true;
+      obsidian.enable = mkDefault true;
+      vscode.enable = mkDefault true;
     };
   };
 }

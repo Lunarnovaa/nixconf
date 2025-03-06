@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) workstation;
+
+  cfg = config.profiles.workstation.programs.obsidian;
 in {
-  config = mkIf workstation.apps.obsidian {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = with pkgs; [obsidian];
     };

@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
+
+  cfg = config.profiles.gaming;
 in {
-  config = mkIf (gaming.enable && gaming.apps.vr) {
+  config = mkIf (cfg.enable && cfg.vr.enable) {
     services.wivrn = {
       enable = true;
 

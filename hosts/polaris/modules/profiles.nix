@@ -3,7 +3,7 @@
   profiles = {
     gaming = {
       enable = true;
-      apps.obs = false;
+      programs.obs.enable = false;
     };
     workstation = {
       enable = true;

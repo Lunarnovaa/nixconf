@@ -5,15 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
+
   catppuccin-prism-launcher = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "prismlauncher";
     rev = "2edbdf5295bc3c12c3dd53b203ab91028fce2c54";
     hash = "sha256-+yGrSZztf2sZ9frPT3ydIJDavo4eXs03cQWfdTAmn3w=";
   };
+
+  cfg = config.profiles.gaming.programs.minecraft;
 in {
-  config = mkIf gaming.apps.minecraft {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       packages = with pkgs; [prismlauncher];
       files = {

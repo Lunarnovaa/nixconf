@@ -4,9 +4,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
+
+  cfg = config.profiles.gaming;
 in {
-  config = mkIf gaming.enable {
+  config = mkIf cfg.enable {
     programs.gamemode = {
       enable = true;
     };

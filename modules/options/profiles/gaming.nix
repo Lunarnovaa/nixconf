@@ -5,6 +5,8 @@
 }: let
   inherit (lib.options) mkEnableOption;
   inherit (lib.modules) mkDefault mkIf;
+
+  cfg = config.profiles.gaming;
 in {
   options.profiles.gaming = {
     enable = mkEnableOption ''
@@ -12,33 +14,33 @@ in {
       driver and DE configuration related to gaming, and enables
       apps related to gaming.
     '';
-    apps = {
-      discord = mkEnableOption ''
+    vr.enable = mkEnableOption ''
+      VR.
+    ''; # VR is not enabled by default.
+    programs = {
+      vesktop.enable = mkEnableOption ''
         Discord.
       '';
-      lutris = mkEnableOption ''
+      lutris.enable = mkEnableOption ''
         Lutris.
       '';
-      minecraft = mkEnableOption ''
+      minecraft.enable = mkEnableOption ''
         Minecraft, installing Prism-Launcher.
       '';
-      obs = mkEnableOption ''
+      obs.enable = mkEnableOption ''
         "Open Broadcast Software."
       ''; # OBS is not enabled by default.
-      steam = mkEnableOption ''
+      steam.enable = mkEnableOption ''
         Steam.
       '';
-      vr = mkEnableOption ''
-        VR.
-      ''; # VR is not enabled by default.
     };
   };
-  config = mkIf config.profiles.gaming.enable {
-    profiles.gaming.apps = {
-      discord = mkDefault true;
-      lutris = mkDefault true;
-      minecraft = mkDefault true;
-      steam = mkDefault true;
+  config = mkIf cfg.enable {
+    profiles.gaming.programs = {
+      vesktop.enable = mkDefault true;
+      lutris.enable = mkDefault true;
+      minecraft.enable = mkDefault true;
+      steam.enable = mkDefault true;
     };
   };
 }

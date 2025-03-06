@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) gaming;
+
+  cfg = config.profiles.gaming.programs.steam;
 in {
-  config = mkIf gaming.apps.steam {
+  config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
       gamescopeSession = {

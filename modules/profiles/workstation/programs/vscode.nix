@@ -8,12 +8,13 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) fonts;
-  inherit (config.profiles) workstation;
 
   flakeRev = "github:lunarnovaa/nixconf/f0d8932b16f1055fe2e1647d2a02e5a3213206d2";
   flakeOptions = "(builtins.getFlake ${flakeRev}).nixosConfigurations.${config.networking.hostName}.options";
+
+  cfg = config.profiles.workstation.programs.vscode;
 in {
-  config = mkIf workstation.apps.vscode {
+  config = mkIf cfg.enable {
     hjem.users.lunarnova = {
       rum.programs.vscode = {
         enable = true;

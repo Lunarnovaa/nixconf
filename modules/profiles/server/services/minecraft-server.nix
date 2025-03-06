@@ -6,11 +6,12 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (config.profiles) server;
+
+  cfg = config.profiles.server.services.minecraft;
 in {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
 
-  config = mkIf server.services.minecraft {
+  config = mkIf cfg.enable {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
 
     services.minecraft-servers = {

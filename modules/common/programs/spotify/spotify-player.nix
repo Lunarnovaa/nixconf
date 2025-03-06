@@ -1,10 +1,8 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: let
-  inherit (lib.modules) mkDefault;
   catppuccin-spotify-player = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "spotify-player";

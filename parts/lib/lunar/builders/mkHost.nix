@@ -13,8 +13,8 @@ in
     withSystem,
     system,
     hostName,
-    profiles ? [],
     desktop ? [],
+    profiles ? [],
     specialImports ? [],
   }:
     withSystem system ({
@@ -28,5 +28,5 @@ in
           inherit self';
           inherit (config._module.args) theme lunarpkgs;
         };
-        modules = mkModules {inherit hostName profiles desktop specialImports;};
+        modules = mkModules {inherit hostName system desktop profiles specialImports;};
       })

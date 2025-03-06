@@ -69,6 +69,8 @@ No project is done alone. This is especially so in the FOSS World. I would like 
 
 [@PolarFill](https://github.com/PolarFill), for collaborating with me on [Hjem Rum](https://github.com/snugnug/hjem-rum) and providing me with his thoughts.
 
+[@nezia1](https://github.com/nezia1), also for collaborating with me on [Hjem Rum](https://github.com/snugnug/hjem-rum), as well as for being a cool person.
+
 Many other members from [SNUG](https://github.com/snugnug), who have collaborated with me on projects like [Hjem Rum](https://github.com/snugnug/hjem-rum) and also allowed me to engage with community to further pursue Nix.
 
 ### Other members of the NixOS community

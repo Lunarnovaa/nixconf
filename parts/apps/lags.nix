@@ -1,16 +1,10 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   perSystem = {
     inputs',
     system,
     pkgs,
     ...
   }: let
-    inherit (lib.trivial) concat;
-
     astalPackages = with inputs'.ags.packages; [
       hyprland
       wireplumber
@@ -23,7 +17,7 @@
       pwvucontrol
       blueberry
     ];
-    extraPackages = concat astalPackages nixPackages;
+    extraPackages = astalPackages ++ nixPackages;
   in {
     # ags derivation for typescript
     packages.lags = inputs.ags.lib.bundle {

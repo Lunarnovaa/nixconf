@@ -6,7 +6,7 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (theme) wallpapers fonts colors;
-  inherit (lib.extendedLib.generators) toSwaylockConf;
+  inherit (lib.lunar.generators) toSwaylockConf;
 in {
   config = mkIf config.hyprland.enable {
     # config and pam module both referenced in part from notashelf/nyx

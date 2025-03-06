@@ -10,7 +10,7 @@
   catppuccin-mocha-css = pkgs.fetchurl {
     url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css";
     sha256 = "1mpmzkpn13hbj880wbpr0iqhhazryav2rfvy8d5gbziv6h475sck";
-  }; 
+  };
 
   cfg = config.profiles.gaming.programs.vesktop;
 in {

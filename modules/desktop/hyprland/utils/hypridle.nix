@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
+  inherit (lib.lunar.generators) toHyprconf;
   swaylock = "${pkgs.swaylock-effects}/bin/swaylock -C /home/lunarnova/.config/swaylock/config";
 in {
   config = mkIf config.hyprland.enable {

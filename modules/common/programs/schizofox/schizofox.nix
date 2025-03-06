@@ -9,8 +9,8 @@
   ];
 
   config = {
-   # hjem.users.lunarnova.programs.schizofox = {
+    # hjem.users.lunarnova.programs.schizofox = {
 
-    #};   
+    #};
   };
 }

@@ -7,7 +7,7 @@
 }: let
   inherit (lib.attrsets) mergeAttrsList optionalAttrs;
   inherit (lib.modules) mkIf;
-  inherit (lib.extendedLib.generators) toHyprconf;
+  inherit (lib.lunar.generators) toHyprconf;
   inherit (theme) wallpapers;
 
   hyprpaper-conf = pkgs.writeTextFile {

@@ -1,6 +1,10 @@
 {inputs, ...}: {
   # withSystem makes 'pkgs' available so that different systems have the respective package set
-  perSystem = {pkgs, lunarpkgs, ...}: {
+  perSystem = {
+    pkgs,
+    lunarpkgs,
+    ...
+  }: {
     _module.args.theme = {
       colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
       fonts = {

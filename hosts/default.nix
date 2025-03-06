@@ -5,7 +5,7 @@
   ...
 }: let
   inherit (self) lib;
-  inherit (lib.extendedLib.builders) mkHost;
+  inherit (lib.lunar.builders) mkHost;
 
   default = {
     profiles = [

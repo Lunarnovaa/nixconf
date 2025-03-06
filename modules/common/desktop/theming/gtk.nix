@@ -12,16 +12,16 @@
   cfg = config.hjem.users.lunarnova.rum.gtk;
 
   packages = {
-    theme = (pkgs.catppuccin-gtk.override {
+    theme = pkgs.catppuccin-gtk.override {
       accents = ["rosewater"];
       variant = "mocha";
       size = "standard";
       tweaks = ["normal"];
-    });
-    iconTheme = (pkgs.catppuccin-papirus-folders.override {
+    };
+    iconTheme = pkgs.catppuccin-papirus-folders.override {
       accent = "rosewater";
       flavor = "mocha";
-    });
+    };
     cursorTheme = pkgs.bibata-cursors;
   };
 in {

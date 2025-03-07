@@ -20,16 +20,16 @@ I have learned so much from it. I look forward to learning more.
 
 ## Structure
 
-My nixconf is structured specifically to be logical and help me work with it. Here's a basic rundown:
+Lunix is structured specifically to be logical and help me work with it. Here's a basic rundown:
 
 - [`flake.nix`](./flake.nix) Nix Flake: The entry-point of my system.
 - [`parts`](./parts) Flake Modules: The parts of my flake that make up the whole, powered by [Flake Parts](https://github.com/hercules-ci/flake-parts).
   - [`lib`](./parts/lib) Extended Lib: Custom function declaration
   - [`pkgs`](./parts/pkgs) Nixpkgs Overlay: Custom mkDerivations written by yours truly
-- [`hosts/`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
+- [`hosts`](./hosts) System specific configuration: Mainly `hardware-configuration.nix` and specific option selection, especially defining the profiles.
   - [`configuration.nix`](./hosts/polaris/configuration.nix) Host-specific configuration & module selection
   - [`hardware-configuration.nix`](./hosts/polaris/hardware-configuration.nix) Auto-generated per-host
-- [`modules/`](./modules) Modular system configuration: The bulk of my system configuration
+- [`modules`](./modules) Modular system configuration: The bulk of my system configuration
   - [`common`](./modules/common) Modules that are generally made available to all my hosts.
   - [`desktop`](./modules/desktop) Desktop modules: Primarily Hyprland currently.
   - [`options`](./modules/options) Module Options: Configures what modules are disabled or enabled per system and per profile
@@ -54,7 +54,7 @@ Home Manager has a few problems for me, in increasing severity:
 2. Lengthens eval times; and
 3. Requires a differentiation between HM modules and Nix modules.
 
-In the past, I structured my nixconf to account for the differentiation between the two module types, but it caused me  inconveniences that I would rather have gone without.
+In the past, I structured Lunix to account for the differentiation between the two module types, but it caused me  inconveniences that I would rather have gone without.
 
 If you wish to do the same, I would consider this config to be a decent jumping-off point. You may also want to keep an eye on my currently WIP [Hjem Rum](https://github.com/the-unnamed-nug/hjem-rum), a module collection for hjem, offering options similar to Home Manager. This solves the latter two issues while not neglecting the fact that for many, the first issue is not a bug but a feature.
 

@@ -128,14 +128,11 @@
       };
     };
 
-    # not a vim flake / neovim flake / pick your other poison
-    nvf = {
-      url = "github:notashelf/nvf";
+    # Lunarnova's Neovim Configuration
+    novavim = {
+      url = "path:/home/lunarnova/novavim";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
-        flake-utils.follows = "flake-utils";
-        flake-parts.follows = "flake-parts";
       };
     };
 

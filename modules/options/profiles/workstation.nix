@@ -15,9 +15,6 @@ in {
       writing and programming.
     '';
     programs = {
-      nvf.enable = mkEnableOption ''
-        nvf (nix vim flake) for neovim usage and configuration.
-      '';
       obsidian.enable = mkEnableOption ''
         Obsidian Markdown Editor.
       '';
@@ -31,7 +28,6 @@ in {
   };
   config = mkIf cfg.enable {
     profiles.workstation.programs = {
-      nvf.enable = mkDefault true;
       obsidian.enable = mkDefault true;
       vscode.enable = mkDefault true;
     };

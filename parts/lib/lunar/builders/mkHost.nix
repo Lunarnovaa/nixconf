@@ -20,12 +20,13 @@ in
     withSystem system ({
       self',
       config,
+      inputs',
       ...
     }:
       nixosSystem {
         specialArgs = {
           inherit (libArgs) lib inputs;
-          inherit self';
+          inherit self' inputs';
           inherit (config._module.args) theme lunixpkgs;
         };
         modules = mkModules {inherit hostName system desktop profiles specialImports;};

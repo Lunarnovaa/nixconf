@@ -1,6 +1,22 @@
-# nixconf
+# Lunix
 
-I've been using NixOS since 22 June 2024. This is the config I run on all my systems. It has gone through many, many iterations and has come to be a passion project of mine; I am sure it will continue to be iterated upon, improved, and expanded. I have learned much from it and I look forward to continuing to learn from it.
+> [!IMPORTANT]
+> **Please star my repository if you find it helpful in your own config. It's free.**
+
+Named "Lunix" as a portmanteau of my username, "Lunarnova," and "Nix," Lunix is my NixOS config I use on all my systems and plan to use on all future systems.
+
+Having used NixOS since 22 June 2024, my config has gone through many, many iterations and has become a passion project of mine. I am sure that, likewise, it will continue to be iterated upon, improved, and expanded.
+
+I have learned so much from it. I look forward to learning more.
+
+<div align="center">
+    <a href=#structure>Structure</a></br>
+    <a href=#hosts>Hosts</a></br>
+    <a href=#Credits>Credits</a>
+</div>
+
+> [!CAUTION]
+> I do not support you using my flake in your own systems. It is not designed for that. I am not keeping it in mind for my development. I strongly discourage using someone else's flakes in your config. Learn Nix, or don't use NixOS.
 
 ## Structure
 
@@ -61,7 +77,7 @@ No project is done alone. This is especially so in the FOSS World. I would like 
 
 [@0atman](https://github.com/0atman), whose NixOS video first got me interested in the space.
 
-[@vimjoyer](https://github.com/vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration which shares its namesake.
+[@vimjoyer](https://github.com/vimjoyer), for his videos, and for his public nixconf, which I learned and referenced for my own configuration early on.
 
 ### SNUG
 
@@ -83,4 +99,4 @@ This list will be sure to grow, and I have probably missed people. So to everyon
 
 ## Licensing
 
-Unless explicitly stated otherwise, all code within this repo is protected under [GPLv3](./LICENSE). If you use any of my code please give me credit with a comment and optionally in the README.
+Unless explicitly stated otherwise, all code within this repo is protected under [GPLv3](./LICENSE). If you use any of my code please give me credit with a comment, an optional mention in the README, and please give my repo a star.

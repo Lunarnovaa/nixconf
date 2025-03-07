@@ -1,6 +1,6 @@
 {
-  # https://github.com/Lunarnovaa/nixconf
-  description = "lunarnova's nixos flake";
+  # https://github.com/Lunarnovaa/lunix
+  description = "Lunix: Lunarnova's Nix Flake.";
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {

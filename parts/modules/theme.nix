@@ -2,14 +2,14 @@
   # withSystem makes 'pkgs' available so that different systems have the respective package set
   perSystem = {
     pkgs,
-    lunarpkgs,
+    lunixpkgs,
     ...
   }: {
     _module.args.theme = {
       colors = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
       fonts = {
         monospace = {
-          package = lunarpkgs.ioshelfka; # packaged by yours truly
+          package = lunixpkgs.ioshelfka; # packaged by yours truly
           name = "Ioshelfka Mono Nerdfont";
         };
         sans = {

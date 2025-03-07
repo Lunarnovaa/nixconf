@@ -26,7 +26,7 @@ in
         specialArgs = {
           inherit (libArgs) lib inputs;
           inherit self';
-          inherit (config._module.args) theme lunarpkgs;
+          inherit (config._module.args) theme lunixpkgs;
         };
         modules = mkModules {inherit hostName system desktop profiles specialImports;};
       })

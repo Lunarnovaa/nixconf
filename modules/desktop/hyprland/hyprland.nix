@@ -1,12 +1,12 @@
 {
   config,
   inputs,
-  pkgs,
   lib,
+  inputs',
   ...
 }: let
   inherit (lib.modules) mkIf;
-  pkgs-unstable = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system};
+  pkgs-unstable = inputs'.hyprland.packages;
 in {
   imports = [inputs.hyprland.nixosModules.default];
 

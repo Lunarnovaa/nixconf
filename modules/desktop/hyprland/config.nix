@@ -1,9 +1,10 @@
 {
   config,
-  inputs,
   pkgs,
   lib,
   theme,
+  self',
+  inputs',
   ...
 }: let
   inherit (lib.modules) mkIf;
@@ -21,12 +22,12 @@
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     ${pkgs.mako}/bin/mako &
     systemctl --user start ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1 &
-    nix run system#lags &
+    ${self'.packages.lags}/bin/lags &
     ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit &
   '';
 in {
   config = mkIf config.hyprland.enable {
-    hjem.users.lunarnova.packages = [inputs.niqspkgs.packages.x86_64-linux.bibata-hyprcursor];
+    hjem.users.lunarnova.packages = [inputs'.niqspkgs.packages.bibata-hyprcursor];
 
     programs.hyprland.settings = {
       exec-once = ''${startupScript}/bin/start'';

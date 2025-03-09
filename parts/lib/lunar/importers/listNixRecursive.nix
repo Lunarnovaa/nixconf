@@ -22,7 +22,6 @@ libArgs: let
       ))
       flatten
     ];
-
 in
   # This simple function just lists any nix files that are not the special
   # 'module.nix' file. Previously this was split into an "importNix" that

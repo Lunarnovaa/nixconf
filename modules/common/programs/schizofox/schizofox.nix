@@ -1,16 +1,16 @@
-{
-  inputs,
-  config,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
-    #inputs.schizofox.nixosModule
+    inputs.schizofox.nixosModule
   ];
 
   config = {
-    # hjem.users.lunarnova.programs.schizofox = {
-
-    #};
+    hjem.users.lunarnova.programs.schizofox = {
+      enable = true;
+      misc = {
+        displayBookmarksInToolbar = "always";
+        firefoxSync = true;
+      };
+      search.defaultSearchEngine = "DuckDuckGo";
+    };
   };
 }

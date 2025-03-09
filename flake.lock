@@ -904,11 +904,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1741010256,
-        "narHash": "sha256-WZNlK/KX7Sni0RyqLSqLPbK8k08Kq7H7RijPJbq9KHM=",
+        "lastModified": 1741379970,
+        "narHash": "sha256-Wh7esNh7G24qYleLvgOSY/7HlDUzWaL/n4qzlBePpiw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ba487dbc9d04e0634c64e3b1f0d25839a0a68246",
+        "rev": "36fd87baa9083f34f7f5027900b62ee6d09b1f2f",
         "type": "github"
       },
       "original": {
@@ -3136,8 +3136,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1740190020,
-        "narHash": "sha256-iCNc/uNSMgyGbcv6c7Y9WWPUJXDwuQohVXAh3gF8plA=",
+        "lastModified": 1741483748,
+        "narHash": "sha256-eDZYjv4GFiFy0rymJ1E+esaVv5N1cLKENmbCQ3ZDixM=",
         "path": "/home/lunarnova/schizofox",
         "type": "path"
       },
